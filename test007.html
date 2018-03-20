@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+	<title></title>
+
+<script src="js/jquery-3.2.1.js">></script>
+<script src="/js/jquery-ui.min.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/jquery-ui.min.js"></script>
+<script src="js/test_js.js" type="text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+ .center{
+
+    font-Size: 24px;
+	color: brown;
+}
+	input.req {font-size:16px; padding:3px; background-color:#ffffb6;}
+
+</style>
+
+
+</head>
+<body>
+
+<div class="container">
+   <h1 class="center" >轉址成功，請複製下列網址轉貼</h1>	
+
+  <input id="show_re" class="form-control req" type="text" readonly="readonly"/>
+
+  <p></p>
+  <a id="show_a" style="font-Size:16pt;"></a>
+  <p></p>
+  <button id="text_copy" onclick=copyInput()>複製網址</button>
+  <button id="yes1" onclick=b_clic_b()>回上頁</button>
+  <p></p>
+  <canvas id="canvas" width="200" height="220" ></canvas>
+
+  <p style="color:brown;">QRCode可另存圖檔</p>
+</div>
+
+  <script>
+$(document).ready (function (){
+var url_t01 = location.search;
+var url_t02 = b_return(url_t01);
+$("#show_re").val(url_t02);
+$("#show_a").text(url_t02);
+$("#show_a").attr({href:url_t02,target:"_blank"});
+draw();
+})
+
+</script>
+  </body>
+</html>
