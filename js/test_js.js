@@ -177,7 +177,7 @@
 
  success: function(result,status,xhr){
   var re_id= result.id
-  window.location.replace('/test007.html?re_id='+ re_id + '&sta=' + status);
+  window.location.replace('/klabor/test007.html?re_id='+ re_id + '&sta=' + status);
 
   }
 });
