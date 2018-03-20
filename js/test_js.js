@@ -161,9 +161,10 @@
    var d2_t= d2.replace(/\s+/ig,"T");
    var d2_t1= d2_t.replace(/\/|\:/ig,"") + "00";
    var d_tall= d1_t1 + "/" + d2_t1;
+   var d_o= $("#tw_oth").val().replace(/\n|\r/ig,"%0A");
    var d_p= $("#tw_adr").val();
    var d_t= $("#tw_nam").val();
-   var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" + $("#tw_oth").val();
+   var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
    var d_all= "http://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_d + "&location=" + d_p;
 
    $.ajax({
