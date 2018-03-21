@@ -248,3 +248,46 @@ function draw() {
   //$("#QR01").attr("src", QRCode(b_return(url_t01), 200, 200));
 
 }  
+function b_clic_e(){
+   if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
+   return false; }
+   if ($("#tw_nam").val()=="") { alert("尚未輸入行程名稱");
+   return false; }
+   if ($("#tw_adr").val()=="") { alert("尚未輸入地址");   
+   return false; }
+   if ($("#tw_P").val()=="") { alert("尚未輸入樓層或場所");
+   return false; }
+   else{ 
+   var d1= $("#m_date").val();
+   var d1_t= d1.replace(/\s+/ig,"T");
+   var d1_t1= d1_t.replace(/\/|\:/ig,"") + "00";
+   var d2= $("#m_date_en").val();
+   var d2_t= d2.replace(/\s+/ig,"T");
+   var d2_t1= d2_t.replace(/\/|\:/ig,"") + "00";
+   var d_tall= d1_t1 + "/" + d2_t1;
+   var d_p= $("#tw_adr").val();
+   var d_t= $("#tw_nam").val();
+   var d_d1= $("#tw_p").val();
+   var d_d2= $("#tw_man").val;
+   var d_d3= $("#tw_oth").val();
+
+$.ajax({
+ type : "POST",
+ url: "https://script.google.com/macros/s/AKfycbzuT8cVmhMnhkQFFD91dH5J-EpvjUZmtg-XPYlSKWZSkTgZ9Zc/exec",
+ // 填入網路應用程式網址
+ contentType : "application/json",
+ dataType : "json",
+data : {
+"method": "write",
+"m_date": "d1",
+"m_date_en": "d2",
+"tw_nam": d_t,
+"tw_adr": "d_p",
+"tw_p": "d_d1",
+"tw_man": "d_d2",
+"tw_oth": "d_d3"
+ },
+
+});
+}
+}
