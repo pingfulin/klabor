@@ -273,7 +273,7 @@ function b_clic_e(){
 
 $.ajax({
  type : "POST",
- url: "https://docs.google.com/spreadsheets/d/1wTfmUCOA_x7_gL0tPvyzfOUo9sDft0LIlBfKbGwOn-Q/edit?usp=sharing",
+ url: "https://script.google.com/macros/s/AKfycbzuT8cVmhMnhkQFFD91dH5J-EpvjUZmtg-XPYlSKWZSkTgZ9Zc/exec",
  // 填入網路應用程式網址
  contentType : "application/json",
  dataType : "json",
