@@ -50,8 +50,7 @@ $("#show_re").val(url_t02);
 $("#show_a").text(url_t02);
 $("#show_a").attr({href:url_t02,target:"_blank"});
 var img0= QRCode(url_t02);
-var img1= img0.toDataURL();
-$("#img_t").attr({src:img1});
+$("#img_t").attr({src:img0});
 $("#d01").attr({href:img0,download:"grc"});
 })
 
