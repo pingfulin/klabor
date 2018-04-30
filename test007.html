@@ -39,7 +39,7 @@
   <a id="d01">
    <img id="img_t" alt="QR code" style="width:200px;height:200px;">
   </a>
-  <p style="color:brown;">請直接點選圖片下載</p>
+  <p style="color:brown;">google行程QR code</p>
 </div>
 
   <script>
@@ -51,7 +51,7 @@ $("#show_a").text(url_t02);
 $("#show_a").attr({href:url_t02,target:"_blank"});
 var img0= QRCode(url_t02);
 $("#img_t").attr({src:img0});
-$("#d01").attr({href:img0,download:"grc"});
+$("#d01").attr({href:img0,download:"grc",target:"_blank"});
 })
 
 </script>
