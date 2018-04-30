@@ -36,8 +36,8 @@
   <button id="text_copy" onclick=copyInput()>複製網址</button>
   <button id="yes1" onclick=b_clic_b()>回上頁</button>
   <p></p>
-  <a id="d01" download>
-   <canvas id="canvas" width="200" height="220" ></canvas>
+  <a id="d01">
+   <img id="img_t" alt="QR code" style="width:200px;height:200px;">
   </a>
   <p style="color:brown;">請直接點選圖片下載</p>
 </div>
@@ -49,8 +49,9 @@ var url_t02 = b_return(url_t01);
 $("#show_re").val(url_t02);
 $("#show_a").text(url_t02);
 $("#show_a").attr({href:url_t02,target:"_blank"});
-draw();
-var img0= QRCode(url_t02).toDataURL();
+var img0= QRCode(url_t02);
+var img1= img0.toDataURL();
+$("#img_t").attr({src:img1});
 $("#d01").attr({href:img0,download:"grc"});
 })
 
