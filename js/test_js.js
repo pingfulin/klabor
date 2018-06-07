@@ -211,6 +211,30 @@ if(url.indexOf('?')!=-1)
 	    
 }
 }
+function b_return1(u_turn) {
+//先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
+var url = u_turn;
+
+//再來用去尋找網址列中是否有資料傳遞(QueryString)
+if(url.indexOf('?')!=-1)
+{
+    var name = "";
+    //在此直接將各自的參數資料切割放進ary中
+    var ary = url.split('?')[1].split('&');
+    //此時ary的內容為：
+    //ary[0] = 'id=U001'，ary[1] = 'name=GQSM'
+    
+    //下迴圈去搜尋每個資料參數
+    for(i=0;i<=ary.length-1;i++)
+    {
+        //如果資料名稱為id的話那就把他取出來
+        if(ary[i].split('=')[0] = 'name')
+            name = ary[i].split('=')[1];
+		return name;
+    }
+	    
+}
+}
 
  function copyInput(){
    document.getElementById('show_re').select();
