@@ -227,7 +227,7 @@ function QRCode(content, width, height){
 	height = !!height ? height : 200;
 	// 編碼，及qrcode大小
 	content = encodeURIComponent(content);
-    return 'http://chart.apis.google.com/chart?cht=qr&chl=' + content + '&chs=' + width + 'x' + height;
+    return 'https://chart.googleapis.com/chart?cht=qr&chl=' + content + '&chs=' + width + 'x' + height;
 } 
 
 
