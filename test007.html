@@ -28,7 +28,7 @@
 <div class="container">
    <h1 class="center" >轉址成功，請複製下列網址轉貼</h1>	
 
-  <input id="show_re" class="form-control req" type="text" readonly="readonly"/>
+ <textarea id="show_re" class="form-control req" readonly="readonly"></textarea>
 
   <p></p>
   <a id="show_a" style="font-Size:16pt;"></a>
@@ -46,12 +46,11 @@
 $(document).ready (function (){
 var url_t01 = location.search;
 var url_t02 = b_return(url_t01);
-$("#show_re").val(url_t02);
+var url_t03 = b_return1(url_t01);
+document.getElmentById('show_re').value = url_t02 + url_t03;
 $("#show_a").text(url_t02);
 $("#show_a").attr({href:url_t02,target:"_blank"});
-var img0= QRCode(url_t02);
-$("#img_t").attr({src:img0});
-$("#d01").attr({href:img0,download:"grc",target:"_blank"});
+draw();
 })
 
 </script>
