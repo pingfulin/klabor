@@ -47,7 +47,7 @@ $(document).ready (function (){
 var url_t01 = location.search;
 var url_t02 = b_return(url_t01);
 var url_t03 = b_return1(url_t01);
-$("#show_re").text(url_t02 +'</br>' + url_t03);
+$("#show_re").val(url_t02 +'</br>' + url_t03);
 $("#show_a").text(url_t02);
 $("#show_a").attr({href:url_t02,target:"_blank"});
 draw();
