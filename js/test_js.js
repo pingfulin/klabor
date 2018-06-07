@@ -187,7 +187,7 @@ function b_clic_b() {
  window.location.replace('/klabor/test006.html');
 }
 
-function b_return(u_turn) {
+function (b_return(u_turn) {
 //先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
 var url = u_turn;
 
@@ -210,8 +210,8 @@ if(url.indexOf('?')!=-1)
     }
 	    
 }
-}
-function b_return1(u_turn1) {
+})
+function (b_return1(u_turn1) {
 //先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
 var url = u_turn1;
 
@@ -234,7 +234,7 @@ if(url.indexOf('?')!=-1)
     }
 	    
 }
-}
+})
 
  function copyInput(){
    document.getElementById('show_re').select();
