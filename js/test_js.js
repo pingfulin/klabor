@@ -211,9 +211,9 @@ if(url.indexOf('?')!=-1)
 	    
 }
 }
-function b_return1(u_turn) {
+function b_return1(u_turn1) {
 //先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
-var url = u_turn;
+var url = u_turn1;
 
 //再來用去尋找網址列中是否有資料傳遞(QueryString)
 if(url.indexOf('?')!=-1)
