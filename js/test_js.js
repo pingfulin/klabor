@@ -187,7 +187,7 @@ function b_clic_b() {
  window.location.replace('/klabor/test006.html');
 }
 
-(function b_return(u_turn) {
+function b_return(u_turn) {
 //先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
 var url = u_turn;
 
@@ -210,17 +210,17 @@ if(url.indexOf('?')!=-1)
     }
 	    
 }
-})
-(function b_return1(u_turn1) {
+}
+function b_return1(u_turn1) {
 //先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
-var url = u_turn1;
+var url1 = u_turn1;
 
 //再來用去尋找網址列中是否有資料傳遞(QueryString)
-if(url.indexOf('?')!=-1)
+if(url1.indexOf('?')!=-1)
 {
     var na = "";
     //在此直接將各自的參數資料切割放進ary中
-    var ary = url.split('?')[1].split('&');
+    var ary = url1.split('?')[1].split('&');
     //此時ary的內容為：
     //ary[0] = 'id=U001'，ary[1] = 'name=GQSM'
     
@@ -234,7 +234,7 @@ if(url.indexOf('?')!=-1)
     }
 	    
 }
-})
+}
 
  function copyInput(){
    document.getElementById('show_re').select();
