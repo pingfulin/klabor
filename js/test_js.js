@@ -176,7 +176,7 @@
 
  success: function(result,status,xhr){
   var re_id= result.id
-  window.location.replace('/klabor/test007.html?re_id='+ re_id + '&sta=' + status + '&name=' + d_t);
+  window.location.replace('/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
 
   }
 });
@@ -218,7 +218,7 @@ var url = u_turn;
 //再來用去尋找網址列中是否有資料傳遞(QueryString)
 if(url.indexOf('?')!=-1)
 {
-    var name = "";
+    var na = "";
     //在此直接將各自的參數資料切割放進ary中
     var ary = url.split('?')[1].split('&');
     //此時ary的內容為：
@@ -229,8 +229,8 @@ if(url.indexOf('?')!=-1)
     {
         //如果資料名稱為id的話那就把他取出來
         if(ary[i].split('=')[0] = 'name')
-            name = ary[i].split('=')[1];
-		return name;
+            na = ary[i].split('=')[1];
+		return na;
     }
 	    
 }
