@@ -170,11 +170,9 @@
    $.ajax({
  url : "https://www.googleapis.com/urlshortener/v1/url?key= AIzaSyAwtUL4kEGvD72EU-QY5Wcana4UemEVbB0",
  type : "POST",
- contentType : "application/json",
+ contentType : 'application/json; charset=utf-8',
  dataType : "json",
- data : JSON.stringify({
- longUrl:d_all
- }),
+ data :'{ longUrl: "' + d_all +'"}',
 
  success: function(result,status,xhr){
   var re_id= result.id
