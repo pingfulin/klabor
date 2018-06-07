@@ -168,7 +168,7 @@
    var d_all= "http://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_d + "&location=" + d_p;
 
    $.ajax({
- url : "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyA81fVCXpsre2rVwiL8aTXK3a9Isuu9zMU",
+ url : "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyAwtUL4kEGvD72EU-QY5Wcana4UemEVbB0",
  type : "POST",
  contentType : 'application/json; charset=utf-8',
  dataType : "json",
