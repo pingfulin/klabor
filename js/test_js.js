@@ -174,9 +174,9 @@
  dataType : "json",
  data :'{ longUrl: "' + d_all +'"}',
 
- success: function(result,status,xhr){
+ success: function(result,status,d_t){
   var re_id= result.id
-  window.location.replace('/klabor/test007.html?re_id='+ re_id + '&sta=' + status);
+  window.location.replace('/klabor/test007.html?re_id='+ re_id + '&sta=' + status + '&name=' + d_t);
 
   }
 });
