@@ -205,10 +205,10 @@ if(url.indexOf('?')!=-1)
     {
         //如果資料名稱為id的話那就把他取出來
         if(ary[i].split('=')[0] = 're_id')
-            id = ary[i].split('=')[1];
+	{ id = ary[i].split('=')[1];
 		return id;
     }
-	    
+    }	    
 }
 }
 function b_return1(u_turn1) {
@@ -229,12 +229,13 @@ if(url1.indexOf('?')!=-1)
     {
         //如果資料名稱為id的話那就把他取出來
         if(ary1[i].split('=')[0] = 'name')
-            na1 = ary1[i].split('=')[1];
+	{na1 = ary1[i].split('=')[1];
 		return na1;
     }
 	    
 }
 }
+}	
 
  function copyInput(){
    document.getElementById('show_re').select();
