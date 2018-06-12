@@ -204,7 +204,7 @@ if(url.indexOf('?')!=-1)
     for(i=0;i<=ary.length-1;i++)
     {
         //如果資料名稱為id的話那就把他取出來
-        if(ary[i].split('=')[0] = 'sta')
+        if(ary[i].split('=')[0] == 'sta')
 	{ id = ary[i].split('=')[0];
 		return id;
     }
