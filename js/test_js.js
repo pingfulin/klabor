@@ -204,8 +204,8 @@ if(url.indexOf('?')!=-1)
     for(i=0;i<=ary.length-1;i++)
     {
         //如果資料名稱為id的話那就把他取出來
-        if(ary[i].split('=')[0] == 'sta')
-	{ id = ary[i].split('=')[0];
+        if(ary[i].split('=')[0] == 're_id')
+	{ id = ary[i].split('=')[1];
 		return id;
     }
     }	    
@@ -228,7 +228,7 @@ if(url1.indexOf('?')!=-1)
     for(i=0;i<=ary1.length-1;i++)
     {
         //如果資料名稱為id的話那就把他取出來
-        if(ary1[i].split('=')[0] = 'sta')
+        if(ary1[i].split('=')[0] == 'name')
 	{na1 = ary1[i].split('=')[1];
 		return na1;
     }
