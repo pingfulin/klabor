@@ -103,6 +103,7 @@
    );
    $('#reset1').click(function() {
    $('input').val("");
+   document.getElementById("tw_p").focus();
    });
     $('[data-toggle="tooltip"]').tooltip(); 
 		})
@@ -117,10 +118,7 @@
           zoom: 11,
           mapTypeId: 'roadmap',
           mapTypeControl: true,
-          mapTypeControlOptions: {
-              style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-              position: google.maps.ControlPosition.BOTTOM_CENTER		  
-        },
+          disableDefaultUI: true,
         });
 		var geocoder = new google.maps.Geocoder();
         var infowindow = new google.maps.InfoWindow;
