@@ -119,6 +119,10 @@
           mapTypeId: 'roadmap',
           mapTypeControl: true,
           disableDefaultUI: true,
+          mapTypeControlOptions: {
+           style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+           position: google.maps.ControlPosition.BOTTOM_RIGHT
+          },
         });
 		var geocoder = new google.maps.Geocoder();
         var infowindow = new google.maps.InfoWindow;
