@@ -104,10 +104,6 @@
    $('#reset1').click(function() {
    $('input').val("");
    });
-    $("#btn").click(function(){
-      var adr_s2 = $("#adr_in").val();        
-		getadr(adr_s2);		
-		});
     $('[data-toggle="tooltip"]').tooltip(); 
 		})
    </script>
@@ -157,7 +153,10 @@
 		infowindow.addListener('domready',function() {
         document.getElementById('adr_in').addEventListener('change', function() {
         var adr_s2 = $("#adr_in").val();    //要用val()以現抓input的值   
-		
+		});
+	document.getElementById("btn").addEventListener("click", function() {
+	var adr_s2 = $("#adr_in").val();						       
+	getadr(adr_s2);
 		});
 		});
 		}
