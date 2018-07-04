@@ -137,7 +137,8 @@
 
 
       function geocodeAddress(geocoder, map, infowindow, adr) {
-	  var address = adr.value;
+	document.getElementById("submit").focus();  
+	var address = adr.value;
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === 'OK') {
             map.setZoom(15);
