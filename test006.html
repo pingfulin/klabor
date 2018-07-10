@@ -81,8 +81,7 @@
 
     <input id="pac-input" type="text" style="display:none; background-color:#ffffb6;" size="20" placeholder="請輸入地址、地點">
     <button id="submit" style="display:none">查詢</button>
-
-	<div id="map" style="display:none" ></div>
+    <div id="map" style="display:none" ></div>
 </div>
  <p></p>
 	<p style="color:blue;font-Size:12px;">Designed by 炳賦</p>
@@ -112,21 +111,21 @@
       var map;
       var markers = [];
 
-	  function iniMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
+	 function iniMap() {
+          var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 22.588112, lng: 120.321062},
           zoom: 11,
           mapTypeId: 'roadmap',
-          mapTypeControl: true,
+          mapTypeControl: false,
           disableDefaultUI: true,
           mapTypeControlOptions: {
            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
            position: google.maps.ControlPosition.BOTTOM_RIGHT
           },
         });
-		var geocoder = new google.maps.Geocoder();
+	var geocoder = new google.maps.Geocoder();
         var infowindow = new google.maps.InfoWindow;
-	    var adr = document.getElementById('pac-input');
+	var adr = document.getElementById('pac-input');
         document.getElementById('submit').addEventListener('click', function() {
           geocodeAddress(geocoder, map, infowindow, adr);
         });
@@ -163,12 +162,12 @@
 		});
 		}
 		else {
-    alert("查無該位置，請重新輸入");
+        alert("查無該位置，請重新輸入");
 	     }
 		})
 		}
 
-	function getadr(adr_s2) {
+    function getadr(adr_s2) {
 	var adr01 = document.getElementById('tw_adr');
 	var dia = document.getElementById('dia');
         adr01.setAttribute('value', adr_s2);
@@ -184,21 +183,22 @@
       } 
    function ini_dia() {
         $("#dia").css("display", "block");
-        $("#pac-input").css("display", "inline"); 
-        $("#submit").css("display", "inline"); 
-		$("#map").css("display", "block");   		
- 		$("#dia").dialog({
+ 	$("#dia").dialog({
                buttons: {
                  取消: function() {
-				  $(this).dialog("close");
-				  }
+		$(this).dialog("close");
+		}
                },
-			   dialogClass: "dlg-no-close",
-			   autoOpen: false,
-			   modal: true,
+		dialogClass: "dlg-no-close",
+		autoOpen: false,
+		modal: true,
 			   });
 
         $( "#dia" ).dialog( "open" );
+	$("#pac-input").css("display", "block"); 
+        $("#submit").css("display", "block"); 
+	$("#map").css("display", "block");   		
+
    }
  
 
