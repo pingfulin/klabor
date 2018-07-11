@@ -130,7 +130,7 @@
 	var address = adr.value;
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === 'OK') {
-            map.setZoom(15);
+            map.setZoom(13);
 			map.setCenter(results[0].geometry.location);
             var adr_s0 = results[0].formatted_address
 			var marker = new google.maps.Marker({
