@@ -102,8 +102,7 @@
       var markers = [];
 
 	function iniMap() {
-        document.getElementById('tw_adr').addEventListener('click', function() {   
-	map = new google.maps.Map(document.getElementById('map'), {
+          map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 22.588112, lng: 120.321062},
           zoom: 11,
           mapTypeId: 'roadmap',
@@ -122,7 +121,7 @@
           geocodeAddress(geocoder, map, infowindow, adr);
         });
  
-	  })
+	  }
   
       function geocodeAddress(geocoder, map, infowindow, adr) {
 	document.getElementById("submit").focus();  
