@@ -43,8 +43,8 @@
   <script>
 $(document).ready (function (){
 var url_t01 = location.search;
-var url_t02 = decodeURI(b_return(url_t01));
-var url_t03 = b_return1(url_t01) + ":";
+var url_t02 = b_return(url_t01);
+var url_t03 = decordURI(b_return1(url_t01)) + ":";
 $("#show_re").val(url_t03 + url_t02);
 $("#show_a").text(url_t02);
 $("#show_a").attr({href:url_t02,target:"_blank"});
