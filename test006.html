@@ -139,7 +139,7 @@
 		var adr_s = '<textarea id="adr_in" data-toggle="tooltip" title="可自行修改地址!"></textarea>' + '</br><button id="btn" >確定</button>';
 		infowindow.setContent(adr_s);
 		document.getElementById('adr_in').value = adr_s0; //textarea 要用此法帶入，用attr不能
-		//$("#adr_in").attr("value", adr_s0);
+		$("#adr_in").attr("value", adr_s0);
 		infowindow.addListener('domready',function() {
         document.getElementById('adr_in').addEventListener('change', function() {
         var adr_s2 = $("#adr_in").val();    //要用val()以現抓input的值   
