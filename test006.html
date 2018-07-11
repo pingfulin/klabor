@@ -73,29 +73,6 @@
 </div>
  <p></p>
 	<p style="color:blue;font-Size:12px;">Designed by 炳賦</p>
-
-  <script>
-   $(document).ready (function(){
-    $("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show);
-   });
-   $("#m_date_en").on('mousedown', function(){
-   if ($("#m_date").val()=="") { alert("尚未點選起始日期");
-   }
-   if ($("#m_date").val()!=="") { 
-   $("#m_date_en").datetimepicker(m_date_en);
-   var date_s = $("#m_date").val();
-   $("#m_date_en").datetimepicker('option', 'minDate', date_s);   
-   }   
-   }
-   );
-   $('#reset1').click(function() {
-   $('input').val("");
-   document.getElementById("tw_p").focus();
-   });
-   document.getElementById("dia").style.display = "none";
-   $('[data-toggle="tooltip"]').tooltip(); 
-		})
-   </script>
    <script>
       var map;
       var markers = [];
@@ -122,6 +99,30 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwtUL4kEGvD72EU-QY5Wcana4UemEVbB0&libraries=places&callback=iniMap" async defer>
     </script> 
+</body>
+  <script>
+   $(document).ready (function(){
+    $("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show);
+   });
+   $("#m_date_en").on('mousedown', function(){
+   if ($("#m_date").val()=="") { alert("尚未點選起始日期");
+   }
+   if ($("#m_date").val()!=="") { 
+   $("#m_date_en").datetimepicker(m_date_en);
+   var date_s = $("#m_date").val();
+   $("#m_date_en").datetimepicker('option', 'minDate', date_s);   
+   }   
+   }
+   );
+   $('#reset1').click(function() {
+   $('input').val("");
+   document.getElementById("tw_p").focus();
+   });
+   document.getElementById("dia").style.display = "none";
+   $('[data-toggle="tooltip"]').tooltip(); 
+		})
+   </script>
+
 
    <script> 
       function geocodeAddress(geocoder, map, infowindow, adr) {
@@ -196,9 +197,5 @@
 
 
    </script>
-
-
-   </body>
-
 
    </html>
