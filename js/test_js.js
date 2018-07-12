@@ -187,6 +187,10 @@ function b_clic_b() {
  window.location.replace('/klabor/test006.html');
 }
 
+function reset1() {
+ window.location.replace('/klabor/test006.html');
+}
+
 function b_return(u_turn) {
 //先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
 var url = u_turn;
