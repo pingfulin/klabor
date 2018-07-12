@@ -188,7 +188,7 @@ function b_clic_b() {
 }
 
 function reset1() {
- window.location.replace('/klabor/test006.html');
+ $('input').val("");
 }
 
 function b_return(u_turn) {
