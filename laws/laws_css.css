@@ -1,10 +1,12 @@
 h2 {
     color: brown;
+    height-line: 200%;
   }
-body {
+ol {
     height-line: 200%;
     }
 ul {
     list-style-type: disc; 
     color: navy;
+    height-line: 200%;
     }
