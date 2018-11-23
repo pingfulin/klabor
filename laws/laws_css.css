@@ -1,12 +1,14 @@
+div {
+    margin: auto;
+    max-width: 800pt;
+    line-height: 200%;
 h2 {
     color: brown;
-    height-line: 200%;
   }
 ol {
-    height-line: 200%;
+    
     }
 ul {
     list-style-type: disc; 
     color: navy;
-    height-line: 200%;
     }
