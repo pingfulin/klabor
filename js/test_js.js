@@ -210,12 +210,10 @@
 
    $.ajax({
  
- url : "https://api-ssl.bitly.com/v3/shorten?format=txt&access_token=741fdae92d7ee70c0735aea81a1f62c9ad590a38",
+ url : "https://api-ssl.bitly.com/v3/shorten?format=txt&access_token=741fdae92d7ee70c0735aea81a1f62c9ad590a38&longUrl=" + d_all,
  type : "POST",
- Host: "api-ssl.bitly.com",
  contentType : 'application/json; charset=utf-8',
  dataType : "json",
- data :'{ longUrl: "' + d_all +'"}',
 
  success: function(result,status,xhr){
   var re_id= result.id
