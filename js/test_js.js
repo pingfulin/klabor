@@ -142,7 +142,7 @@
     });
 	} );
   
-  function b_clic(){
+  function b_clic_g(){
    if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
    return false; }
    if ($("#tw_nam").val()=="") { alert("尚未輸入行程名稱");
@@ -182,6 +182,51 @@
 });
   }
   }
+
+ function b_clic(){
+   if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
+   return false; }
+   if ($("#tw_nam").val()=="") { alert("尚未輸入行程名稱");
+   return false; }
+   if ($("#tw_adr").val()=="") { alert("尚未輸入地址");   
+   return false; }
+   if ($("#tw_P").val()=="") { alert("尚未輸入樓層或場所");
+   return false; }
+   if ($("#tw_man").val()=="") { alert("尚未輸入承辦單位(人)");
+   return false; }
+   else{ 
+   var d1= $("#m_date").val();
+   var d1_t= d1.replace(/\s+/ig,"T");
+   var d1_t1= d1_t.replace(/\/|\:/ig,"") + "00";
+   var d2= $("#m_date_en").val();
+   var d2_t= d2.replace(/\s+/ig,"T");
+   var d2_t1= d2_t.replace(/\/|\:/ig,"") + "00";
+   var d_tall= d1_t1 + "/" + d2_t1;
+   var d_o= $("#tw_oth").val().replace(/\n|\r/ig,"%0A");
+   var d_p= $("#tw_adr").val();
+   var d_t= $("#tw_nam").val();
+   var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
+   var d_all= "http://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_d + "&location=" + d_p;
+
+   $.ajax({
+ 
+ url : "https://api-ssl.bitly.com/v4/shorten HTTP/1.1",
+ type : "POST",
+ Host: "api-ssl.bitly.com"
+ Authorization: Bearer ACCESS_TOKEN
+ contentType : 'application/json; charset=utf-8',
+ dataType : "json",
+ data :'{ longUrl: "' + d_all +'"}',
+
+ success: function(result,status,xhr){
+  var re_id= result.id
+  window.location.replace('/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
+
+  }
+});
+  }
+  }
+
 
 function b_clic_b() {
  window.location.replace('/klabor/test006.html');
