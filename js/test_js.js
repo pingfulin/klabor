@@ -212,8 +212,8 @@
  
  url : "https://api-ssl.bitly.com/v4/shorten HTTP/1.1",
  type : "POST",
- Host: "api-ssl.bitly.com"
- Authorization: Bearer ACCESS_TOKEN
+ Host: "api-ssl.bitly.com",
+ Authorization: "741fdae92d7ee70c0735aea81a1f62c9ad590a38",
  contentType : 'application/json; charset=utf-8',
  dataType : "json",
  data :'{ longUrl: "' + d_all +'"}',
