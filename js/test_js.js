@@ -206,7 +206,7 @@
    var d_p= $("#tw_adr").val();
    var d_t= $("#tw_nam").val();
    var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
-   var d_all= "http://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_d + "&location=" + d_p;
+   var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_d + "&location=" + d_p;
 
    $.ajax({
  
