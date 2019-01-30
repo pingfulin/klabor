@@ -210,13 +210,13 @@
 
    $.ajax({
  
- url : "https://api-ssl.bitly.com/v3/shorten?format=txt&login=o_2p0k47gmqh&apiKey=R_eaee61dc34b6434eaf8adaeb449d52c9&longUrl=" + d_all,
+ url : "https://api-ssl.bitly.com/v3/shorten?format=txt&login=o_2p0k47gmqh&apiKey=R_eaee61dc34b6434eaf8adaeb449d52c9&longUrl=" + d_all + "&callback=?",
  type : "POST",
  contentType : 'application/json; charset=utf-8',
  dataType : "json",
 
- success: function(result,status,xhr){
-  var re_id= result.id
+ success: function(response,status,xhr){
+  var re_id= response.id
   window.location.replace('/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
 
   }
