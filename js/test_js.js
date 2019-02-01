@@ -216,7 +216,7 @@
  dataType : "json",
 
  success: function(response,status,xhr){
-  var re_id= response
+  var re_id= response.link
   window.location.replace('/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
 
   }
