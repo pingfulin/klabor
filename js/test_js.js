@@ -217,7 +217,7 @@
 
  success: function(response,status,xhr){
   var re_id= response.link
-  window.location.replace('/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
+  window.location.replace('https://pingfulin.github.io/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
 
   }
 });
