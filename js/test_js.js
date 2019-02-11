@@ -142,7 +142,7 @@
     });
 	} );
   
-  function b_clic_g(){
+  function b_clic(){
    if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
    return false; }
    if ($("#tw_nam").val()=="") { alert("尚未輸入行程名稱");
@@ -183,7 +183,7 @@
   }
   }
 
- function b_clic(){
+ function b_clic_b(){
    if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
    return false; }
    if ($("#tw_nam").val()=="") { alert("尚未輸入行程名稱");
