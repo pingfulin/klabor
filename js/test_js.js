@@ -173,12 +173,14 @@
  contentType : 'application/json; charset=utf-8',
  dataType : "json",
  data :'{ longUrl: "' + d_all +'"}',
+ function(result) {
+    console.log(result.success); // result是json物件
+  },
+ //success: function(result,status,xhr){
+  //var re_id= result.id
+  //window.location.replace('/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
 
- success: function(result,status,xhr){
-  var re_id= result.id
-  window.location.replace('/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
-
-  }
+  //}
 });
   }
   }
