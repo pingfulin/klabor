@@ -215,7 +215,7 @@
  contentType : 'application/json; charset=utf-8',
  dataType : "json",
 
- success: function(response,status,xhr){
+ success: function(){
   var re_id= response.link
   window.location.replace('https://pingfulin.github.io/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
 
