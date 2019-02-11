@@ -216,8 +216,8 @@
  dataType : "json",
 
  success: function(){
-  var re_id= response.link
-  window.location.replace('https://pingfulin.github.io/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
+ 
+  window.location.replace('https://pingfulin.github.io/klabor/test007.html');
 
   }
 });
