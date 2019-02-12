@@ -142,7 +142,7 @@
     });
 	} );
   
-  function b_clic(){
+  function b_clic_g(){
    if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
    return false; }
    if ($("#tw_nam").val()=="") { alert("尚未輸入行程名稱");
@@ -173,19 +173,19 @@
  contentType : 'application/json; charset=utf-8',
  dataType : "json",
  data :'{ longUrl: "' + d_all +'"}',
- function(result) {
-    console.log(result.success); // result是json物件
-  },
- //success: function(result,status,xhr){
-  //var re_id= result.id
-  //window.location.replace('/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
+ //function(result) {
+    //console.log(result.success); // result是json物件
+  //},
+ success: function(result,status,xhr){
+ var re_id= result.id
+ window.location.replace('/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
 
-  //}
+  }
 });
   }
   }
 
- function b_clic_b(){
+ function b_clic(){
    if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
    return false; }
    if ($("#tw_nam").val()=="") { alert("尚未輸入行程名稱");
@@ -215,11 +215,11 @@
  url : "https://api-ssl.bitly.com/v3/shorten?format=txt&login=o_2p0k47gmqh&apiKey=R_eaee61dc34b6434eaf8adaeb449d52c9&longUrl=" + encodeURIComponent(d_all),
  type : "POST",
  contentType : 'application/json; charset=utf-8',
- dataType : "json",
+ dataType : "text",
 
- success: function(){
- 
-  window.location.replace('https://pingfulin.github.io/klabor/test007.html');
+ success: function(result,status,xhr){
+ var re_id= result
+ window.location.replace('/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
 
   }
 });
