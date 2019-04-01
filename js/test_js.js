@@ -228,9 +228,11 @@
 
 function b_clicline(){
 var d_o= $("#tw_oth").val();
-var d_imf= "@" + $("#_imagf").val();
+var d_imf= "@" + $("#e_file").val();
 $.post('https://script.google.com/macros/s/AKfycbw34_I1Ruovmoo8PPCd6h6vsxCJrxCRV1WJp6Afo__gogNM-sOe/exec',
-    {msg: d_o},
+    {msg: d_o,
+    imagf: d_imf
+    },
     function(e){
         console.log(e);
 });
