@@ -226,7 +226,15 @@
   }
   }
 
-
+function b_clicline(){
+var d_o= $("#tw_oth").val();
+$.post('https://script.google.com/macros/s/AKfycbw34_I1Ruovmoo8PPCd6h6vsxCJrxCRV1WJp6Afo__gogNM-sOe/exec',
+    {msg: d_o},
+    function(e){
+        console.log(e);
+});
+}
+	
 function b_clic_b() {
  window.location.replace('/klabor/test006.html');
 }
