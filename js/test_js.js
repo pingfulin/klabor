@@ -233,7 +233,7 @@ $.post('https://script.google.com/macros/s/AKfycbw34_I1Ruovmoo8PPCd6h6vsxCJrxCRV
     {msg: d_o,
     imagf: d_imf
     },
-    function(e1,e2){
+    function(e1){
         console.log(e1);
     
 });
