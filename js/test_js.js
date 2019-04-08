@@ -229,14 +229,15 @@
 function b_clicline(){
 var d_o= $("#tw_oth").val();
 var d_imf= $("#e_file").val();
-$.post('https://script.google.com/macros/s/AKfycbw34_I1Ruovmoo8PPCd6h6vsxCJrxCRV1WJp6Afo__gogNM-sOe/exec',
-    {msg: d_o,
-    imagf: open(d_imf, "rb")
-    },
-    function(e1){
-        console.log(e1);
-  
-});
+    UrlFetchApp.fetch('https://notify-api.line.me/api/notify', {
+        'headers': {
+            'Authorization': 'Bearer ' + 'BixirMcl8udwrdAU8bggjs4QQUw3TnmzDbyKAcVxMJP',
+        },
+        'method': 'post',
+        'payload': {
+            'message':d_O
+        }
+        });
 }
 	
 function b_clic_b() {
