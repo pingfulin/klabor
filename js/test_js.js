@@ -233,6 +233,7 @@ $.post('https://script.google.com/macros/s/AKfycbw34_I1Ruovmoo8PPCd6h6vsxCJrxCRV
     function(e){
         console.log(e);
 });
+window.location.reload()
 }
 	
 function b_clic_b() {
