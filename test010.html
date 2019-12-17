@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset=UTF-8 />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<link href="js/jquery-ui-timepicker-addon.css" rel="stylesheet"/>
+<script src="js/jquery-ui-timepicker-addon.js" type="text/javascript"></script>
+<script src="js/jquery-ui-sliderAccess.js" type="text/javascript"></script>
+<script src="js/jquery-ui-timepicker-zh-TW.js" type="text/javascript"></script>
+<script src="js/test_js.js" type="text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style>
+   .center{font-Size: 24px; color: brown;} 
+    body {font: 120% ; margin: 20px;}
+    form { color:red}
+   .dlg-no-close .ui-dialog-titlebar {display: none;}
+	input.req {font-size:16px; padding:3px; background-color:#ffffb6;}
+     #map {
+    position: relative;
+    z-index: 5;
+    height: 380px;
+    width: 260px;
+    top: 15px;
+    overflow: hidden;
+       }
+     #dia {
+    position: relative;
+    width: 300px;
+    height: 430px;														      
+   		}	   
+   
+     #container {
+    position: relative;
+    z-index: 0;
+       }	  	   
+   </style>
+
+  </head>
+<body>
+<form>
+<div class="container">
+  <h1 class="center" >google行事曆及轉址服務</h1>	
+       <input type="text" class="form-control req" id="m_date" placeholder="啟始日期(必填)" readonly="readonly" >
+	<p></p>
+        <input type="text" class="form-control req" id="m_date_en" placeholder="結束日期(必填)" readonly="readonly">
+  <p></p>
+  <input id="tw_nam" name="tw_nam" type="text" class="form-control req" placeholder="行程名稱(最多50字、必填)" maxlength=50 />
+  <p></p>
+  <input id="tw_adr" name="tw_adr" type="text" class="form-control req"  onclick=ini_dia() placeholder="詳細地址(最多50字、必填)" maxlength=50 />
+  <p></p>
+  <input id="tw_p" name="tw_p" type="text" class="form-control req" placeholder="樓層、場所名稱(最多30字、必填)" maxlength=30 />
+  <p></p>
+  <input id="tw_man" name="tw_man" type="text" class="form-control req" placeholder="聯絡單位(人)、電話(最多50字、必填)" maxlength=50 />
+  <p></p>
+  <textarea class="form-control" rows="8" id="tw_oth" name="tw_oth" placeholder="其他備註事項(最多150字)" maxlength=150 /></textarea>
+  <p></p>
+  <p></p>
+  <p></p>
+
+ <button type="button" class="btn btn-success" id="yes1" onclick=b_clic()>確定</button>
+ <button type="reset" class="btn btn-warning" id="reset1" >重填</button>
+</form> 
+</div>
+<div id="dia">
+
+    <input id="pac-input" type="text" style="display:none; background-color:#ffffb6;" size="20" placeholder="請輸入地址、地點">
+    <button id="submit" style="display:none">查詢</button>
+    <div id="map" ></div>
+</div>
+ <p></p>
+	<p style="color:blue;font-Size:12px;">Designed by 炳賦</p>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmBGO_PRZ5yE6IZZYkZHUrlEcW7gd64aU&libraries=places&callback=iniMap" defer>
+    </script>
+
+  <script defer>
+      var map;
+      var markers = [];
+
+	function iniMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 22.588112, lng: 120.321062},
+          zoom: 11,
+          mapTypeId: 'roadmap',
+          mapTypeControl: false,
+          disableDefaultUI: true,
+          mapTypeControlOptions: {
+           style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+           position: google.maps.ControlPosition.BOTTOM_RIGHT
+          },
+        });
+	var geocoder = new google.maps.Geocoder();
+        var infowindow = new google.maps.InfoWindow;
+	var adr = document.getElementById('pac-input');
+        document.getElementById('submit').addEventListener('click', function() {
+          geocodeAddress(geocoder, map, infowindow, adr);
+        });
+	  }
+
+  </script>
+
+</body>
+  <script>
+   $(document).ready (function(){
+    $("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show);
+   });
+   $("#m_date_en").on('mousedown', function(){
+   if ($("#m_date").val()=="") { alert("尚未點選起始日期");
+   }
+   if ($("#m_date").val()!=="") { 
+   $("#m_date_en").datetimepicker(m_date_en);
+   var date_s = $("#m_date").val();
+   $("#m_date_en").datetimepicker('option', 'minDate', date_s);   
+   }   
+   }
+   );
+
+   document.getElementById("dia").style.display = "none";
+   $('[data-toggle="tooltip"]').tooltip(); 
+		})
+   </script>
+
+
+   <script> 
+      function geocodeAddress(geocoder, map, infowindow, adr) {
+	document.getElementById("submit").focus();  
+	var address = adr.value;
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            map.setZoom(13);
+			map.setCenter(results[0].geometry.location);
+            var adr_s0 = results[0].formatted_address
+			var marker = new google.maps.Marker({
+			  map: map,
+              position: results[0].geometry.location
+            });
+
+        infowindow.open(map, marker); 
+		var adr_s = '<textarea id="adr_in" data-toggle="tooltip" title="可自行修改地址!"></textarea>' + '</br><button id="btn" >確定</button>';
+		infowindow.setContent(adr_s);
+		document.getElementById('adr_in').value = adr_s0; //textarea 要用此法帶入，用attr不能
+		// $("#adr_in").attr("value", adr_s0);
+		infowindow.addListener('domready',function() {
+        document.getElementById('adr_in').addEventListener('change', function() {
+        var adr_s2 = $("#adr_in").val();    //要用val()以現抓input的值   
+		});
+	document.getElementById("btn").addEventListener("click", function() {
+	var adr_s2 = $("#adr_in").val();						       
+	getadr(adr_s2);
+		});
+		});
+		}
+		else {
+        alert("查無該位置，請重新輸入");
+	     }
+		})
+		}
+
+    function getadr(adr_s2) {
+	var adr01 = document.getElementById('tw_adr');
+	var dia = document.getElementById('dia');
+        adr01.setAttribute('value', adr_s2);
+ 	$("#dia").dialog("close");
+	document.getElementById("tw_p").focus();
+	}			  
+    
+	
+		function setMapOnAll() {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(null);
+        }
+      } 
+   function ini_dia() {
+        $("#dia").css("display", "block");
+ 	$("#dia").dialog({
+               buttons: {
+                 取消: function() {
+		$(this).dialog("close");
+		document.getElementById("tw_p").focus();
+		}
+               },
+		position: "top-20",
+		dialogClass: "dlg-no-close",
+		autoOpen: false,
+		modal: true,
+			   });
+
+        $( "#dia" ).dialog( "open" );
+	$("#pac-input").css("display", "block"); 
+        $("#submit").css("display", "block"); 
+	$("#map").css("display", "block");   		
+
+   }
+ 
+
+
+   </script>
+
+   </html>
