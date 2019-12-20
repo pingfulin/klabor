@@ -185,6 +185,74 @@
   }
   }
 
+function b_cal(){
+   if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
+   return false; }
+   if ($("#kind_s").val()=="") { alert("尚未點選發稿種類");
+   return false; }
+   if ($("#depart").val()=="") { alert("尚未點選科室單位");
+   return false; }
+   if ($("#tw_cnam").val()=="") { alert("尚未輸入主題");
+   return false; }
+   if ($("#tw_man1").val()=="") { alert("尚未輸入主要承辦人");   
+   return false; }
+   if ($("#tw_tel1").val()=="") { alert("尚未輸入聯絡手機");
+   return false; }
+   if ($("#tw_man").val()=="") { alert("尚未輸入承辦單位(人)");
+   return false; }
+   else{ 
+   var d1= $("#m_date").val();
+   var d1_t= d1.replace(/\s+/ig,"T");
+   var d1_t1= d1_t.replace(/\/|\:/ig,"") + "00";
+   var d2= $("#m_date_en").val();
+   var d2_t= d2.replace(/\s+/ig,"T");
+   var d2_t1= d2_t.replace(/\/|\:/ig,"") + "00";
+   var d_tall= d1_t1 + "/" + d2_t1;
+   var d_o= $("#tw_oth").val().replace(/\n|\r/ig,"%0A");
+   var d_p= $("#tw_adr").val();
+   var d_t= $("#tw_cnam").val();
+   var d_d= $("#tw_man1").val() + "%0A" + $("#tw_tel1").val() + "%0A" +d_o;
+   var d_all= "http://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_d + "&location=" + d_p;
+function authenticate() {
+    return gapi.auth2.getAuthInstance()
+        .signIn({scope: "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events"})
+        .then(function() { console.log("Sign-in successful"); },
+              function(err) { console.error("Error signing in", err); });
+  }
+  function loadClient() {
+    gapi.client.setApiKey("AIzaSyCmvFCaw7S6A3mfSWe2qB5W7Z5f68Jx_YM");
+    return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/calendar/v3/rest")
+        .then(function() { console.log("GAPI client loaded for API"); },
+              function(err) { console.error("Error loading GAPI client for API", err); });
+  }
+  // Make sure the client is loaded and sign-in is complete before calling this method.
+  function execute() {
+    return gapi.client.calendar.events.insert({
+      "calendarId": "pingfulinkcg@gmail.com",
+      "resource": {
+        "end": {
+          "date": d2_t1
+        },
+        "start": {
+          "date": d1_t1
+        },
+        "creator": {
+          "displayName": "test"
+        }
+      }
+    })
+        .then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+                console.log("Response", response);
+              },
+              function(err) { console.error("Execute error", err); });
+  }
+  gapi.load("client:auth2", function() {
+    gapi.auth2.init({client_id: "861031269711-fq38agmgi9mt71oomr7n3oshdu1h4c3v.apps.googleusercontent.com"});
+  })
+  }
+  }
+
  function b_clic(){
    if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
    return false; }
