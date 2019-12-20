@@ -45,20 +45,34 @@
 <body>
 <form>
 <div class="container">
-  <h1 class="center" >新增新聞稿排程</h1>	
-  <select id="kind_s" class="form-control req placeholder="請點選要發稿種類">
+  <h1 class="center" >新增新聞排程</h1>	
+  <select id="kind_s" class="form-control req required>
+  <option value="">請點選要發稿種類</option>
   <option value="新聞稿">新聞稿</option>
-  <option value="採訪通知">採訪通知</option>
+  <option value="採訪通知">採訪通知</optio>
 </select>
+  <p></p>
+  <select id="depart" class="form-control req required>
+  <option value="">"請點選科室單位"</option>
+  <option value="組織科">組織科</option>
+  <option value="條件科">條件科</optio>
+  <option value="關係科">關係科</option>
+  <option value="就安科">就安科</option>
+  <option value="職重科">職重科</optio>
+  <option value="勞檢處">勞檢處</option>
+  <option value="訓就中心">訓就中心</option>
+  <option value="勞教中心">勞教中心</optio>
+  <option value="博訓中心">博訓中心</option>
+  <option value="其他">其他</option>
+ </select>
+  <p></p>
   <input type="text" class="form-control req" id="m_date" placeholder="啟始日期(必填)" readonly="readonly" >
   <p></p>
   <input type="text" class="form-control req" id="m_date_en" placeholder="結束日期(必填)" readonly="readonly">
   <p></p>
   <input id="tw_nam" name="tw_nam" type="text" class="form-control req" placeholder="主題(最多60字、必填)" maxlength=60 />
-  <p></p>
-  <input id="tw_p" name="tw_p" type="text" class="form-control req" placeholder="樓層、場所名稱(最多30字、必填)" maxlength=30 />
-  <p></p>												  
-  <input id="tw_adr" name="tw_adr" type="text" placeholder="活動地址(最多50字)、選填" maxlength=50 />
+  <p></p>										  
+  <input id="tw_adr" name="tw_adr" type="text" class="form-control req" placeholder="活動地址、地點(最多50字)、選填" maxlength=50 />
   <p></p>
   <input id="tw_man" name="tw_man" type="text" class="form-control req" placeholder="主要聯絡人(最多10字、必填)" maxlength=10 />
   <p></p>
