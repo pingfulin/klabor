@@ -1,119 +1,120 @@
 <!DOCTYPE html>
+	
+	<head>
+	<meta charset=UTF-8 />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<link href="js/jquery-ui-timepicker-addon.css" rel="stylesheet"/>
+	<script src="js/jquery-ui-timepicker-addon.js" type="text/javascript"></script>
+	<script src="js/jquery-ui-sliderAccess.js" type="text/javascript"></script>
+	<script src="js/jquery-ui-timepicker-zh-TW.js" type="text/javascript"></script>
+	<script src="js/test_js.js" type="text/javascript"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	  <style>
+	   .center{font-Size: 24px; color: brown;} 
+	    body {font: 120% ; margin: 20px;}
+	    form { color:red}
+	   .dlg-no-close .ui-dialog-titlebar {display: none;}
+		input.req {font-size:16px; padding:3px; background-color:#ffffb6;}
+	     #map {
+	    position: relative;
+	    z-index: 5;
+	    height: 380px;
+	    width: 260px;
+	    top: 15px;
+	    overflow: hidden;
+	       }
+	     #dia {
+	    position: relative;
+	    width: 300px;
+	    height: 430px;														      
+	   		}	   
+	   
+	     #container {
+	    position: relative;
+	    z-index: 0;
+	       }	  	   
+	   </style>
+	
+	  </head>
+	<body>
+	<form>
+	<div class="container">
+	  <h1 class="center" >新增新聞排程</h1>	
+	  <select id="kind_s" class="form-control req required>
+	  <option value="">請點選要發稿種類</option>
+	  <option value="新聞稿">新聞稿</option>
+	  <option value="採訪通知">採訪通知</optio>
+	</select>
+	  <p></p>
+	  <select id="depart" class="form-control req required>
+	  <option value="">"請點選科室單位"</option>
+	  <option value="組織科">組織科</option>
+	  <option value="條件科">條件科</optio>
+	  <option value="關係科">關係科</option>
+	  <option value="就安科">就安科</option>
+	  <option value="職重科">職重科</optio>
+	  <option value="勞檢處">勞檢處</option>
+	  <option value="訓就中心">訓就中心</option>
+	  <option value="勞教中心">勞教中心</optio>
+	  <option value="博訓中心">博訓中心</option>
+	  <option value="其他">其他</option>
+	 </select>
+	  <p></p>
+	  <input type="text" class="form-control req" id="m_date" placeholder="啟始日期(必填)" readonly="readonly" >
+	  <p></p>
+	  <input type="text" class="form-control req" id="m_date_en" placeholder="結束日期(必填)" readonly="readonly">
+	  <p></p>
+	  <input id="tw_cnam" name="tw_cnam" type="text" class="form-control req" placeholder="主題(最多60字、必填)" maxlength=60 />
+	  <p></p>										  
+	  <input id="tw_adr" name="tw_adr" type="text" class="form-control req" placeholder="活動地址、地點(最多50字)、選填" maxlength=50 />
+	  <p></p>
+	  <input id="tw_man1" name="tw_man1" type="text" class="form-control req" placeholder="主要聯絡人(最多10字、必填)" maxlength=10 />
+	  <p></p>
+	  <input id="tw_tel1" name="tw_tel1" type="text" class="form-control req" pattern="09\d{8}" placeholder="聯絡手機1(格式:09XXXXXXXX、必填)" maxlength=12 />
+	  <p></p>
+	  <input id="tw_man2" name="tw_man2" type="text" class="form-control req" placeholder="第二聯絡人(最多10字、選填)" maxlength=10 />
+	  <p></p>
+	  <input id="tw_tel2" name="tw_tel2" type="text" class="form-control req" pattern="09\d{8}" placeholder="聯絡手機2(格式:09XXXXXXXX、選填)" maxlength=12 />
+	  <p></p>												     
+	  <textarea class="form-control" rows="5" id="tw_oth" name="tw_oth" placeholder="其他備註事項(最多50字)" maxlength=50 /></textarea>
+	  <input id="pac-input" type="hidden" value="[勞工局新聞預告]">
+	  <p></p>
+	  <p></p>
+	  <p></p>
+	
+	 <button type="button" class="btn btn-success" id="yes1" onclick=b_cal()>確定</button>
+	 <button type="reset" class="btn btn-warning" id="reset1" >重填</button>
+	</form> 
+	</div>
+	 <p></p>
+		<p style="color:blue;font-Size:12px;">Designed by 炳賦</p>
+	
+	</body>
+	  <script>
+	   $(document).ready (function(){
+	    $("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show);
+	   });
+	   $("#m_date_en").on('mousedown', function(){
+	   if ($("#m_date").val()=="") { alert("尚未點選起始日期");
+	   }
+	   if ($("#m_date").val()!=="") { 
+	   $("#m_date_en").datetimepicker(m_date_en);
+	   var date_s = $("#m_date").val();
+	   $("#m_date_en").datetimepicker('option', 'minDate', date_s);   
+	   }   
+	   }
+	   );
+	
+	   document.getElementById("dia").style.display = "none";
+	   $('[data-toggle="tooltip"]').tooltip(); 
+			})
+	   </script>
+	
+	   </html>
 
-<head>
-<meta charset=UTF-8 />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<link href="js/jquery-ui-timepicker-addon.css" rel="stylesheet"/>
-<script src="js/jquery-ui-timepicker-addon.js" type="text/javascript"></script>
-<script src="js/jquery-ui-sliderAccess.js" type="text/javascript"></script>
-<script src="js/jquery-ui-timepicker-zh-TW.js" type="text/javascript"></script>
-<script src="js/test_js.js" type="text/javascript"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-  <style>
-   .center{font-Size: 24px; color: brown;} 
-    body {font: 120% ; margin: 20px;}
-    form { color:red}
-   .dlg-no-close .ui-dialog-titlebar {display: none;}
-	input.req {font-size:16px; padding:3px; background-color:#ffffb6;}
-     #map {
-    position: relative;
-    z-index: 5;
-    height: 380px;
-    width: 260px;
-    top: 15px;
-    overflow: hidden;
-       }
-     #dia {
-    position: relative;
-    width: 300px;
-    height: 430px;														      
-   		}	   
-   
-     #container {
-    position: relative;
-    z-index: 0;
-       }	  	   
-   </style>
-
-  </head>
-<body>
-<form>
-<div class="container">
-  <h1 class="center" >新增新聞排程</h1>	
-  <select id="kind_s" class="form-control req required>
-  <option value="">請點選要發稿種類</option>
-  <option value="新聞稿">新聞稿</option>
-  <option value="採訪通知">採訪通知</optio>
-</select>
-  <p></p>
-  <select id="depart" class="form-control req required>
-  <option value="">"請點選科室單位"</option>
-  <option value="組織科">組織科</option>
-  <option value="條件科">條件科</optio>
-  <option value="關係科">關係科</option>
-  <option value="就安科">就安科</option>
-  <option value="職重科">職重科</optio>
-  <option value="勞檢處">勞檢處</option>
-  <option value="訓就中心">訓就中心</option>
-  <option value="勞教中心">勞教中心</optio>
-  <option value="博訓中心">博訓中心</option>
-  <option value="其他">其他</option>
- </select>
-  <p></p>
-  <input type="text" class="form-control req" id="m_date" placeholder="啟始日期(必填)" readonly="readonly" >
-  <p></p>
-  <input type="text" class="form-control req" id="m_date_en" placeholder="結束日期(必填)" readonly="readonly">
-  <p></p>
-  <input id="tw_nam" name="tw_nam" type="text" class="form-control req" placeholder="主題(最多60字、必填)" maxlength=60 />
-  <p></p>										  
-  <input id="tw_adr" name="tw_adr" type="text" class="form-control req" placeholder="活動地址、地點(最多50字)、選填" maxlength=50 />
-  <p></p>
-  <input id="tw_man" name="tw_man1" type="text" class="form-control req" placeholder="主要聯絡人(最多10字、必填)" maxlength=10 />
-  <p></p>
-  <input id="tw_man" name="tw_tel1" type="text" class="form-control req" pattern="09\d{8}" placeholder="聯絡手機(格式:09XXXXXXXX、必填)" maxlength=12 />
-  <p></p>
-  <input id="tw_man" name="tw_man2" type="text" class="form-control req" placeholder="第二聯絡人(最多10字、選填)" maxlength=10 />
-  <p></p>
-  <input id="tw_man" name="tw_tel2" type="text" class="form-control req" pattern="09\d{8}" placeholder="聯絡手機(格式:09XXXXXXXX、選填)" maxlength=12 />
-  <p></p>												     
-  <textarea class="form-control" rows="5" id="tw_oth" name="tw_oth" placeholder="其他備註事項(最多50字)" maxlength=50 /></textarea>
-  <input id="pac-input" type="hidden" value="[勞工局新聞預告]">
-  <p></p>
-  <p></p>
-  <p></p>
-
- <button type="button" class="btn btn-success" id="yes1" onclick=b_cal()>確定</button>
- <button type="reset" class="btn btn-warning" id="reset1" >重填</button>
-</form> 
-</div>
- <p></p>
-	<p style="color:blue;font-Size:12px;">Designed by 炳賦</p>
-
-</body>
-  <script>
-   $(document).ready (function(){
-    $("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show);
-   });
-   $("#m_date_en").on('mousedown', function(){
-   if ($("#m_date").val()=="") { alert("尚未點選起始日期");
-   }
-   if ($("#m_date").val()!=="") { 
-   $("#m_date_en").datetimepicker(m_date_en);
-   var date_s = $("#m_date").val();
-   $("#m_date_en").datetimepicker('option', 'minDate', date_s);   
-   }   
-   }
-   );
-
-   document.getElementById("dia").style.display = "none";
-   $('[data-toggle="tooltip"]').tooltip(); 
-		})
-   </script>
-
-   </html>
