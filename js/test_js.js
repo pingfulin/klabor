@@ -213,19 +213,35 @@ function b_cal(){
    var d_t= $("#tw_cnam").val();
    var d_d= $("#tw_man1").val() + "%0A" + $("#tw_tel1").val() + "%0A" +d_o;
    var d_all= "http://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_d + "&location=" + d_p;
-function authenticate() {
-    return gapi.auth2.getAuthInstance()
-        .signIn({scope: "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events"})
-        .then(function() { console.log("Sign-in successful"); },
-              function(err) { console.error("Error signing in", err); });
-  }
-  function loadClient() {
-    gapi.client.setApiKey("AIzaSyCmvFCaw7S6A3mfSWe2qB5W7Z5f68Jx_YM");
-    return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/calendar/v3/rest")
-        .then(function() { console.log("GAPI client loaded for API"); },
-              function(err) { console.error("Error loading GAPI client for API", err); });
-  }
-  // Make sure the client is loaded and sign-in is complete before calling this method.
+      // Client ID and API key from the Developer Console
+      var CLIENT_ID = '1090898156676-5n50dnr8t8kl6qc90feei25hddoj559f.apps.googleusercontent.com';
+      var API_KEY = 'AIzaSyCmvFCaw7S6A3mfSWe2qB5W7Z5f68Jx_YM';
+
+      // Array of API discovery doc URLs for APIs used by the quickstart
+      var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+
+      // Authorization scopes required by the API; multiple scopes can be
+      // included, separated by spaces.
+      var SCOPES = "https://www.googleapis.com/auth/calendar.events";
+
+       /**
+       *  On load, called to load the auth2 library and API client library.
+       */
+      function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+      }
+
+      /**
+       *  Initializes the API client library and sets up sign-in state
+       *  listeners.
+       */
+      function initClient() {
+        gapi.client.init({
+          apiKey: API_KEY,
+          clientId: CLIENT_ID,
+          discoveryDocs: DISCOVERY_DOCS,
+          scope: SCOPES
+        }).then
   function execute() {
     return gapi.client.calendar.events.insert({
       "calendarId": "pingfulinkcg@gmail.com",
@@ -241,15 +257,6 @@ function authenticate() {
         }
       }
     })
-        .then(function(response) {
-                // Handle the results here (response.result has the parsed body).
-                console.log("Response", response);
-              },
-              function(err) { console.error("Execute error", err); });
-  }
-  gapi.load("client:auth2", function() {
-    gapi.auth2.init({client_id: "1090898156676-5n50dnr8t8kl6qc90feei25hddoj559f.apps.googleusercontent.com"});
-  })
   }
   }
 
