@@ -47,7 +47,11 @@ var event = {
   }
 }
   function execute() {
-        gapi.client.setApiKey("AIzaSyCmvFCaw7S6A3mfSWe2qB5W7Z5f68Jx_YM");
+    return gapi.auth2.getAuthInstance()
+        .signIn({scope: "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events"})
+        .then(function() { console.log("Sign-in successful"); },
+              function(err) { console.error("Error signing in", err); });
+    gapi.client.setApiKey("AIzaSyCmvFCaw7S6A3mfSWe2qB5W7Z5f68Jx_YM");
     return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/calendar/v3/rest")
         .then(function() { console.log("GAPI client loaded for API"); },
               function(err) { console.error("Error loading GAPI client for API", err); });
