@@ -96,20 +96,20 @@
 	
 	</body>
 	  <script>
-	   $(document).ready (function(){
-	    $("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show);
-	   });
-	   $("#m_date_en").on('mousedown', function(){
-	   if ($("#m_date").val()=="") { alert("尚未點選起始日期");
-	   }
-	   if ($("#m_date").val()!=="") { 
-	   $("#m_date_en").datetimepicker(m_date_en);
-	   var date_s = $("#m_date").val();
-	   $("#m_date_en").datetimepicker('option', 'minDate', date_s);   
-	   }   
-	   )}
-
-	   </script>
+   $(document).ready (function(){
+    $("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show);
+   });
+   $("#m_date_en").on('mousedown', function(){
+   if ($("#m_date").val()=="") { alert("尚未點選起始日期");
+   }
+   if ($("#m_date").val()!=="") { 
+   $("#m_date_en").datetimepicker(m_date_en);
+   var date_s = $("#m_date").val();
+   $("#m_date_en").datetimepicker('option', 'minDate', date_s);   
+   }   
+   }
+   )
+   </script>
 	
 	   </html>
 
