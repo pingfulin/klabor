@@ -186,7 +186,7 @@
   }
 
 function cal_bu(){
-        var now = new Date();
+var now = new Date();
         today = now.toISOString();
 
         var twoHoursLater = new Date(now.getTime() + (2 * 1000 * 60 * 60));
@@ -200,16 +200,14 @@ function cal_bu(){
    var scopes = 'https://www.googleapis.com/auth/calendar';
 
 
-// OAuth2 functions
-     function handleClientLoad() {
            gapi.client.setApiKey(apiKey);
            window.setTimeout(checkAuth, 1);
-        }
+
 
 //To authenticate
-  function checkAuth() {
+
     gapi.auth.authorize({ client_id: clientId, scope: scopes, immediate: true }, handleAuthResult);
-        }
+        
 
 // This is the resource we will pass while calling api function
 var resource = {
@@ -249,7 +247,7 @@ var resource = {
             ],
         };
 
-function makeApiCall(){
+
 gapi.client.load('calendar', 'v3', function () { // load the calendar api (version 3)
                 var request = gapi.client.calendar.events.insert
                 ({
@@ -259,7 +257,8 @@ gapi.client.load('calendar', 'v3', function () { // load the calendar api (versi
                     "resource": resource 	// above resource will be passed here
                 });                
 });
-		 }
+}
+		 
 
  function b_clic(){
    if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
