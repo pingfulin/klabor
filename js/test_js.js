@@ -258,7 +258,7 @@ gapi.client.load('calendar', 'v3', function () { // load the calendar api (versi
 
                     "resource": resource 	// above resource will be passed here
                 });                
-})
+});
 		 }
 
  function b_clic(){
