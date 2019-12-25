@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html class="full" lang="en">
 <head>
-    <title>Google Calendar API</title>
+<meta charset=UTF-8 />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/Calendar.css" rel="stylesheet" />
     <script src="js/jquery.js" type="text/javascript"></script>
@@ -16,8 +16,8 @@
         twoHoursLater = twoHoursLater.toISOString();
 
         // Google api console clientID and apiKey 
-        var clientId = '252751734600-sedfsdf3286n886jj7gc5m2ugaai.apps.googleufgrcontent.com';
-        var apiKey = 'AIzsdg5CDEX3PvFyhfghOpnVf4eW_LmfeR80';
+        var clientId = '1090898156676-5n50dnr8t8kl6qc90feei25hddoj559f.apps.googleusercontent.com';
+        var apiKey = 'AIzaSyCmBGO_PRZ5yE6IZZYkZHUrlEcW7gd64aU';
 
         // enter the scope of current project (this API must be turned on in the Google console)
         var scopes = 'https://www.googleapis.com/auth/calendar';
@@ -74,7 +74,7 @@
             gapi.client.load('calendar', 'v3', function () {					// load the calendar api (version 3)
                 var request = gapi.client.calendar.events.insert
                 ({
-                    'calendarId': '24tn4fht2tr6m86efddfgdfdk@group.calendar.google.com', // calendar ID
+                    'calendarId': 'pingfulinkcg@gmail.com', // calendar ID
                     "resource": resource							// pass event details with api call
                 });
                 
@@ -209,3 +209,5 @@
     </div>
 </body>
 </html>
+
+
