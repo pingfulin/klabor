@@ -259,7 +259,7 @@ gapi.client.load('calendar', 'v3', function () { // load the calendar api (versi
                     "resource": resource 	// above resource will be passed here
                 });                
 }
-
+		 }
 
  function b_clic(){
    if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
