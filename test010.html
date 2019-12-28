@@ -21,8 +21,9 @@
 	    body {font: 120% ; margin: 20px;}
 	    form { color:red}
 	   .dlg-no-close .ui-dialog-titlebar {display: none;}
-		input.req {font-size:16px; padding:3px; background-color:#ffffb6;}
-	     #map {
+	    input.req {font-size:16px; padding:3px; background-color:#ffffb6;}
+	    input.opt {font-size:16px; padding:3px; background-color:#f0f8ff;}
+	    #map {
 	    position: relative;
 	    z-index: 5;
 	    height: 380px;
@@ -44,15 +45,15 @@
 	
 	  </head>
 	<body>
-	<form>
+	<form action="javascript:cla_b()">
 	  <h1 class="center" >新增新聞排程</h1>	
-	  <select id="kind_s" class="form-control>
+	  <select id="kind_s" class="req">
 	  <option value="" selected>選擇發稿種類</option>
 	  <option value="新聞稿">新聞稿</option>
 	  <option value="採訪通知">採訪通知</optio>
 	</select>
 	  <p></p>
-	  <select id="depart" class="form-control>
+	  <select id="depart" class="req">
 	  <option value="" selected>業務單位</option>
 	  <option value="組織科">組織科</option>
 	  <option value="條件科">條件科</optio>
@@ -66,29 +67,29 @@
 	  <option value="其他">其他</option>
 	 </select>
 	  <p></p>
-	  <input type="text" class="form-control req" id="m_date" placeholder="啟始日期(必填)" readonly="readonly" >
+	  <input type="text" class="req" id="m_date" placeholder="啟始日期(必填)" readonly="readonly" >
 	  <p></p>
-	  <input type="text" class="form-control req" id="m_date_en" placeholder="結束日期(必填)" readonly="readonly">
+	  <input type="text" class="req" id="m_date_en" placeholder="結束日期(必填)" readonly="readonly">
 	  <p></p>
-	  <input id="tw_cnam" name="tw_cnam" type="text" class="form-control req" placeholder="主題(最多60字、必填)" maxlength=60 />
+	  <input id="tw_cnam" name="tw_cnam" type="text" required class="req" placeholder="主題(最多60字、必填)" maxlength=60 />
 	  <p></p>										  
-	  <input id="tw_adr" name="tw_adr" type="text" class="form-control req" placeholder="活動地址、地點(最多50字)、選填" maxlength=50 />
+	  <input id="tw_adr" name="tw_adr" type="text" class="opt" placeholder="活動地址、地點(最多50字)、選填" maxlength=50 />
 	  <p></p>
-	  <input id="tw_man1" name="tw_man1" type="text" class="form-control req" placeholder="主要聯絡人(最多10字、必填)" maxlength=10 />
+	  <input id="tw_man1" name="tw_man1" type="text"  required class="req" placeholder="主要聯絡人(最多10字、必填)" maxlength=10 />
 	  <p></p>
-	  <input id="tw_tel1" name="tw_tel1" type="text" class="form-control req" pattern="/^09\d{8}/" placeholder="聯絡手機1(格式:09XXXXXXXX、必填)" maxlength=12 />
+	  <input id="tw_tel1" name="tw_tel1" type="text"  required class="req" pattern="09\d{8}" placeholder="聯絡手機1(格式:09XXXXXXXX、必填)" maxlength=12 />
 	  <p></p>
-	  <input id="tw_man2" name="tw_man2" type="text" class="form-control req" placeholder="第二聯絡人(最多10字、選填)" maxlength=10 />
+	  <input id="tw_man2" name="tw_man2" type="text" class="opt" placeholder="第二聯絡人(最多10字、選填)" maxlength=10 />
 	  <p></p>
-	  <input id="tw_tel2" name="tw_tel2" type="text" class="form-control req" pattern="/^09\d{8}/" placeholder="聯絡手機2(格式:09XXXXXXXX、選填)" maxlength=12 />
+	  <input id="tw_tel2" name="tw_tel2" type="text" class="opt" pattern="/^09\d{8}/" placeholder="聯絡手機2(格式:09XXXXXXXX、選填)" maxlength=12 />
 	  <p></p>												     
-	  <textarea class="form-control" rows="5" id="tw_oth" name="tw_oth" placeholder="其他備註事項(最多50字)" maxlength=50 /></textarea>
+	  <textarea class="opt" rows="5" id="tw_oth" name="tw_oth" placeholder="其他備註事項(最多50字)" maxlength=50 /></textarea>
 	  <input id="pac-input" type="hidden" value="[勞工局新聞預告]">
 	  <p></p>
 	  <p></p>
 	  <p></p>
 	
-	 <button type="button" class="btn btn-success" id="yes1" onclick=cal_bu()>確定</button>
+	 <input type="submit" class="btn btn-success" id="yes1" onclick=cal_bu()>確定</button>
 	 <button type="reset" class="btn btn-warning" id="reset1" >重填</button>
 	</form> 
 	 <p></p>
