@@ -282,28 +282,30 @@ gapi.client.load('calendar', 'v3', function () { // load the calendar api (versi
 }
 
 function cal_bu(){
-   if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
+   if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期");
    return false; }
-   if ($("#tw_nam").val()=="") { alert("尚未輸入行程名稱");
+   if ($("#tw_cnam").val()=="") { alert("尚未輸入主題");
    return false; }
-   if ($("#tw_adr").val()=="") { alert("尚未輸入地址");   
+   if ($("#tw_man1").val()=="") { alert("尚未輸入主要聯絡人");   
    return false; }
-   if ($("#tw_P").val()=="") { alert("尚未輸入樓層或場所");
+   if ($("#tw_teln1").val()=="") { alert("尚未輸入電話");
    return false; }
-   if ($("#tw_man").val()=="") { alert("尚未輸入承辦單位(人)");
+   if ($("#tw_tel1").val()=="") { alert("尚未輸入手機");
    return false; }
    else{ 
    var d1= $("#m_date").val();
-   var d1_t= d1.replace(/\s+/ig,"T");
-   var d1_t1= d1_t.replace(/\/|\:/ig,"") + "00";
-   var d2= $("#m_date_en").val();
-   var d2_t= d2.replace(/\s+/ig,"T");
-   var d2_t1= d2_t.replace(/\/|\:/ig,"") + "00";
+   var d1_t= d1.replace(/\/|\:/ig,"");
+   var d1_t1= d1_t + "T000000";
+   //var d2= $("#m_date_en").val();
+   //var d2_t= d2.replace(/\s+/ig,"T");
+   var d2_t1= d1_t + "T120000";
    var d_tall= d1_t1 + "/" + d2_t1;
-   var d_o= $("#tw_oth").val().replace(/\n|\r/ig,"%0A");
+   var d_o1= $("#tw_man1").val().replace(/#|\?/ig,"") + "%2D" + $("#tw_teln1").val() + "%2D" + $("#tw_tel1").val();
+   var d_o2= $("#tw_man2").val().replace(/#|\?/ig,"") + "%2D" + $("#tw_teln2").val() + "%2D" + $("#tw_tel2").val();
+   var d_o= $("#depart").val() + "%0A" + d_o1 + "%0A" + d_o2
    var d_p= $("#tw_adr").val();
-   var d_t= $("#tw_nam").val();
-   var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
+   var d_t= $("#pac-input").val() + $("#kind_s").val() + $("#tw_cnam").val().replace(/#|\?/ig,"");
+   //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
    var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_d + "&location=" + d_p;
 
    $.ajax({
