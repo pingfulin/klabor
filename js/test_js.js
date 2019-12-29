@@ -302,11 +302,11 @@ function cal_bu(){
    var d_tall= d1_t1 + "/" + d2_t1;
    var d_o1= $("#tw_man1").val().replace(/#|\?/ig,"") + "%2D" + $("#tw_teln1").val() + "%2D" + $("#tw_tel1").val();
    var d_o2= $("#tw_man2").val().replace(/#|\?/ig,"") + "%2D" + $("#tw_teln2").val() + "%2D" + $("#tw_tel2").val();
-   var d_o= $("#depart").val() + "%0A" + d_o1 + "%0A" + d_o2
+   var d_o= $("#depart").val() + "%2D" + d_o1 + "%0A" + d_o2
    var d_p= $("#tw_adr").val();
    var d_t= $("#pac-input").val() + $("#kind_s").val() + $("#tw_cnam").val().replace(/#|\?/ig,"");
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
-   var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_d + "&location=" + d_p;
+   var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o + "&location=" + d_p;
 
    $.ajax({
  
