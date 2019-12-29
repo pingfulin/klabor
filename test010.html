@@ -4,7 +4,7 @@
 	<meta charset=UTF-8 />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title></title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -13,7 +13,7 @@
 <script src="js/jquery-ui-sliderAccess.js" type="text/javascript"></script>
 <script src="js/jquery-ui-timepicker-zh-TW.js" type="text/javascript"></script>
 <script src="js/test_js.js" type="text/javascript"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 	<script src="https://apis.google.com/js/api.js"></script>
 	
 	  <style>
@@ -21,9 +21,9 @@
 	    body {font: 120% ; margin: 20px;}
 	    form { color:red}
 	   .dlg-no-close .ui-dialog-titlebar {display: none;}
-	    input.req {font-size:16px; padding:3px; background-color:#ffffb6;}
-	    input.opt {font-size:16px; padding:3px; background-color:#f0f8ff;}
-            select.req {font-size:16px; padding:3px; background-color:#ffffb6;}
+	    input.req {font-size:16px; padding:3px; color:#696969; background-color:#ffffb6; width:85%;}
+	    input.opt {font-size:16px; padding:3px; color:#696969; background-color:#f0f8ff;}
+            select.req {font-size:16px; padding:3px; color:#696969; background-color:#ffffb6;}
 	    #map {
 	    position: relative;
 	    z-index: 5;
@@ -48,14 +48,14 @@
 	<body>
 	<form action="javascript:cal_bu()">
 	  <h1 class="center" >新增新聞排程</h1>	
-	  <select id="kind_s" class="req">
-	  <option value="" selected disabled required>選擇發稿種類</option>
+	  <select id="kind_s"  required class="req">
+	  <option value="" selected disabled>選擇發稿種類</option>
 	  <option value="新聞稿">新聞稿</option>
 	  <option value="採訪通知">採訪通知</optio>
 	</select>
 	  <p></p>
-	  <select id="depart" class="req">
-	  <option value="" selected disabled required>業務單位</option>
+	  <select id="depart"  required class="req">
+	  <option value="" selected disabled>業務單位</option>
 	  <option value="組織科">組織科</option>
 	  <option value="條件科">條件科</optio>
 	  <option value="關係科">關係科</option>
