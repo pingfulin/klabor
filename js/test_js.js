@@ -1,5 +1,27 @@
+  var date_show_10 = {
+   dayNames:["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
+   dayNamesMin:["日","一","二","三","四","五","六"],
+   monthNames:["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],
+   monthNamesShort:["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],
+   prevText:"上月",
+   nextText:"次月",
+   weekHeader:"週",
+   showMonthAfterYear:true,
+   dateFormat: 'yy/mm/dd',
+   showTimepicker:false,
+   showButtonPanel:true,
+   changeYear : true,
+   changeMonth : true,
+   minDate :'getDate()',
+   hour:0,
+   minute:0,
+   controlType:"select",
+   alwaysSetTime:true,
+   stepMinute:10,
+   oneLine: true,
+   	};
 
-  var date_show = {
+   var date_show = {
    dayNames:["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
    dayNamesMin:["日","一","二","三","四","五","六"],
    monthNames:["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],
@@ -185,7 +207,7 @@
   }
   }
 
-function cal_bu(){
+function cal_bu_test(){
 var now = new Date();
         today = now.toISOString();
 
@@ -258,7 +280,48 @@ gapi.client.load('calendar', 'v3', function () { // load the calendar api (versi
                 });                
 });
 }
-		 
+
+function cal_bu(){
+   if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
+   return false; }
+   if ($("#tw_nam").val()=="") { alert("尚未輸入行程名稱");
+   return false; }
+   if ($("#tw_adr").val()=="") { alert("尚未輸入地址");   
+   return false; }
+   if ($("#tw_P").val()=="") { alert("尚未輸入樓層或場所");
+   return false; }
+   if ($("#tw_man").val()=="") { alert("尚未輸入承辦單位(人)");
+   return false; }
+   else{ 
+   var d1= $("#m_date").val();
+   var d1_t= d1.replace(/\s+/ig,"T");
+   var d1_t1= d1_t.replace(/\/|\:/ig,"") + "00";
+   var d2= $("#m_date_en").val();
+   var d2_t= d2.replace(/\s+/ig,"T");
+   var d2_t1= d2_t.replace(/\/|\:/ig,"") + "00";
+   var d_tall= d1_t1 + "/" + d2_t1;
+   var d_o= $("#tw_oth").val().replace(/\n|\r/ig,"%0A");
+   var d_p= $("#tw_adr").val();
+   var d_t= $("#tw_nam").val();
+   var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
+   var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_d + "&location=" + d_p;
+
+   $.ajax({
+ 
+ url : "https://api-ssl.bitly.com/v3/shorten?format=txt&login=o_2p0k47gmqh&apiKey=R_eaee61dc34b6434eaf8adaeb449d52c9&longUrl=" + encodeURIComponent(d_all),
+ type : "POST",
+ contentType : 'application/json; charset=utf-8',
+ dataType : "text",
+
+ success: function(result,status,xhr){
+ var re_id= result
+ window.location.replace('/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
+
+  }
+});
+  }
+  }
+
 
  function b_clic(){
    if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
