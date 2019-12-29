@@ -2,7 +2,7 @@
 	
 	<head>
 	<meta charset=UTF-8 />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title></title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -23,6 +23,7 @@
 	   .dlg-no-close .ui-dialog-titlebar {display: none;}
 	    input.req {font-size:16px; padding:3px; background-color:#ffffb6;}
 	    input.opt {font-size:16px; padding:3px; background-color:#f0f8ff;}
+            select.req {font-size:16px; padding:3px; background-color:#ffffb6;}
 	    #map {
 	    position: relative;
 	    z-index: 5;
@@ -48,13 +49,13 @@
 	<form action="javascript:cal_bu()">
 	  <h1 class="center" >新增新聞排程</h1>	
 	  <select id="kind_s" class="req">
-	  <option value="" selected>選擇發稿種類</option>
+	  <option value="" selected disabled required>選擇發稿種類</option>
 	  <option value="新聞稿">新聞稿</option>
 	  <option value="採訪通知">採訪通知</optio>
 	</select>
 	  <p></p>
 	  <select id="depart" class="req">
-	  <option value="" selected>業務單位</option>
+	  <option value="" selected disabled required>業務單位</option>
 	  <option value="組織科">組織科</option>
 	  <option value="條件科">條件科</optio>
 	  <option value="關係科">關係科</option>
