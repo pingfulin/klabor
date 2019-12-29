@@ -69,9 +69,7 @@
 	  <option value="其他">其他</option>
 	 </select>
 	  <p></p>
-	  <input type="text" class="req" id="m_date" required placeholder="啟始日期(必填)" readonly="readonly" >
-	  <p></p>
-	  <input type="text" class="req" id="m_date_en" required placeholder="結束日期(必填)" readonly="readonly">
+	  <input type="text" class="req" id="m_date" required placeholder="預計發稿日期(必填)" readonly="readonly" >
 	  <p></p>
 	  <input id="tw_cnam" name="tw_cnam" type="text" required class="req" placeholder="主題(最多60字、必填)" maxlength=60 />
 	  <p></p>										  
@@ -106,18 +104,9 @@
 </body>
    <script>
    $(document).ready (function(){
-    $("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show);
+    $("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show_10);
    });
-   $("#m_date_en").on('mousedown', function(){
-   if ($("#m_date").val()=="") { alert("尚未點選起始日期");
-   }
-   if ($("#m_date").val()!=="") { 
-   $("#m_date_en").datetimepicker(m_date_en);
-   var date_s = $("#m_date").val();
-   $("#m_date_en").datetimepicker('option', 'minDate', date_s);   
-   }   
-   }
-   )
+
 	   })
    </script>
 	
