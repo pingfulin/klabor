@@ -300,9 +300,9 @@ function cal_bu(){
    //var d2_t= d2.replace(/\s+/ig,"T");
    var d2_t1= d1_t + "T120000";
    var d_tall= d1_t1 + "/" + d2_t1;
-   var d_o1= $("#tw_man1").val().replace(/#|\?/ig,"") + "%2D" + $("#tw_teln1").val() + "%2D" + $("#tw_tel1").val();
-   var d_o2= $("#tw_man2").val().replace(/#|\?/ig,"") + "%2D" + $("#tw_teln2").val() + "%2D" + $("#tw_tel2").val();
-   var d_o= $("#depart").val() + "%2D" + d_o1 + "%0A" + d_o2
+   var d_o1= $("#tw_man1").val().replace(/#|\?/ig,"") + "%20" + $("#tw_teln1").val() + "%20" + $("#tw_tel1").val();
+   var d_o2= $("#tw_man2").val().replace(/#|\?/ig,"") + "%20" + $("#tw_teln2").val() + "%20" + $("#tw_tel2").val();
+   var d_o= $("#depart").val() + "%20" + d_o1 + "%0A" + d_o2
    var d_p= $("#tw_adr").val();
    var d_t= $("#pac-input").val() + $("#kind_s").val() + $("#tw_cnam").val().replace(/#|\?/ig,"");
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
@@ -317,7 +317,7 @@ function cal_bu(){
 
  success: function(result,status,xhr){
  var re_id= result
- window.location.replace('/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
+ window.location.replace('/klabor/laborkcg_newsmail.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
 
   }
 });
