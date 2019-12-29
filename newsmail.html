@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+	<title></title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="js/test_js.js" type="text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+ .center{
+    font-Size: 24px;
+	color: brown;
+}
+	input.req {font-size:16px; padding:3px; background-color:#ffffb6;}
+</style>
+</head>
+<body>
+<div class="container">
+   <h1 class="center" >已產生google日曆網址，請點選寄給媒體窗口，並記得附上新聞稿檔案</h1>	
+ <textarea id="show_re" class="form-control req" readonly="readonly"></textarea>
+  <p></p>
+  <a id="show_a" style="font-Size:16pt;"></a>
+  <p></p>
+  <button id="mail_go">寄給媒體窗口</button>
+  <button id="text_copy" onclick=copyInput()>複製網址</button>
+  <button id="yes1" onclick=b_clic_b()>回上頁</button>
+  <p></p>
+  <canvas id="canvas" width="200" height="220" ></canvas>
+  <p style="color:brown;">google行程QR code</p>
+</div>
+  <script>
+$(document).ready (function (){
+var sub = "[新聞稿通知]";
+var url_t01 = location.search;
+var url_t02 = b_return(url_t01);
+var url_t03 = decodeURI(b_return1(url_t01)) + "/:\s/";
+var mailgo = "mailto:pingfulinkcg@gmail.com?subject=" + sub + "&body=" + url_t03 + url_t02
+$("#show_re").val(url_t03 + url_t02);
+$("#show_a").text(url_t02);
+$("#show_a").attr({href:url_t02,target:"_blank"});
+$("#mail_go").attr({href:mailgo,target:"_blank"});
+draw();
+})
+</script>
+  </body>
+</html>
