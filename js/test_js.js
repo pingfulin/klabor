@@ -317,7 +317,7 @@ function cal_bu(){
 
  success: function(result,status,xhr){
  var re_id= result
- window.location.replace('/klabor/laborkcg_newsmail.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
+ window.location.replace('/klabor/newsmail.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
 
   }
 });
