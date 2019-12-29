@@ -37,7 +37,7 @@ $(document).ready (function (){
 var sub = "[新聞稿通知]";
 var url_t01 = location.search;
 var url_t02 = b_return(url_t01);
-var url_t03 = decodeURI(b_return1(url_t01)) + "/:\s/";
+var url_t03 = decodeURI(b_return1(url_t01)) + ": ";
 var mailgo = "mailto:pingfulinkcg@gmail.com?subject=" + sub + "&body=" + url_t03 + url_t02
 $("#show_re").val(url_t03 + url_t02);
 $("#show_a").text(url_t02);
