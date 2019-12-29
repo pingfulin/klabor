@@ -24,6 +24,7 @@
 	    input.req {font-size:16px; padding:3px; color:#696969; background-color:#ffffb6; width:85%;}
 	    input.opt {font-size:16px; padding:3px; color:#696969; background-color:#f0f8ff; width:85%;}
             select.req {font-size:16px; padding:3px; color:#696969; background-color:#ffffb6; width:85%;}
+            textarea {font-size:16px; padding:3px; color:#696969; background-color:#f0f8ff; width:85%;}
 	    #map {
 	    position: relative;
 	    z-index: 5;
@@ -72,19 +73,23 @@
 	  <p></p>
 	  <input type="text" class="req" id="m_date_en" placeholder="結束日期(必填)" readonly="readonly">
 	  <p></p>
-	  <input id="tw_cnam" name="tw_cnam" type="text" required class="req" placeholder="主題(最多60字、必填)" maxlength=60 />
+	  <input id="tw_cnam" name="tw_cnam" type="text" required class="req" pattern="[^\#]" placeholder="主題(不要輸入特殊符號、最多60字、必填)" maxlength=60 />
 	  <p></p>										  
-	  <input id="tw_adr" name="tw_adr" type="text" class="opt" placeholder="活動地址、地點(最多50字)、選填" maxlength=50 />
+	  <input id="tw_adr" name="tw_adr" type="text" class="opt" pattern="[^\#]" placeholder="活動地址、地點(最多50字)、選填" maxlength=50 />
 	  <p></p>
-	  <input id="tw_man1" name="tw_man1" type="text"  required class="req" placeholder="主要聯絡人(最多10字、必填)" maxlength=10 />
+	  <input id="tw_man1" name="tw_man1" type="text"  required class="req" pattern="[^\#]" placeholder="主要聯絡人(最多10字、必填)" maxlength=10 />
 	  <p></p>
-	  <input id="tw_tel1" name="tw_tel1" type="text"  required class="req" pattern="09\d{8}" placeholder="聯絡手機1(格式:09XXXXXXXX、必填)" maxlength=12 />
+	  <input id="tw_teln1" name="tw_teln1" type="text"  required class="req" pattern="^07\d{7}\,?\d{1,}?" placeholder="電話1(格式:07XXXXXXX,分機(無分機請輸入9)、必填)" maxlength=12 />
 	  <p></p>
-	  <input id="tw_man2" name="tw_man2" type="text" class="opt" placeholder="第二聯絡人(最多10字、選填)" maxlength=10 />
+	  <input id="tw_tel1" name="tw_tel1" type="text"  required class="req" pattern="09\d{8}" placeholder="手機1(格式:09XXXXXXXX、必填)" maxlength=12 />
 	  <p></p>
-	  <input id="tw_tel2" name="tw_tel2" type="text" class="opt" pattern="/^09\d{8}/" placeholder="聯絡手機2(格式:09XXXXXXXX、選填)" maxlength=12 />
+	  <input id="tw_man2" name="tw_man2" type="text" class="opt" pattern="[^\#]" placeholder="第二聯絡人(最多10字、選填)" maxlength=10 />
+	  <p></p>
+	  <input id="tw_teln1" name="tw_teln2" type="text" class="opt" pattern="^07\d{7}\,?\d{1,}?" placeholder="電話1(格式:07XXXXXXX,分機(無分機請輸入9)、必填)" maxlength=12 />
+	  <p></p>
+	  <input id="tw_tel2" name="tw_tel2" type="text" class="opt" pattern="/^09\d{8}/" placeholder="手機2(格式:09XXXXXXXX、選填)" maxlength=12 />
 	  <p></p>												     
-	  <textarea class="opt" rows="5" id="tw_oth" name="tw_oth" placeholder="其他備註事項(最多50字)" maxlength=50 /></textarea>
+	  <textarea class="opt" rows="5" id="tw_oth" name="tw_oth" pattern="[^\#]" placeholder="其他備註事項(不要輸入特殊符號、最多100字)" maxlength=100 /></textarea>
 	  <input id="pac-input" type="hidden" value="[勞工局新聞預告]">
 	  <p></p>
 	  <p></p>
