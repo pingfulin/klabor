@@ -19,8 +19,8 @@
 </style>
 </head>
 <body>
-<div class="container">
-   <h1 class="center" >已產生google日曆網址，請點選寄給媒體窗口，並記得附上新聞稿檔案</h1>	
+<div id="container_1">
+   <h1 id="h1_display" ></h1>	
  <textarea id="show_re" class="form-control req" readonly="readonly"></textarea>
   <p></p>
   <a id="show_a" style="font-Size:16pt;"></a>
@@ -39,7 +39,7 @@ var url_t01 = location.search;
 var url_t02 = b_return(url_t01);
 var url_t03 = decodeURI(b_return1(url_t01)) + ": ";
 var mailgo = "mailto:pingfulinkcg@gmail.com?subject=" + sub + "&body=" + url_t03 + url_t02
-$("#show_re").val(url_t03 + url_t02);
+$("#show_re").val(url_t03 + '\n' + url_t02);
 $("#show_a").text(url_t02);
 $("#show_a").attr({href:url_t02,target:"_blank"});
 $("#mail_go").attr({href:mailgo,target:"_blank"});
