@@ -317,7 +317,7 @@ function cal_bu(){
 
  success: function(result,status,xhr){
  var re_id= result
- window.location.replace('/klabor/newsmail.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
+ window.location.replace('/klabor/newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&sta=' + status);
 
   }
 });
@@ -432,7 +432,33 @@ if(url1.indexOf('?')!=-1)
 	    
 }
 }
-}	
+}
+
+function b_return2(u_turn2) {
+//先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
+var url2 = u_turn2;
+
+//再來用去尋找網址列中是否有資料傳遞(QueryString)
+if(url2.indexOf('?')!=-1)
+{
+    var na2 = "";
+    //在此直接將各自的參數資料切割放進ary中
+    var ary1 = url2.split('?')[1].split('&');
+    //此時ary的內容為：
+    //ary[0] = 'id=U001'，ary[1] = 'name=GQSM'
+    
+    //下迴圈去搜尋每個資料參數
+    for(i=0;i<=ary1.length-1;i++)
+    {
+        //如果資料名稱為id的話那就把他取出來
+        if(ary1[i].split('=')[0] == 'man1')
+	{na2 = ary1[i].split('=')[1];
+		return na2;
+    }
+	    
+}
+}
+}
 
  function copyInput(){
    document.getElementById('show_re').select();
