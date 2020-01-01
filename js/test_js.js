@@ -19,6 +19,10 @@
    alwaysSetTime:true,
    stepMinute:10,
    oneLine: true,
+		onSelect: function () {
+   document.getElementById('m_date').style.background-color:"#F0FFF0";
+
+	}
    	};
 
    var date_show = {
