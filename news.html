@@ -24,9 +24,10 @@
 	    input.req {font-size:16px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}
 	    input.opt {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
       select.req {font-size:16px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}
+			select.req.option:first-child { color:#DCDCDC;}
       textarea {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
-			input:valid {background-color:#F0FFF0;}
-			select:valid {background-color:#F0FFF0;}
+			input.req:valid {background-color:#F0FFF0;}
+			select.req:valid {background-color:#F0FFF0;}
 	    #map {
 	    position: relative;
 	    z-index: 5;
@@ -52,13 +53,13 @@
 	<form action="javascript:cal_bu()">
 	  <h1 class="center" >新增新聞排程</h1>	
 	  <select id="kind_s"  required class="req">
-	  <option value="" selected disabled style="color:#DCDCDC;">選擇發稿種類</option>
+	  <option value="" selected disabled>選擇發稿種類</option>
 	  <option value="新聞稿">新聞稿</option>
 	  <option value="採訪通知">採訪通知</optio>
 	</select>
 	  <p></p>
 	  <select id="depart"  required class="req">
-	  <option value="" selected disabled style="color:#DCDCDC;">業務單位</option>
+	  <option value="" selected disabled >點選業務單位</option>
 	  <option value="組織科">組織科</option>
 	  <option value="條件科">條件科</optio>
 	  <option value="關係科">關係科</option>
