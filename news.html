@@ -74,7 +74,7 @@
 		<option value="會計室">會計室</option>
 	 </select>
 	  <p></p>
-	  <input type="text" class="req" id="m_date" required placeholder="預計發稿日期(必填)" >
+	  <input type="text" class="req" id="m_date" required autocomplete="off" placeholder="預計發稿日期(必填)" >
 	  <p></p>
 	  <input id="tw_cnam" name="tw_cnam" type="text" required class="req" placeholder="主題(最多60字、必填)" maxlength=60 />
 	  <p></p>										  
@@ -110,6 +110,7 @@
    <script>
    $(document).ready (function(){
     $("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show_10);
+	$("#m_date").attr(“readonly”,true);
    });
 
 	   })
