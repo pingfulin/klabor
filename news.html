@@ -21,14 +21,13 @@
 	    body {font: 120% ; margin: 20px;}
 	    form { color:red}
 	   .dlg-no-close .ui-dialog-titlebar {display: none;}
-	    input.req {font-size:16px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}
-	    input.opt {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
-      select.req {font-size:16px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}
-			select.req.option:first-child { color:#DCDCDC;}
+	   .req {font-size:16px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}
+	   .opt {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
+     .req.option:first-child { color:#DCDCDC;}
       textarea {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
-			input.req:valid {background-color:#F0FFF0;}
-			select.req:valid {background-color:#F0FFF0;}
-	    #map {
+			.req:valid {background-color:#F0FFF0;}
+
+			#map {
 	    position: relative;
 	    z-index: 5;
 	    height: 380px;
@@ -75,7 +74,7 @@
 		<option value="會計室">會計室</option>
 	 </select>
 	  <p></p>
-	  <input type="text" class="req" id="m_date" required placeholder="預計發稿日期(必填)" readonly="readonly" >
+	  <input type="text" class="req" id="m_date" required placeholder="預計發稿日期(必填)" >
 	  <p></p>
 	  <input id="tw_cnam" name="tw_cnam" type="text" required class="req" placeholder="主題(最多60字、必填)" maxlength=60 />
 	  <p></p>										  
