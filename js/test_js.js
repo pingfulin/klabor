@@ -20,7 +20,7 @@
    stepMinute:10,
    oneLine: true,
 		onSelect: function () {
-   document.getElementById('m_date').style.background-color:"#F0FFF0";
+   $("m_date").css("background-color", "#F0FFF0");
 
 	}
    	};
