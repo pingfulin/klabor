@@ -459,16 +459,16 @@ if(url2.indexOf('?')!=-1)
 {
     var na2 = "";
     //在此直接將各自的參數資料切割放進ary中
-    var ary1 = url2.split('?')[1].split('&');
+    var ary2 = url2.split('?')[1].split('&');
     //此時ary的內容為：
     //ary[0] = 'id=U001'，ary[1] = 'name=GQSM'
     
     //下迴圈去搜尋每個資料參數
-    for(i=0;i<=ary1.length-1;i++)
+    for(i=0;i<=ary2.length-1;i++)
     {
         //如果資料名稱為id的話那就把他取出來
-        if(ary1[i].split('=')[0] == 'man1')
-	{na2 = ary1[i].split('=')[1];
+        if(ary2[i].split('=')[0] == 'man1')
+	{na2 = ary2[i].split('=')[1];
 		return na2;
     }
 	    
