@@ -375,7 +375,17 @@ $.post('https://script.google.com/macros/s/AKfycbw34_I1Ruovmoo8PPCd6h6vsxCJrxCRV
 });
 window.location.reload()
 }
-	
+
+function b_line(){
+var d_o= document.getElementById("show_re").innerHTML;
+$.post('https://script.google.com/macros/s/AKfycbw34_I1Ruovmoo8PPCd6h6vsxCJrxCRV1WJp6Afo__gogNM-sOe/exec',
+    {msg:d_o},
+    function(e){
+        console.log(e);
+});
+document.getElementById("mail_to").style.display = "none";
+}
+
 function b_clic_b() {
  window.location.replace('/klabor/test006.html');
 }
