@@ -23,8 +23,10 @@
 	   .dlg-no-close .ui-dialog-titlebar {display: none;}
 	    input.req {font-size:16px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}
 	    input.opt {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
-            select.req {font-size:16px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}
-            textarea {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
+      select.req {font-size:16px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}
+      textarea {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
+			input:valid {background-color:#F0FFF0;}
+			select:valid {background-color:#F0FFF0;}
 	    #map {
 	    position: relative;
 	    z-index: 5;
@@ -50,13 +52,13 @@
 	<form action="javascript:cal_bu()">
 	  <h1 class="center" >新增新聞排程</h1>	
 	  <select id="kind_s"  required class="req">
-	  <option value="" selected disabled>選擇發稿種類</option>
+	  <option value="" selected disabled style="color:#DCDCDC";>選擇發稿種類</option>
 	  <option value="新聞稿">新聞稿</option>
 	  <option value="採訪通知">採訪通知</optio>
 	</select>
 	  <p></p>
 	  <select id="depart"  required class="req">
-	  <option value="" selected disabled>業務單位</option>
+	  <option value="" selected disabled style="color:#DCDCDC";>業務單位</option>
 	  <option value="組織科">組織科</option>
 	  <option value="條件科">條件科</optio>
 	  <option value="關係科">關係科</option>
@@ -66,7 +68,10 @@
 	  <option value="訓就中心">訓就中心</option>
 	  <option value="勞教中心">勞教中心</optio>
 	  <option value="博訓中心">博訓中心</option>
-	  <option value="其他">其他</option>
+	  <option value="秘書室">秘書室</option>
+		<option value="政風室">政風室</option>
+		<option value="人事室">人事室</option>
+		<option value="會計室">會計室</option>
 	 </select>
 	  <p></p>
 	  <input type="text" class="req" id="m_date" required placeholder="預計發稿日期(必填)" readonly="readonly" >
