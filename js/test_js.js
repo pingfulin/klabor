@@ -381,7 +381,9 @@ window.location.reload()
 }
 
 function b_line(){
-var d_o= document.getElementById("show_re").innerHTML;
+var d_o= $("#show_re").val();
+window.location.href="mailto:pingfulinkcg@gmail.com?subject=[新聞稿通知]&body=" + d_o;
+
 $.post('https://script.google.com/macros/s/AKfycbw34_I1Ruovmoo8PPCd6h6vsxCJrxCRV1WJp6Afo__gogNM-sOe/exec',
     {msg:d_o},
     function(e){
