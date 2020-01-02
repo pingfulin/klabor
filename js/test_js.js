@@ -298,6 +298,9 @@ function cal_bu(){
    return false; }
    else{ 
    var d1= $("#m_date").val();
+   var d1y1= d1.substring(0,3);
+   var d1y2= d1y1 - 1911;
+   var d1y= d1.replace( d1y1, d1y2);
    var d1_t= d1.replace(/\/|\:/ig,"");
    var d1_t1= d1_t + "T000000";
    //var d2= $("#m_date_en").val();
@@ -306,9 +309,10 @@ function cal_bu(){
    var d_tall= d1_t1 + "/" + d2_t1;
    var d_o1= $("#tw_man1").val().replace(/#|\?/ig,"") + "%20" + $("#tw_teln1").val() + "%20" + $("#tw_tel1").val();
    var d_o2= $("#tw_man2").val().replace(/#|\?/ig,"") + "%20" + $("#tw_teln2").val() + "%20" + $("#tw_tel2").val();
-   var d_o= $("#depart").val() + "%20" + d_o1 + "%0A" + d_o2
+   var d_o3= $("#depart").val();
+   var d_o= d_o3 + "%20" + d_o1 + "%0A" + d_o2;
    var d_p= $("#tw_adr").val();
-   var d_t= $("#pac-input").val() + $("#kind_s").val() + $("#tw_cnam").val().replace(/#|\?/ig,"");
+   var d_t= $("#pac-input").val() + d1y + $("#kind_s").val() + $("#tw_cnam").val().replace(/#|\?/ig,"");
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
    var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o + "&location=" + d_p;
 
@@ -321,7 +325,7 @@ function cal_bu(){
 
  success: function(result,status,xhr){
  var re_id= result
- window.location.replace('/klabor/newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&sta=' + status);
+ window.location.replace('/klabor/newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o + '&sta=' + status);
 
   }
 });
