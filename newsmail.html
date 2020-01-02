@@ -45,9 +45,9 @@ var url_t02 = b_return(url_t01);
 var url_t03 = decodeURI(b_return1(url_t01)) + ": ";
 var url_man = decodeURI(b_return2(url_t01));					
 var mailgo = "mailto:pingfulinkcg@gmail.com?subject=" + sub + "&body=" + url_t03 + url_man + url_t02;
-if (url_t02=="") { $("#h1_display").text("查無資料，請點選回上頁重新登錄。");
+if (url_t02==null) { $("#h1_display").text("查無資料，請點選回上頁重新登錄。");
  return false;   }
-if (url_t02!=="") { $("#h1_display").text("提交成功。步驟2.請點選mail媒體窗口。");
+if (url_t02!==null) { $("#h1_display").text("提交成功。步驟2.請點選mail媒體窗口。");
 }
 document.getElementById("container_1").style.display = "block";
 $("#show_re").val(url_t03 + '\n' + url_t02 + '\n' + url_man);
