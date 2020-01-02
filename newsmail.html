@@ -4,30 +4,30 @@
 <meta charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 	<title></title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="js/test_js.js" type="text/javascript"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
- .center{
-    font-Size: 24px;
-	color: brown;
-}
-	input.req {font-size:16px; padding:3px; background-color:#ffffb6;}
+	   .center{font-Size: 24px; color: brown;} 
+	    body {font: 120% ; margin: 20px;}
+	   .req {font-size:16px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}
+	   .opt {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
+     .req.option:first-child { color:#DCDCDC;}
+      textarea {font-size:16px; padding:3px; color:#8B0000; width:85%;}
+			.req:valid {background-color:#F0FFF0;}
 </style>
 </head>
 <body>
 
-   <h1 id="h1_display" ></h1>
+   <h1 id="h1_display" class="center" ></h1>
 <div id="container_1" style="display:none">
- <textarea id="show_re" class="form-control req" readonly="readonly"></textarea>
+ <textarea id="show_re" rows="8" readonly></textarea>
   <p></p>
   <a id="show_a" style="font-Size:16pt;"></a>
   <p></p>
-  <button id="mail_to" onclick=b_line() target="_blank">mail媒體窗口</button>
-  <a id="mail_go" style="font-Size:16pt;">寄給媒體窗口</a>
+  <button id="mail_to" onclick=b_line() target="_blank">通知媒體窗口</button>
+ 
   <button id="text_copy" onclick=copyInput()>複製網址</button>
   
   <p></p>
@@ -35,7 +35,8 @@
   <p style="color:brown;">google行程QR code</p>
 </div>
 <input type ="button" onclick="javascript:location.href='https://pingfulin.github.io/klabor/news.html'" value="回上頁"></input>
-<button id="yes1" onclick=b_clic_b()>回上一頁</button>
+
+  </body>
   <script>
 $(document).ready (function (){
 var sub = "[新聞稿通知]";
@@ -46,7 +47,7 @@ var url_man = decodeURI(b_return2(url_t01));
 var mailgo = "mailto:pingfulinkcg@gmail.com?subject=" + sub + "&body=" + url_t03 + url_man + url_t02;
 if (url_t02=="") { $("#h1_display").text("查無資料，請點選回上頁重新登錄。");
  return false;   }
-if (url_t02!=="") { $("#h1_display").text("成功，2.請點選mail媒體窗口。");
+if (url_t02!=="") { $("#h1_display").text("提交成功。步驟2.請點選mail媒體窗口。");
 }
 document.getElementById("container_1").style.display = "block";
 $("#show_re").val(url_t03 + '\n' + url_t02 + '\n' + url_man);
@@ -57,5 +58,5 @@ $("#mail_to").attr({href:mailgo,target:"_blank"});
 draw();
 })
 </script>
-  </body>
+
 </html>
