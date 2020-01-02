@@ -48,10 +48,9 @@
 	   </style>
 	
 	  </head>
-	<body>
+	<body onLoad="javascript:document.yourFormName.reset()">
 
 	<form action="javascript:cal_bu()">
-	<p id="setnum"></p>
 	  <h1 class="center" >新增新聞排程</h1>	
 	  <select id="kind_s"  required class="req">
 	  <option value="" selected disabled>選擇發稿種類</option>
@@ -127,9 +126,6 @@
 </body>
    <script>
    $(document).ready (function(){
-	var timestamp= new Date().getTime();
-	$("#setnum").text(timestamp);
-	$("#setnum").attr("readonly",true);
 	$("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show_10);
 	$("#m_date").attr("readonly",true);
    });
