@@ -372,7 +372,7 @@ function cal_bu(){
 
 function b_clicline(){
 var d_o= $("#tw_oth").val();
-$.post('https://script.google.com/macros/s/AKfycbw34_I1Ruovmoo8PPCd6h6vsxCJrxCRV1WJp6Afo__gogNM-sOe/exec',
+$.post('https://script.google.com/macros/s/AKfycbxicS4rOF2qDv4Ecv8W12AZ8kXBrlisy9mfevLsh9Y9MbrCKIY/exec',
     {msg:d_o},
     function(e){
         console.log(e);
@@ -384,12 +384,13 @@ function b_line(){
 var d_o= $("#show_re").val();
 window.location.href="mailto:pingfulinkcg@gmail.com?subject=[新聞稿通知]&body=" + d_o;
 
-$.post('https://script.google.com/macros/s/AKfycbw34_I1Ruovmoo8PPCd6h6vsxCJrxCRV1WJp6Afo__gogNM-sOe/exec',
+$.post('https://script.google.com/macros/s/AKfycbxicS4rOF2qDv4Ecv8W12AZ8kXBrlisy9mfevLsh9Y9MbrCKIY/exec',
     {msg:d_o},
     function(e){
         console.log(e);
 });
 document.getElementById("mail_to").style.display = "none";
+$("#h1_display").text("步驟3.請請點選列印檢核表，並依規定陳核。")
 }
 
 function b_clic_b() {
