@@ -20,7 +20,7 @@
    stepMinute:10,
    oneLine: true,
 		onSelect: function () {
-   $("m_date").css("background-color", "#F0FFF0");
+   $("#m_date").css("background-color", "#F0FFF0");
 
 	}
    	};
@@ -394,7 +394,8 @@ $.post('https://script.google.com/macros/s/AKfycbxicS4rOF2qDv4Ecv8W12AZ8kXBrlisy
         console.log(e);
 });
 document.getElementById("mail_to").style.display = "none";
-$("#h1_display").text("步驟3.請請點選列印檢核表，並依規定陳核。")
+document.getElementById("print_to").style.display = "block";
+$("#h1_display").text("步驟3/3請請點選列印檢核表，並依規定陳核。")
 }
 
 function b_clic_b() {
