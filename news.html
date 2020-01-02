@@ -125,7 +125,9 @@
 </body>
    <script>
    $(document).ready (function(){
-    $("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show_10);
+   var timestamp= new Date().getTime();
+	window.location.replace("https://pingfulin.github.io/klabor/news.html?tamp=" + timestamp);
+	$("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show_10);
 	$("#m_date").attr("readonly",true);
    });
 
