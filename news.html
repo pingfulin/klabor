@@ -49,6 +49,9 @@
 	
 	  </head>
 	<body>
+<script>
+   var timestamp= new Date().getTime();
+	window.location.replace("https://pingfulin.github.io/klabor/news.html?tamp=" + timestamp);</script>
 	<form action="javascript:cal_bu()">
 	  <h1 class="center" >新增新聞排程</h1>	
 	  <select id="kind_s"  required class="req">
@@ -125,8 +128,7 @@
 </body>
    <script>
    $(document).ready (function(){
-   var timestamp= new Date().getTime();
-	window.location.replace("https://pingfulin.github.io/klabor/news.html?tamp=" + timestamp);
+
 	$("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show_10);
 	$("#m_date").attr("readonly",true);
    });
