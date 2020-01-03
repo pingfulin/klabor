@@ -294,8 +294,7 @@ function cal_bu(){
    return false; }
    if ($("#tw_teln1").val()=="") { alert("尚未輸入電話");
    return false; }
-   if ($("#tw_tel1").val()=="") { alert("尚未輸入手機");
-   return false; }
+  
    else{ 
    var d1= $("#m_date").val();
    var d1y1= d1.substring(0,3);
