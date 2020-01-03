@@ -295,11 +295,12 @@ function cal_bu(){
    if ($("#tw_teln1").val()=="") { alert("尚未輸入電話");
    return false; }
   
-   else{ 
-   var d1= $("#m_date").val();
-   var d1y1= d1.substring(0,3);
-   var d1y2= d1y1 - 1911;
-   var d1y= d1.replace( d1y1, d1y2);
+   else{
+   var d11= $("#m_date").val();
+   var d11= $("#m_date").text();
+   var d11y1= d11.substring(0,3);
+   var d11y2= parseInt(d11y1) - 1911;
+   var d11y= d11.replace( d11y1, d11y2);
    var d1_t= d1.replace(/\/|\:/ig,"");
    var d1_t1= d1_t + "T000000";
    //var d2= $("#m_date_en").val();
@@ -311,7 +312,7 @@ function cal_bu(){
    var d_o3= $("#depart").val();
    var d_o= d_o3 + "%0A" + d_o1 + "%0A" + d_o2;
    var d_p= $("#tw_adr").val();
-   var d_t= $("#pac-input").val() + d1y + $("#kind_s").val() + $("#tw_cnam").val().replace(/#|\?/ig,"");
+   var d_t= $("#pac-input").val() + d11y + $("#kind_s").val() + $("#tw_cnam").val().replace(/#|\?/ig,"");
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
    var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o + "&location=" + d_p;
 
