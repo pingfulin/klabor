@@ -25,7 +25,7 @@
 <div id="container_1" style="display:none">
  <textarea id="show_re" rows="8" readonly></textarea>
   <p></p>
-  <span<a id="show_a" style="font-Size:16pt;"></a>
+  <span>加入google日曆:</span><a id="show_a" style="font-Size:16pt;"></a>
   <p></p>
   <button id="mail_to" onclick=b_line() target="_blank">通知媒體窗口</button>
   <button id="print_to" onclick=window.print() style="display:none">通知媒體窗口</button>
@@ -46,7 +46,7 @@ var url_t01 = location.search;
 var url_t02 = b_return(url_t01);
 var url_t03 = decodeURI(b_return1(url_t01)) + ": ";
 var url_man = decodeURI(b_return2(url_t01));					
-<!-- var mailgo = "mailto:pingfulinkcg@gmail.com,bolaboraffair@gmail.com?subject=" + sub + "&body=" + url_t03 + url_man + url_t02; -->
+
 if (url_t02==null) { $("#h1_display").text("查無資料，請點選回上頁重新登錄。");
  return false;   }
 if (url_t02!==null) { $("#h1_display").text("步驟2/3請點選通知媒體窗口，mail並請附檔案。");
@@ -55,7 +55,7 @@ document.getElementById("container_1").style.display = "block";
 $("#show_re").val(url_t03 + '\n' + url_man + '\n' + "加入google日曆:" + url_t02 );
 $("#show_a").text(url_t02);
 $("#show_a").attr({href:url_t02,target:"_blank"});
-$("#mail_to").attr({href:mailgo,target:"_blank"});
+
 draw();
 })
 </script>
