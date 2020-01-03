@@ -296,7 +296,7 @@ function cal_bu(){
    return false; }
   
    else{
-   var d11= $("#m_date").val();
+   var d1= $("#m_date").val();
    var d11= $("#m_date").text();
    var d11y1= d11.substring(0,3);
    var d11y2= parseInt(d11y1) - 1911;
