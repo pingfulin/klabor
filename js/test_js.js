@@ -300,13 +300,13 @@ function cal_bu(){
 var d11 = d1.split('/'); 
 
 //取得民國年
-var y01 = parseInt(d1[0])-1911;
+var y01 = parseInt(d11[0])-1911;
 
 //取得月份
-var m01 = d1[1];
+var m01 = d11[1];
 
 //取得日期
-var d01 = d1[2];
+var d01 = d11[2];
 
 //將民國年月日的值指定給"生日"欄位
 var d11y= y01 + "/" + m01 + "/" + d01;
