@@ -297,10 +297,20 @@ function cal_bu(){
   
    else{
    var d1= $("#m_date").val();
-   var d11= $("#m_date").text();
-   var d11y1= d11.substring(0,3);
-   var d11y2= parseInt(d11y1) - 1911;
-   var d11y= d11.replace( d11y1, d11y2);
+var d11 = d1.split('/'); 
+
+//取得民國年
+var year = d1[0]-1911;
+
+//取得月份
+var month = d1[1];
+
+//取得日期
+var date = d1[2];
+
+//將民國年月日的值指定給"生日"欄位
+var d11y=year+"/"+month+"/"+date;
+
    var d1_t= d1.replace(/\/|\:/ig,"");
    var d1_t1= d1_t + "T000000";
    //var d2= $("#m_date_en").val();
@@ -312,7 +322,7 @@ function cal_bu(){
    var d_o3= $("#depart").val();
    var d_o= d_o3 + "%0A" + d_o1 + "%0A" + d_o2;
    var d_p= $("#tw_adr").val();
-   var d_t= $("#pac-input").val() + d11y + $("#kind_s").val() + $("#tw_cnam").val().replace(/#|\?/ig,"");
+   var d_t= $("#pac-input").val() + $("#kind_s").val() + d11y + $("#tw_cnam").val().replace(/#|\?/ig,"");
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
    var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o + "&location=" + d_p;
 
