@@ -26,7 +26,7 @@
  <textarea id="show_re" rows="8" readonly></textarea>
  <div id="container_1" style="display:none">
   <p></p>
-  <span>加入google日曆:</span><a id="show_a" style="font-Size:16pt;"></a>
+<div id="hyper_c" class="no-print"><span>加入google日曆:</span><a id="show_a" style="font-Size:16pt;"></a></div>
   <p></p>
 <div id="button_s" class="no-print">
   <button id="mail_to" onclick=b_line() target="_blank">通知媒體窗口</button>
@@ -36,27 +36,27 @@
   </div>
 <div id="s01" style="display:none">
 <hr>	  
-<p>一、陳核前，請檢核以下事項:</p>
-
-<input type="checkbox" name="vehicle1-1">(一)已按照步驟登錄，並將檔案mail給媒體聯絡窗口。<br>
-<input type="checkbox" name="vehicle1-2">(二)已收到系統回覆之確認郵件。<br>
+<p><b>一、陳核前，請檢核以下事項:</b></p>
+<input type="checkbox" name="vehicle1-1">(一)新聞稿或採訪通知，已依照新聞登錄網頁下方最新發稿文件之格式撰寫。<br>
+<input type="checkbox" name="vehicle1-2">(一)已按照步驟登錄，並將檔案mail給媒體聯絡窗口。<br>
+<input type="checkbox" name="vehicle1-3">(二)已收到系統回覆之確認郵件。<br>
 
 <h1></h1>
 <hr>				      
-<p>二、核批後，請檢核以下事項:</p>
+<p><b>二、核批後，請檢核以下事項:</b></p>
 <input type="checkbox" name="vehicle2-1">(一)修改檔案，並將檔案(含文件、照片檔)mail給媒體聯絡窗口。<br>
 <input type="checkbox" name="vehicle2-2">(二)對方已確認收到。<br>
 <input type="checkbox" name="vehicle2-3">(三)勞工局新聞登錄網頁，已有該筆新聞預告，預定發稿日期:<br>
 <h1></h1>
 <hr>				      
-<p>三、有活動，請檢核以下事項:</p>
+<p><b>三、有活動，請檢核以下事項:</b></p>
 <input type="checkbox" name="vehicle3-1">(一)活動拍照，及攝影(重要或市府長官出席場合)。<br>
 <input type="checkbox" name="vehicle3-2">(一)將活動照片檔(6-10張)mail給媒體聯絡窗口(請掌握時效)。<br>
 <input type="checkbox" name="vehicle3-3">(二)對方已確認收到。<br>
 <h1></h1>
 <hr>				      
-<p>四、發稿後，請檢核以下事項:</p>
-<input type="checkbox" name="vehicle4-1">(一)勞工局新聞登錄網頁，已有該筆新聞發稿資料。<br>
+<p><b>四、發稿後，請檢核以下事項:</b></p>
+<input type="checkbox" name="vehicle4-1">(一)勞工局新聞登錄網頁，已有該筆新聞發稿資料。<br>  <canvas id="canvas" width="160" height="180" display= "inline"></canvas>
 <input type="checkbox" name="vehicle4-2">(一)蒐集5天內新聞露出之情形。<br>
 <input type="checkbox" name="vehicle4-3">(二)將露出情形，回覆張貼到該筆新聞發稿資料，共:    則。<br>
 <hr>				      
@@ -64,8 +64,7 @@
 <p></p>
 <p>核章及主管覆閱:</p>				
 </div>
-  <canvas id="canvas" width="200" height="220" ></canvas>
-  <p style="color:brown;">掃碼加入google日曆</p>
+
 </div>
 <input type ="button" class="no-print" onclick="javascript:location.href='https://pingfulin.github.io/klabor/news.html'" value="回上頁"></input>
 
@@ -86,7 +85,13 @@ document.getElementById("container_1").style.display = "block";
 $("#show_re").val(url_t03 + '\n' + url_man + '\n' + "加入google日曆:" + url_t02 );
 $("#show_a").text(url_t02);
 $("#show_a").attr({href:url_t02,target:"_blank"});
-
+var b = document.getElementById("print_to");
+ 
+var handler = function () {$("#h1_display").text("勞工局新聞業務檢核表"); };
+ 
+if (b.addEventListener) {
+    b.addEventListener("click", handler);
+}
 draw();
 })
 </script>
