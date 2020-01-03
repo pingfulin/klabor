@@ -310,7 +310,7 @@ function cal_bu(){
    var d_o1= $("#tw_man1").val().replace(/#|\?/ig,"") + "%20" + $("#tw_teln1").val() + "%20" + $("#tw_tel1").val();
    var d_o2= $("#tw_man2").val().replace(/#|\?/ig,"") + "%20" + $("#tw_teln2").val() + "%20" + $("#tw_tel2").val();
    var d_o3= $("#depart").val();
-   var d_o= d_o3 + "%20" + d_o1 + "%0A" + d_o2;
+   var d_o= d_o3 + "%0A" + d_o1 + "%0A" + d_o2;
    var d_p= $("#tw_adr").val();
    var d_t= $("#pac-input").val() + d1y + $("#kind_s").val() + $("#tw_cnam").val().replace(/#|\?/ig,"");
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
@@ -385,8 +385,9 @@ window.location.reload()
 }
 
 function b_line(){
-var d_o= $("#show_re").val();
-window.location.href="mailto:pingfulinkcg@gmail.com?subject=[新聞稿通知]&body=" + d_o;
+var d_o= $("#show_re").val().replace(/\n/g,"<br>");
+window.alert("mail時\n請記得附上\n新聞稿、採訪通知的檔案");
+window.location.href="mailto:pingfulinkcg@gmail.com,bolaboraffair@gmail.com?subject=[新聞稿通知]&body=" + d_o;
 
 $.post('https://script.google.com/macros/s/AKfycbxicS4rOF2qDv4Ecv8W12AZ8kXBrlisy9mfevLsh9Y9MbrCKIY/exec',
     {msg:d_o},
