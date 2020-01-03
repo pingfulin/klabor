@@ -395,7 +395,7 @@ window.location.reload()
 }
 
 function b_line(){
-var d_o= $("#show_re").val().replace(/\n/g,"<br>");
+var d_o= $("#show_re").val().replace(/\n/g,"%0A");
 window.alert("mail時\n請記得附上\n新聞稿、採訪通知的檔案");
 window.location.href="mailto:pingfulinkcg@gmail.com,bolaboraffair@gmail.com?subject=[新聞稿通知]&body=" + d_o;
 
@@ -405,8 +405,9 @@ $.post('https://script.google.com/macros/s/AKfycbxicS4rOF2qDv4Ecv8W12AZ8kXBrlisy
         console.log(e);
 });
 document.getElementById("mail_to").style.display = "none";
-document.getElementById("print_to").style.display = "block";
-$("#h1_display").text("步驟3/3請請點選列印檢核表，並依規定陳核。")
+document.getElementById("print_to").style.display = "inline";
+$("#h1_display").text("步驟3/3請請點選列印檢核表，並依規定陳核。");
+document.getElementById("s01").style.display = "block";	
 }
 
 function b_clic_b() {
