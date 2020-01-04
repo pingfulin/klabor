@@ -505,8 +505,8 @@ if(url2.indexOf('?')!=-1)
  } 
  
 function QRCode(content, width, height){
-	width = !!width ? width : 200 ;
-	height = !!height ? height : 200;
+	width = !!width ? width : 120 ;
+	height = !!height ? height : 120;
 	// 編碼，及qrcode大小
 	content = encodeURIComponent(content);
     return 'https://chart.googleapis.com/chart?cht=qr&chl=' + content + '&chs=' + width + 'x' + height;
@@ -519,9 +519,9 @@ function draw() {
   var url_t01 = location.search;
   image.src = QRCode(b_return(url_t01));  
   image.onload = function() {
-    ctx.drawImage(this, 0, 0, 200, 200);//qrcode的大小，正方形
+    ctx.drawImage(this, 0, 0, 120, 120);//qrcode的大小，正方形
     ctx.font = "18px Times New Roman";
-    ctx.fillText('加入行程', 55, 190); //字的位置
+    ctx.fillText('加入行程', 25, 140); //字的位置
   }
 
 
