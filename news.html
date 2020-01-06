@@ -3,7 +3,7 @@
 	<head>
 	<meta charset=UTF-8 />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title></title>
+		<title>勞工局新聞登</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -27,7 +27,6 @@
      .req.option:first-child { color:#DCDCDC;}
       textarea {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
 			.req:valid {background-color:#F0FFF0;}
-
 			#map {
 	    position: relative;
 	    z-index: 5;
@@ -104,10 +103,12 @@
 	 <button type="reset" class="btn btn-warning" id="reset1" >重填</button>
 	</form> 
 	 <p></p>
-		<p style="color:blue;font-Size:12px;">Designed by 炳賦 078124613,108 0929659356 </p>
+		<p style="color:blue;font-Size:12px;">Designed by 炳賦 078124613,108 0929659356 </p><a href="mailto:bolaboraffair@gmail.com?subject=[新聞稿檔案]&body=寄送新聞稿檔案及照片">寄送核定的檔案及照片jpg檔給我</a>
   <p></p>
-<iframe src="https://calendar.google.com/calendar/embed?src=bolaboraffair%40gmail.com&ctz=Asia%2FTaipei" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+  <h1 class="center" >勞工局新聞預告</h1>	  
+<iframe src="https://calendar.google.com/calendar/embed?src=bolaboraffair%40gmail.com&ctz=Asia%2FTaipei" style="border: 0" width="400" height="300" frameborder="0" scrolling="no"></iframe>
   <p></p>  
+  <h1 class="center" >發稿新聞一覽表</h1>
 <iframe id="forum_embed"
   src="javascript:void(0)"
   scrolling="no"
@@ -127,13 +128,19 @@
 </body>
    <script>
    $(document).ready (function(){
+	var url_t01 = location.search;
+	
+	var url_c01 = b_return3(url_t01, "s001");
+	var s_now = Date.now();
+if (url_c01 =null) { window.location.replace('news.html?s001='+ s_now);
+ }	
 	document.getElementById("myForm").reset();
 	$("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show_10);
 	$("#m_date").attr("readonly",true);
    });
-
 	   })
    </script>
 	
 	   </html>
+
 
