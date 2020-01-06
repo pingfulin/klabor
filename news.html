@@ -100,14 +100,14 @@
 	  <p></p>
 	
 	 <input type="submit" />
-	 <button type="reset" class="btn btn-warning" id="reset1" >重填</button><a href="mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片">&nbsp;&nbsp;寄送核定的檔案及照片jpg檔</a>
+	 <button type="reset" class="btn btn-warning" id="reset1" >重填</button>&nbsp;&nbsp;<a href="mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片">寄送核定的檔案及照片jpg檔</a>
 	</form> 
 	 <p></p>
 		<p style="color:blue;font-Size:12px;">Designed by 炳賦 078124613,108 0929659356 </p>
   <p></p>
   <hr>
   <h1 class="center" >勞工局新聞預告</h1>	  
-<iframe src="https://calendar.google.com/calendar/embed?src=bolaboraffair%40gmail.com&ctz=Asia%2FTaipei" style="border: 0" width="600" frameborder="0" scrolling="no"></iframe>
+<iframe src="https://calendar.google.com/calendar/embed?src=bolaboraffair%40gmail.com&ctz=Asia%2FTaipei" style="border: 0" width="600" height="400" frameborder="0" scrolling="no"></iframe>
   <p></p>  
  <hr>
   <h1 class="center" >發稿新聞一覽表</h1>
@@ -116,6 +116,7 @@
   scrolling="no"
   frameborder="0"
   width="600"
+  height="800"
   >
 </iframe>
 <script type="text/javascript">
@@ -134,7 +135,7 @@
 	
 	var url_c01 = b_return3(url_t01, "s001");
 	var s_now = new Date().getTime();
-if (url_c01 ==null) { alert("尚未輸入樓層或場所"); window.location.replace('/news.html?s001='+ s_now);
+if (url_c01 =="") { alert("尚未輸入樓層或場所"); window.location.replace('/news.html?s001='+ s_now);
  }	
 	document.getElementById("myForm").reset();
 	$("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show_10);
