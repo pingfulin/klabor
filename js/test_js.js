@@ -1,4 +1,4 @@
-  var date_show_10 = {
+var date_show_10 = {
    dayNames:["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
    dayNamesMin:["日","一","二","三","四","五","六"],
    monthNames:["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],
@@ -494,6 +494,32 @@ if(url2.indexOf('?')!=-1)
 }
 }
 
+function b_return3(u_turn3, search_o) {
+//先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
+var url3 = u_turn3;
+
+//再來用去尋找網址列中是否有資料傳遞(QueryString)
+if(url3.indexOf('?')!=-1)
+{
+    var na3 = "";
+    //在此直接將各自的參數資料切割放進ary中
+    var ary3 = url3.split('?')[1].split('&');
+    //此時ary的內容為：
+    //ary[0] = 'id=U001'，ary[1] = 'name=GQSM'
+    
+    //下迴圈去搜尋每個資料參數
+    for(i=0;i<=ary3.length-1;i++)
+    {
+        //如果資料名稱為id的話那就把他取出來
+        if(ary3[i].split('=')[0] == 'man1')
+	{na3 = ary3[i].split('=')[1];
+		return na3;
+    }
+	    
+}
+}
+}
+
  function copyInput(){
    document.getElementById('show_re').select();
    document.execCommand('copy');
@@ -571,5 +597,6 @@ data : {
 });
 }
 }
+
 
 	
