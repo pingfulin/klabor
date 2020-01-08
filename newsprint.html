@@ -82,8 +82,8 @@ document.getElementById("container_1").style.display = "block";
 $("#show_re").val(url_t03);
 <!-- $("#show_a").text(url_t02); -->
 <!-- $("#show_a").attr({href:url_t02,target:"_blank"}); -->
-var url_dqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=120x120&chl=" + encodeURIComponent(url_t02) 
-var url_mqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=120x120&chl=" + encodeURIComponent("mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片" + url_t03) 
+var url_dqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURIComponent(url_t02);
+var url_mqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片" + encodeURIComponent(url_t03);  
 $("#img_date").attr("src",url_dqr);
 $("#img_mail").attr("src",url_mqr);
 var b = document.getElementById("print_to");
