@@ -24,7 +24,7 @@
  <textarea id="show_re" rows="8" readonly></textarea>
  <div id="container_1" style="display:none">
   <p></p>
-  <p><img id="img_date" alt="掃描QR Code加入自己的行事曆" style="float:right;width:200px;height:200px;">掃描QR Code加入自己的行事曆: </p>
+  <p><img id="img_date" alt="勞工局新聞登錄網頁 " style="float:right;width:200px;height:200px;">勞工局新聞登錄網頁:  <a>https://pingfulin.github.io/klabor/news.html </a></p>
   <p></p>
 <div id="button_s" class="no-print">
  
@@ -83,13 +83,11 @@ $("#show_re").val(url_t03);
 <!-- $("#show_a").text(url_t02); -->
 <!-- $("#show_a").attr({href:url_t02,target:"_blank"}); -->
 var url_dqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURIComponent(url_t02);
-var url_mqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片" + encodeURIComponent(url_t03);  
+var url_mqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURIComponent("https://pingfulin.github.io/klabor/news.html"); 
 $("#img_date").attr("src",url_dqr);
 $("#img_mail").attr("src",url_mqr);
 var b = document.getElementById("print_to");
- 
-var handler = function () {$("#h1_display").text("勞工局新聞業務檢核表"); };
- 
+var handler = function () {$("#h1_display").text("勞工局新聞業務檢核表"); }; 
 if (b.addEventListener) {
     b.addEventListener("click", handler);
 }
@@ -97,3 +95,5 @@ draw();
 })
 </script>
 </html>
+
+
