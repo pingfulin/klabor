@@ -400,8 +400,7 @@ var d_sh= $("#show_a").val();
 var d_href= "mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&body=" + d_o;
 var dd_href= "mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片" + d_o
 window.alert("mail時\n請記得附上\n新聞稿、採訪通知的檔案");
-window.open("mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&body=" + d_o, _blank)
-
+window.open(d_href);
 $.post('https://script.google.com/macros/s/AKfycbxicS4rOF2qDv4Ecv8W12AZ8kXBrlisy9mfevLsh9Y9MbrCKIY/exec',
     {msg:d_o},
     function(e){
