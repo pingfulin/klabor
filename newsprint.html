@@ -24,11 +24,11 @@
  <textarea id="show_re" rows="8" readonly></textarea>
  <div id="container_1" style="display:none">
   <p></p>
-  <p><img id="img_date" alt="勞工局新聞登錄網頁 " style="float:right;width:200px;height:200px;">勞工局新聞登錄網頁:  <a>https://pingfulin.github.io/klabor/news.html </a></p>
+  <p><img id="img_date" alt="勞工局新聞登錄網頁: " style="float:right;width:200px;height:200px;">勞工局新聞登錄網頁:  <a href="https://pingfulin.github.io/klabor/news.html ">https://pingfulin.github.io/klabor/news.html </a></p>
   <p></p>
 <div id="button_s" class="no-print">
  
-  <button id="print_to" onclick=window.print() >列印檢核表</button>
+  <button id="print_to" onclick= b_print()>列印檢核表</button>
  
   </div>
 <div id="s01" >
@@ -42,7 +42,7 @@
 <p><b>二、核批後，請檢核以下事項:</b></p>
 <input type="checkbox" name="vehicle2-1">(一)修改檔案，並準備照片圖檔(3~6張)。<br>
 <input type="checkbox" name="vehicle2-2">(二)勞工局新聞登錄網頁:確認已有該筆新聞預告，預定發稿日期:___________。<br>
-<input type="checkbox" name="vehicle2-3">(三)勞工局新聞登錄網頁:即早將核定檔案、照片jpg檔寄出。<img id="img_mail" alt="掃描mail" style="float:right;width:200px;height:200px;"><br>
+<input type="checkbox" name="vehicle2-3">(三)勞工局新聞登錄網頁:即早將核定檔案、照片jpg檔寄出。
 <input type="checkbox" name="vehicle2-4">(四)已收到系統回覆之確認郵件(*可能被當成垃圾郵件，請至垃圾郵件區確認)。<br>
 <h1></h1>
 <hr>				      
@@ -82,17 +82,18 @@ document.getElementById("container_1").style.display = "block";
 $("#show_re").val(url_t03);
 <!-- $("#show_a").text(url_t02); -->
 <!-- $("#show_a").attr({href:url_t02,target:"_blank"}); -->
-var url_dqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURIComponent(url_t02);
+
+<!-- var url_dqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURIComponent(url_t02); -->
 var url_mqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURIComponent("https://pingfulin.github.io/klabor/news.html"); 
 $("#img_date").attr("src",url_dqr);
 $("#img_mail").attr("src",url_mqr);
-var b = document.getElementById("print_to");
-var handler = function () {$("#h1_display").text("勞工局新聞業務檢核表"); }; 
-if (b.addEventListener) {
-    b.addEventListener("click", handler);
-}
-draw();
 })
+function b_print(){
+$("#h1_display").text("勞工局新聞業務檢核表"); 
+window.print();
+
+}
+
 </script>
 </html>
 
