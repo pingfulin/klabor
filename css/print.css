@@ -54,7 +54,8 @@ a:link, a:visited, a {
   word-wrap: break-word; /*避免網址過長超出頁面*/
 }
 a[href^="http://"]:after, a[href^="https://"]:after {
-  content: " (" attr(href) ") ";
+  content:none !important;
+
 }
 thead{
   display: table-header-group; /* 表格即使分頁也會顯示表頭 */
