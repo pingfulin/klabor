@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+	<title></title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type"text/css" href="css/print.css" media="print">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="js/test_js.js" type="text/javascript"></script>
+<style>
+	   .center{font-Size: 24px; color: brown;} 
+	    body {font: 120% ; margin: 20px;}
+	   .req {font-size:16px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}
+	   .opt {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
+     .req.option:first-child { color:#DCDCDC;}
+      textarea {font-size:16px; padding:3px; color:indigo; width:85%;}
+			.req:valid {background-color:#F0FFF0;}
+</style>
+</head>
+<body>
+   <h1 id="h1_display" class="center" ></h1>
+ <textarea id="show_re" rows="8" readonly></textarea>
+ <div id="container_1" style="display:none">
+  <p></p>
+  <p><img id="img_date" alt="掃描QR Code加入自己的行事曆" style="float:right;width:100px;height:100px;">掃描QR Code加入自己的行事曆: </p>
+  <p></p>
+<div id="button_s" class="no-print">
+ 
+  <button id="print_to" onclick=window.print() style="display:none">列印檢核表</button>
+ 
+  </div>
+<div id="s01" >
+<hr>	  
+<p><b>一、陳核前，請檢核以下事項:</b></p>
+<input type="checkbox" name="vehicle1-1">(一)新聞稿或採訪通知，已依照新聞登錄網頁下方最新發稿文件之格式撰寫。<br>
+<input type="checkbox" name="vehicle1-2">(二)勞工局新聞登錄網頁:已按照步驟登錄。<br>
+<input type="checkbox" name="vehicle1-3">(三)已收到系統回覆之確認郵件(*可能被當成垃圾郵件，請至垃圾郵件區確認)。<br>
+<h1></h1>
+<hr>				      
+<p><b>二、核批後，請檢核以下事項:</b></p>
+<input type="checkbox" name="vehicle2-1">(一)修改檔案，並準備照片圖檔(3~6張)。<br>
+<input type="checkbox" name="vehicle2-2">(二)勞工局新聞登錄網頁:確認已有該筆新聞預告，預定發稿日期:___________。<br>
+<input type="checkbox" name="vehicle2-3">(三)勞工局新聞登錄網頁:即早將核定檔案、照片jpg檔寄出。<img id="img_mail" alt="掃描mail" style="float:right;width:100px;height:100px;"><br>
+<input type="checkbox" name="vehicle2-4">(四)已收到系統回覆之確認郵件(*可能被當成垃圾郵件，請至垃圾郵件區確認)。<br>
+<h1></h1>
+<hr>				      
+<p><b>三、有活動，請檢核以下事項:</b></p>
+<input type="checkbox" name="vehicle3-1">(一)活動拍照，及攝影(重要或市府長官出席場合)。<br>
+<input type="checkbox" name="vehicle3-2">(二)勞工局新聞登錄網頁:將活動照片jpg檔(6~10張)寄出(*請掌握時效:上午12:00、下午14:30前)。<br>
+<input type="checkbox" name="vehicle3-3">(三)已收到系統回覆之確認郵件(*可能被當成垃圾郵件，請至垃圾郵件區確認)。<br>
+<h1></h1>
+<hr>				      
+<p><b>四、發稿後，請檢核以下事項:</b></p>
+<input type="checkbox" name="vehicle4-1">(一)勞工局新聞登錄網頁:發稿新聞已有該筆資料。<br>
+<input type="checkbox" name="vehicle4-2">(二)蒐集5天內新聞露出之情形。<br>
+<input type="checkbox" name="vehicle4-3">(三)將露出及新聞超連結，回覆張貼到該筆新聞發稿資料，共:______ 則。<br>
+<hr>
+ <span>勞工局新聞登錄網頁: </span><a>https://pingfulin.github.io/klabor/news.html </a>
+
+
+<p></p>
+<p>承辦人核章及主管覆閱:</p>				
+</div>
+</div>
+<input type ="button" class="no-print" onclick="javascript:location.href='https://pingfulin.github.io/klabor/news.html'" value="回上頁"></input>
+  </body>
+
+  <script>
+$(document).ready (function (){
+var sub = "[新聞稿通知]";
+var url_t01 = location.search;
+var url_t02 = b_return3(url_t01, "re_id");
+var url_t03 = decodeURI(b_return3(url_t01, "show"));
+<!-- var url_man = decodeURI(b_return2(url_t01));					 -->
+if (url_t02|url_t03 ==null) { $("#h1_display").text("查無資料，請點選回上頁重新登錄。");
+ return false;   }
+else { $("#h1_display").text("步驟3/3請點選列印檢核表，並依規定陳核。");
+}
+document.getElementById("container_1").style.display = "block";
+$("#show_re").val(url_t03);
+<!-- $("#show_a").text(url_t02); -->
+<!-- $("#show_a").attr({href:url_t02,target:"_blank"}); -->
+var url_dqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=120x120&chl=" + encodeURIComponent(url_t02) 
+var url_mqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=120x120&chl=" + encodeURIComponent("mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片" + url_t03) 
+$("#img_date").attr("src",url_dqr);
+$("#img_mail").attr("src",url_mqr);
+var b = document.getElementById("print_to");
+ 
+var handler = function () {$("#h1_display").text("勞工局新聞業務檢核表"); };
+ 
+if (b.addEventListener) {
+    b.addEventListener("click", handler);
+}
+draw();
+})
+</script>
+</html>
