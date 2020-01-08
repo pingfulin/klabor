@@ -20,9 +20,7 @@
 </style>
 </head>
 <body>
-
    <h1 id="h1_display" class="center" ></h1>
-
  <textarea id="show_re" rows="8" readonly></textarea>
  <div id="container_1" style="display:none">
   <p></p>
@@ -30,45 +28,13 @@
   <p></p>
 <div id="button_s" class="no-print">
   <button id="mail_to" onclick=b_line() target="_blank">通知媒體窗口</button>
-  <button id="print_to" onclick=window.print() style="display:none">列印檢核表</button>
+
  
   <button id="text_copy" onclick=copyInput()>複製通知內容</button>
   </div>
-<div id="s01" style="display:none">
-<hr>	  
-<p><b>一、陳核前，請檢核以下事項:</b></p>
-<input type="checkbox" name="vehicle1-1">(一)新聞稿或採訪通知，已依照新聞登錄網頁下方最新發稿文件之格式撰寫。<br>
-<input type="checkbox" name="vehicle1-2">(一)已按照步驟登錄，並將檔案mail給媒體聯絡窗口。<br>
-<input type="checkbox" name="vehicle1-3">(二)已收到系統回覆之確認郵件。<br>
-
-<h1></h1>
-<hr>				      
-<p><b>二、核批後，請檢核以下事項:</b></p>
-<input type="checkbox" name="vehicle2-1">(一)修改檔案，並將檔案(含文件、照片檔)mail給媒體聯絡窗口。<br>
-<input type="checkbox" name="vehicle2-2">(二)對方已確認收到。<br>
-<input type="checkbox" name="vehicle2-3">(三)勞工局新聞登錄網頁，已有該筆新聞預告，預定發稿日期:<br>
-<h1></h1>
-<hr>				      
-<p><b>三、有活動，請檢核以下事項:</b></p>
-<input type="checkbox" name="vehicle3-1">(一)活動拍照，及攝影(重要或市府長官出席場合)。<br>
-<input type="checkbox" name="vehicle3-2">(一)將活動照片檔(6-10張)mail給媒體聯絡窗口(請掌握時效)。<br>
-<input type="checkbox" name="vehicle3-3">(二)對方已確認收到。<br>
-<h1></h1>
-<hr>				      
-<p><b>四、發稿後，請檢核以下事項:</b></p>
-<input type="checkbox" name="vehicle4-1">(一)勞工局新聞登錄網頁，已有該筆新聞發稿資料。<br>
-<input type="checkbox" name="vehicle4-2">(一)蒐集5天內新聞露出之情形。<br>
-<input type="checkbox" name="vehicle4-3">(二)將露出情形，回覆張貼到該筆新聞發稿資料，共:______ 則。<br>
-<hr>
-  <canvas id="canvas" width="60%" height="60%" display= "inline"></canvas>
- <span>勞工局新聞登錄網頁: </span><a>https://pingfulin.github.io/klabor/news.html </a>
-<p></p>
-<p>承辦人核章及主管覆閱:</p>				
-</div>
 
 </div>
 <input type ="button" class="no-print" onclick="javascript:location.href='https://pingfulin.github.io/klabor/news.html'" value="回上頁"></input>
-
   </body>
   <script>
 $(document).ready (function (){
@@ -77,24 +43,23 @@ var url_t01 = location.search;
 var url_t02 = b_return(url_t01);
 var url_t03 = decodeURI(b_return1(url_t01)) + ": ";
 var url_man = decodeURI(b_return2(url_t01));					
-
 if (url_t02==null) { $("#h1_display").text("查無資料，請點選回上頁重新登錄。");
  return false;   }
 if (url_t02!==null) { $("#h1_display").text("步驟2/3請點選通知媒體窗口，mail並請附檔案。");
 }
 document.getElementById("container_1").style.display = "block";
+
 $("#show_re").val(url_t03 + '\n' + url_man + '\n' + "加入google日曆:" + url_t02 );
 $("#show_a").text(url_t02);
 $("#show_a").attr({href:url_t02,target:"_blank"});
-var b = document.getElementById("print_to");
+// /*var b = document.getElementById("print_to");
  
-var handler = function () {$("#h1_display").text("勞工局新聞業務檢核表"); };
+// var handler = function () {$("#h1_display").text("勞工局新聞業務檢核表"); };
  
-if (b.addEventListener) {
-    b.addEventListener("click", handler);
-}
-draw();
+// if (b.addEventListener) {
+    // b.addEventListener("click", handler);
+// }*/
+// draw();
 })
 </script>
-
 </html>
