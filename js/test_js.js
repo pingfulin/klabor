@@ -501,6 +501,7 @@ if(url2.indexOf('?')!=-1)
 function b_return3(u_turn3, search_o) {
 //先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
 var url3 = u_turn3;
+var search_s = search_o
 
 //再來用去尋找網址列中是否有資料傳遞(QueryString)
 if(url3.indexOf('?')!=-1)
@@ -515,7 +516,7 @@ if(url3.indexOf('?')!=-1)
     for(i=0;i<=ary3.length-1;i++)
     {
         //如果資料名稱為id的話那就把他取出來
-        if(ary3[i].split('=')[0] == 'man1')
+        if(ary3[i].split('=')[0] == search_s)
 	{na3 = ary3[i].split('=')[1];
 		return na3;
     }
