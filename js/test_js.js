@@ -411,7 +411,7 @@ document.getElementById("mail_to").style.display = "none";
 // document.getElementById("print_to").style.display = "inline";
 // $("#h1_display").text("步驟3/3請點選列印檢核表，並依規定陳核。");
 // document.getElementById("s01").style.display = "block";
- window.location.replace('/newsprint.html?re_id=' + d_sh '&show=' + d_o);	
+ window.location.replace('/newsprint.html?re_id=' + d_sh + '&show=' + d_o);	
 }
 
 function b_clic_b() {
