@@ -3,7 +3,7 @@
 <head>
 <meta charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-	<title></title>
+	<title>步驟2/3</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" type"text/css" href="css/print.css" media="print">
@@ -34,13 +34,14 @@
   </div>
 
 </div>
+<p></p>
 <input type ="button" class="no-print" onclick="javascript:location.href='https://pingfulin.github.io/klabor/news.html'" value="回上頁"></input>
   </body>
   <script>
 $(document).ready (function (){
 var sub = "[新聞稿通知]";
 var url_t01 = location.search;
-var url_t02 = b_return(url_t01);
+var url_t02 = decodeURI(b_return(url_t01));
 var url_t03 = decodeURI(b_return1(url_t01)) + ": ";
 var url_man = decodeURI(b_return2(url_t01));					
 if (url_t02==null) { $("#h1_display").text("查無資料，請點選回上頁重新登錄。");
