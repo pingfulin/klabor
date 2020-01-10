@@ -24,7 +24,20 @@
  <textarea id="show_re" rows="8" readonly></textarea>
  <div id="container_1" style="display:none">
   <p></p>
-  <p><img id="img_mail" alt="勞工局新聞登錄網頁: " style="float:right;width:200px;height:200px;">勞工局新聞登錄網頁:  <a href="https://pingfulin.github.io/klabor/news.html ">https://pingfulin.github.io/klabor/news.html </a></p>
+<table style="width:100%">
+  <tr>
+    <th>掃碼加入行事曆</th>
+    <th>掃碼至新聞登錄網頁</th> 
+
+  </tr>
+  <tr>
+    <td><img id="img_date" alt="加入行事曆 " style="float:center;width:200px;height:200px;"></td>
+    <td><img id="img_mail" alt="勞工局新聞登錄網頁 " style="float:center;width:200px;height:200px;"></td>
+
+  </tr>
+ 
+</table>
+  <p>勞工局新聞登錄網址:  <a href="https://pingfulin.github.io/klabor/news.html ">https://pingfulin.github.io/klabor/news.html </a></p>
   <p></p>
 <div id="button_s" class="no-print">
  
@@ -36,20 +49,20 @@
 <p><b>一、陳核前，請檢核以下事項:</b></p>
 <input type="checkbox" name="vehicle1-1">(一)新聞稿或採訪通知，已依照新聞登錄網頁下方最新發稿文件之格式撰寫。<br>
 <input type="checkbox" name="vehicle1-2">(二)勞工局新聞登錄網頁:已按照步驟登錄。<br>
-<input type="checkbox" name="vehicle1-3">(三)已收到系統回覆之確認郵件(*可能被當成垃圾郵件，請至垃圾郵件區確認)。<br>
+<input type="checkbox" name="vehicle1-3">(三)已收到系統回覆之確認郵件(*可能被當成垃圾郵件，可至垃圾郵件區確認)。<br>
 <h1></h1>
 <hr>				      
 <p><b>二、核批後，請檢核以下事項:</b></p>
 <input type="checkbox" name="vehicle2-1">(一)修改檔案，並準備照片圖檔(3~6張)。<br>
 <input type="checkbox" name="vehicle2-2">(二)勞工局新聞登錄網頁:確認已有該筆新聞預告，預定發稿日期:___________。<br>
 <input type="checkbox" name="vehicle2-3">(三)勞工局新聞登錄網頁:即早將核定檔案、照片jpg檔寄出。
-<input type="checkbox" name="vehicle2-4">(四)已收到系統回覆之確認郵件(*可能被當成垃圾郵件，請至垃圾郵件區確認)。<br>
+<input type="checkbox" name="vehicle2-4">(四)已收到系統回覆之確認郵件(*可能被當成垃圾郵件，可至垃圾郵件區確認)。<br>
 <h1></h1>
 <hr>				      
 <p><b>三、有活動，請檢核以下事項:</b></p>
 <input type="checkbox" name="vehicle3-1">(一)活動拍照，及攝影(重要或市府長官出席場合)。<br>
 <input type="checkbox" name="vehicle3-2">(二)勞工局新聞登錄網頁:將活動照片jpg檔(6~10張)寄出(*請掌握時效:上午12:00、下午14:30前)。<br>
-<input type="checkbox" name="vehicle3-3">(三)已收到系統回覆之確認郵件(*可能被當成垃圾郵件，請至垃圾郵件區確認)。<br>
+<input type="checkbox" name="vehicle3-3">(三)已收到系統回覆之確認郵件(*可能被當成垃圾郵件，可至垃圾郵件區確認)。<br>
 <h1></h1>
 <hr>				      
 <p><b>四、發稿後，請檢核以下事項:</b></p>
@@ -57,9 +70,7 @@
 <input type="checkbox" name="vehicle4-2">(二)蒐集5天內新聞露出之情形。<br>
 <input type="checkbox" name="vehicle4-3">(三)將露出及新聞超連結，回覆張貼到該筆新聞發稿資料，共:______ 則。<br>
 <hr>
- <span>勞工局新聞登錄網頁: </span><a>https://pingfulin.github.io/klabor/news.html </a>
-
-
+ 
 <p></p>
 <p>承辦人核章及主管覆閱:</p>				
 </div>
@@ -71,7 +82,7 @@
 $(document).ready (function (){
 var sub = "[新聞稿通知]";
 var url_t01 = location.search;
-var url_t02 = b_return3(url_t01, "re_id");
+var url_t02 = decodeURI(b_return3(url_t01, "re_id"));
 var url_t03 = decodeURI(b_return3(url_t01, "show"));
 <!-- var url_man = decodeURI(b_return2(url_t01));					 -->
 if (url_t02|url_t03 ==null) { $("#h1_display").text("查無資料，請點選回上頁重新登錄。");
@@ -79,13 +90,13 @@ if (url_t02|url_t03 ==null) { $("#h1_display").text("查無資料，請點選回
 else { $("#h1_display").text("步驟3/3請點選列印檢核表，並依規定陳核。");
 }
 document.getElementById("container_1").style.display = "block";
-$("#show_re").val(url_t03);
+$("#show_re").val(decodeURI(url_t03));
 <!-- $("#show_a").text(url_t02); -->
 <!-- $("#show_a").attr({href:url_t02,target:"_blank"}); -->
 
-<!-- var url_dqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURIComponent(url_t02); -->
-var url_mqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURIComponent("https://pingfulin.github.io/klabor/news.html"); 
-<!-- $("#img_date").attr("src",url_dqr); -->
+var url_dqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURI(url_t02); 
+var url_mqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURI("https://pingfulin.github.io/klabor/news.html"); 
+$("#img_date").attr("src",url_dqr);
 $("#img_mail").attr("src",url_mqr);
 })
 function b_print(){
@@ -93,7 +104,6 @@ $("#h1_display").text("勞工局新聞業務檢核表");
 window.print();
 
 }
-
 
 </script>
 </html>
