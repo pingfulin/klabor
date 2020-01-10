@@ -335,7 +335,6 @@ var d11y= y01 + "/" + m01 + "/" + d01;
 
  success: function(result,status,xhr){
  var re_id= result;
- var send_sta= starus;
  
  var mail_all= encodeURI('/klabor/newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o )
  window.location.replace(mail_all);
