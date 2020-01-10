@@ -400,7 +400,7 @@ window.location.reload()
 
 function b_line(){
 var d_o= $("#show_re").val();
-var d_sh= $("#show_a").();
+var d_sh= $("#show_a").text();
 var d_href= "mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&body=" + d_o;
 var dd_href= "mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片" + d_o
 window.alert("mail時\n請記得附上\n新聞稿、採訪通知的檔案");
