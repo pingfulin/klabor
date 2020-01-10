@@ -50,7 +50,7 @@ if (url_t02!==null) { $("#h1_display").text("步驟2/3請點選通知媒體窗�
 }
 document.getElementById("container_1").style.display = "block";
 
-$("#show_re").val(url_t03 + '\n' + url_man + '\n' + "加入google日曆:" + url_t02 );
+$("#show_re").val(decodeURI(url_t03 + '\n' + url_man + '\n' + "加入google日曆:" + url_t02));
 $("#show_a").text(url_t02);
 $("#show_a").attr({href:url_t02,target:"_blank"});
 
