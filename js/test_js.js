@@ -334,8 +334,13 @@ var d11y= y01 + "/" + m01 + "/" + d01;
  dataType : "text",
 
  success: function(result,status,xhr){
- var re_id= result
- window.location.replace('/klabor/newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o + '&sta=' + status);
+ var re_id= result;
+ var send_sta= starus;
+ if (send_sta == 'success')function(){
+ var mail_all= encodeURI('/klabor/newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o )
+ window.location.replace(mail_all);
+ else{ alert("提交失敗，請重新輸入提交，或洽媒體聯絡窗口。");
+   return false; }
 
   }
 });
