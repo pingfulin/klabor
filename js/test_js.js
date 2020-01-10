@@ -340,10 +340,12 @@ var d11y= y01 + "/" + m01 + "/" + d01;
  var mail_all= encodeURI('/klabor/newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o )
  window.location.replace(mail_all);
  
-});
+},
+ error: function(){alert("提交失敗，請重新輸入或電洽媒體聯絡人。");
+ return false;}, 
+   });
   };
   }
-}
 
 
  function b_clic(){
@@ -605,6 +607,5 @@ data : {
 });
 }
 }
-
 
 	
