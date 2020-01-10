@@ -335,7 +335,7 @@ var d11y= y01 + "/" + m01 + "/" + d01;
 
  success: function(result,status,xhr){
  var re_id= result;
- 
+  
  var mail_all= encodeURI('/klabor/newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o )
  window.location.replace(mail_all);
  
@@ -415,7 +415,8 @@ document.getElementById("mail_to").style.display = "none";
 // document.getElementById("print_to").style.display = "inline";
 // $("#h1_display").text("步驟3/3請點選列印檢核表，並依規定陳核。");
 // document.getElementById("s01").style.display = "block";
- window.location.replace('/klabor/newsprint.html?re_id=' + d_sh +'&show=' + d_o);	
+ var print_all= encodeURI('/klabor/newsprint.html?re_id=' + d_sh +'&show=' + d_o);
+ window.location.replace(print_all);	
 }
 
 function b_clic_b() {
@@ -606,5 +607,6 @@ data : {
 });
 }
 }
+
 
 	
