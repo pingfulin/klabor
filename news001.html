@@ -47,8 +47,7 @@
 	       }
 	ul {
   list-style-type: none;
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
+  position: fixed;
   top: 0;
 margin: 0;
   padding: 0;
@@ -69,12 +68,12 @@ li a {
   text-decoration: none;
 }
 
-li a:hover:not(.active) {
+li a.hover {
   background-color: #ddd;
 }
 
 li a.active {
-  color: white;
+ 
   background-color: #20B2AA;
 }
 	   </style>
