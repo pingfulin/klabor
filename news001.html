@@ -47,7 +47,10 @@
 	       }
 	ul {
   list-style-type: none;
-  margin: 0;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+margin: 0;
   padding: 0;
   overflow: hidden;
   border: 1px solid #e7e7e7;
@@ -72,7 +75,7 @@ li a:hover:not(.active) {
 
 li a.active {
   color: white;
-  background-color: #4CAF50;
+  background-color: #20B2AA;
 }
 	   </style>
 	
@@ -84,7 +87,7 @@ li a.active {
   <li><a href="#home">新增排程</a></li>
   <li><a href="#klcal">新聞預告</a></li>
   <li><a href="mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片">寄核定檔</a></li>
-  <li><a href="#forum_embed">露出張貼</a></li>
+  <li><a href="#news_kl">露出張貼</a></li>
 </ul>
 
 	<h1 class="center" >新增新聞排程</h1>	
@@ -146,7 +149,7 @@ li a.active {
 <iframe src="https://calendar.google.com/calendar/embed?src=bolaboraffair%40gmail.com&ctz=Asia%2FTaipei" style="border: 0" width="600" height="400" frameborder="0" scrolling="no"></iframe>
   <p></p>  
  <hr>
-  <h1 class="center" >發稿新聞一覽表</h1>
+  <h1 class="center" id="news_kl">發稿新聞一覽表</h1>
 <iframe id="forum_embed"
   src="javascript:void(0)"
   scrolling="no"
