@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+	
+	<head>
+	<meta charset=UTF-8 />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>勞工局新聞登錄(測試網頁)</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<link href="js/jquery-ui-timepicker-addon.css" rel="stylesheet"/>
+<script src="js/jquery-ui-timepicker-addon.js" type="text/javascript"></script>
+<script src="js/jquery-ui-sliderAccess.js" type="text/javascript"></script>
+<script src="js/jquery-ui-timepicker-zh-TW.js" type="text/javascript"></script>
+<script src="test_test.js" type="text/javascript"></script>
+
+	<script src="https://apis.google.com/js/api.js"></script>
+	
+	  <style>
+	   .center{font-Size: 24px; color: brown;} 
+	    body {font: 120% ; margin: 20px;}
+	    form { color:red}
+	   .dlg-no-close .ui-dialog-titlebar {display: none;}
+	   .req {font-size:16px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}
+	   .opt {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
+	   .read {font-size:16px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}	
+     .req.option:first-child { color:#DCDCDC;}
+      textarea {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
+			.req:valid {background-color:#F0FFF0;}
+			#map {
+	    position: relative;
+	    z-index: 5;
+	    height: 380px;
+	    width: 260px;
+	    top: 15px;
+	    overflow: hidden;
+	       }
+	     #dia {
+	    position: relative;
+	    width: 300px;
+	    height: 430px;														      
+	   		}	   
+	   
+	     #container {
+	    position: relative;
+	    z-index: 0;
+	       }	  	   
+	ul {
+  list-style-type: none;
+   top: 0;
+margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+}
+
+li {
+  float: left;
+}
+
+li a:link {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:visited {
+ 
+  background-color: #20B2AA;
+}
+li a:hover {
+  background-color: #ddd;
+}
+
+
+		</style>
+	
+	  </head>
+	<body>
+
+	<form id="myForm" action="javascript:cal_bu()">
+	<ul id="home">
+  <li><a href="#home">新增排程</a></li>
+  <li><a href="#klcal">新聞預告</a></li>
+  <li><a href="mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片">寄核定檔</a></li>
+  <li><a href="#news_kl">露出張貼</a></li>
+</ul>
+	  <h1 class="center" >新增新聞排程</h1>	
+	  <select id="kind_s"  required class="req">
+	  <option value="" selected disabled>選擇發稿種類</option>
+	  <option value="新聞稿">新聞稿</option>
+	  <option value="採訪通知">採訪通知</optio>
+	</select>
+	  <p></p>
+	  <select id="depart"  required class="req">
+	  <option value="" selected disabled >點選業務單位</option>
+	  <option value="組織科">組織科</option>
+	  <option value="條件科">條件科</optio>
+	  <option value="關係科">關係科</option>
+	  <option value="就安科">就安科</option>
+	  <option value="職重科">職重科</optio>
+	  <option value="勞檢處">勞檢處</option>
+	  <option value="訓就中心">訓就中心</option>
+	  <option value="勞教中心">勞教中心</optio>
+	  <option value="博訓中心">博訓中心</option>
+	  <option value="秘書室">秘書室</option>
+		<option value="政風室">政風室</option>
+		<option value="人事室">人事室</option>
+		<option value="會計室">會計室</option>
+	 </select>
+	  <p></p>
+	  <input type="text" class="read" id="m_date" required autocomplete="off" placeholder="預計發稿日期(必填)" >
+	  <p></p>
+	  <input id="tw_cnam" name="tw_cnam" type="text" required class="req" autocomplete="off" placeholder="主題(最多60字、必填)" maxlength=60 />
+	  <p></p>										  
+	  <input id="tw_adr" name="tw_adr" type="text" class="opt" placeholder="活動地址、地點(最多50字)、選填" maxlength=50 />
+	  <p></p>
+	  <input id="tw_man1" name="tw_man1" type="text"  required class="req" placeholder="主要聯絡人(最多10字、必填)" maxlength=10 />
+	  <p></p>
+	  <input id="tw_teln1" name="tw_teln1" type="text"  required class="req" title="格式:07XXXXXXX,分機(分機前請加半形逗號, 無分機請在逗號後輸入9)" pattern="07[2-9]{1}[0-9]{6},[0-9]{1,}" placeholder="電話1(格式:07XXXXXXX,分機(無分機請輸入9)、必填)" maxlength=20 />
+	  <p></p>
+	  <input id="tw_tel1" name="tw_tel1" type="text" class="opt" title="格式:09XXXXXXXX" pattern="09\d{8}" placeholder="手機1(格式:09XXXXXXXX、選填)" maxlength=12 />
+	  <p></p>
+	  <input id="tw_man2" name="tw_man2" type="text" class="opt" placeholder="第二聯絡人(最多10字、選填)" maxlength=10 />
+	  <p></p>
+	  <input id="tw_teln2" name="tw_teln2" type="text" class="opt" title="格式:07XXXXXXX,分機(無分機請輸入9)" pattern="07[2-9]{1}[0-9]{6},[0-9]{1,}" placeholder="電話2(格式:07XXXXXXX,分機(無分機請輸入9)、選填)" maxlength=20 />
+	  <p></p>
+	  <input id="tw_tel2" name="tw_tel2" type="text" class="opt" title="格式:09XXXXXXXX" pattern="09\d{8}" placeholder="手機2(格式:09XXXXXXXX、選填)" maxlength=12 />
+	  <p></p>												     
+	  <textarea class="opt" rows="5" id="tw_oth" name="tw_oth" style="display:none;" placeholder="其他備註事項(最多100字)" maxlength=100 /></textarea>
+	  <input id="pac-input" type="hidden" value="[勞工局新聞預告]">
+	  <p></p>
+	  <p></p>
+	  <p></p>
+	
+	 <input type="submit" />
+	 <button type="reset" class="btn btn-warning" id="reset1" >重填</button>&nbsp;&nbsp;<a href="mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片">寄送核定的檔案及照片jpg檔</a>
+	</form> 
+	 <p></p>
+		<p style="color:blue;font-Size:12px;">Designed by 炳賦 078124613,108 0929659356 </p>
+  <p></p>
+  <hr>
+  <h1 class="center" id="klcal">勞工局新聞預告&nbsp;&nbsp;<a style="font-Size:10px;" href="#home">回頂端</a></h1>	 	  
+<iframe src="https://calendar.google.com/calendar/embed?src=bolaboraffair%40gmail.com&ctz=Asia%2FTaipei" style="border: 0" width="600" height="400" frameborder="0" scrolling="no"></iframe>
+  <p></p>  
+ <hr>
+ <h1 class="center" id="news_kl">發稿新聞一覽表&nbsp;&nbsp;<a style="font-Size:10px;" href="#home">回頂端</a></h1>
+<iframe id="forum_embed"
+  src="javascript:void(0)"
+  scrolling="no"
+  frameborder="0"
+  width="600"
+  height="800"
+  >
+</iframe>
+<script type="text/javascript">
+  document.getElementById('forum_embed').src =
+     'https://groups.google.com/forum/embed/?place=forum/kcglabornews'
+     + '&showsearch=true&showpopout=true&showtabs=false'
+     + '&parenturl=' + encodeURIComponent(window.location.href);
+</script>
+	
+
+
+</body>
+   <script>
+   $(document).ready (function(){
+	document.getElementById("myForm").reset();
+	$("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show_10);
+	$("#m_date").attr("readonly",true);
+   });
+	   })
+
+   </script>
+	
+	   </html>
+
+
