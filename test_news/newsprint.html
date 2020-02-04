@@ -31,13 +31,13 @@
 
   </tr>
   <tr>
-    <td><img id="img_date" alt="加入行事曆 " style="float:center;width:120px;height:120px;"></td>
-    <td><img id="img_mail" alt="勞工局新聞登錄網頁 " style="float:center;width:120px;height:120px;"></td>
+    <td><img id="img_date" alt="加入行事曆(測試) " style="float:center;width:120px;height:120px;"></td>
+    <td><img id="img_mail" alt="勞工局新聞登錄網頁(測試) " style="float:center;width:120px;height:120px;"></td>
 
   </tr>
  
 </table>
-  <p>勞工局新聞登錄網址:  <a href="https://pingfulin.github.io/klabor/news.html ">https://pingfulin.github.io/klabor/news.html </a></p>
+  <p>勞工局新聞登錄網址:(測試) <a href="https://pingfulin.github.io/klabor/test_news/news.html ">https://pingfulin.github.io/klabor/test_news/news.html </a></p>
   <p></p>
 <div id="button_s" class="no-print">
  
@@ -99,6 +99,13 @@ var url_mqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200
 $("#img_date").attr("src",url_dqr);
 $("#img_mail").attr("src",url_mqr);
 })
+
+$.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_RA6ITB2hu0eZa3O-mDc/exec',
+    {msg:(decodeURI(url_t03)},
+    function(e){
+        console.log(e);
+});
+			 
 function b_print(){
 $("#h1_display").text("勞工局新聞業務檢核表"); 
 window.print();
