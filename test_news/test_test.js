@@ -404,7 +404,7 @@ var d_sh= $("#show_a").text();
 var d_href= "mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&body=" + d_o;
 var dd_href= "mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片" + d_o;
 $.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_RA6ITB2hu0eZa3O-mDc/exec',
-    {msg:(d_o},
+    {msg:d_o},
     function(e){
         console.log(e);
 });
