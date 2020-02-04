@@ -99,12 +99,6 @@ var url_mqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200
 $("#img_date").attr("src",url_dqr);
 $("#img_mail").attr("src",url_mqr);
 
-
-$.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_RA6ITB2hu0eZa3O-mDc/exec',
-    {msg:(decodeURI(url_t03)},
-    function(e){
-        console.log(e);
-});
 })
 			 
 function b_print(){
