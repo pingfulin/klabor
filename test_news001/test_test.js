@@ -285,7 +285,7 @@ gapi.client.load('calendar', 'v3', function () { // load the calendar api (versi
 });
 }
 
-$(function cal_bu(){
+ function cal_bu(){
    if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期");
    return false; }
    if ($("#tw_cnam").val()=="") { alert("尚未輸入主題");
@@ -344,10 +344,10 @@ var d11y= y01 + "/" + m01 + "/" + d01;
  return false;}, 
    });
   };
-  })
+  }
 
 
- $(function b_clic(){
+ function b_clic(){
    if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
    return false; }
    if ($("#tw_nam").val()=="") { alert("尚未輸入行程名稱");
@@ -386,7 +386,7 @@ var d11y= y01 + "/" + m01 + "/" + d01;
   }
 });
   }
-  })
+  }
 
 function b_clicline(){
 var d_o= $("#tw_oth").val();
@@ -398,7 +398,7 @@ $.post('https://script.google.com/macros/s/AKfycbxicS4rOF2qDv4Ecv8W12AZ8kXBrlisy
 window.location.reload()
 }
 
-$(function b_line(){
+function b_line(){
 var d_o= $("#show_re").val();
 var d_sh= $("#show_a").text();
 var d_href= "mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&body=" + d_o;
@@ -417,7 +417,7 @@ document.getElementById("mail_to").style.display = "none";
 // document.getElementById("s01").style.display = "block";
  var print_all= encodeURI('/klabor/test_news/newsprint.html?re_id=' + d_sh +'&show=' + d_o);
  window.location.replace(print_all);	
-})
+}
 
 function b_clic_b() {
  window.location.replace('/klabor/test006.html');
@@ -427,7 +427,7 @@ function reset1() {
  $('input').val("");
 }
 
-$(function b_return(u_turn) {
+function b_return(u_turn) {
 //先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
 var url = u_turn;
 
@@ -450,9 +450,9 @@ if(url.indexOf('?')!=-1)
     }
     }	    
 }
-})
+}
 
-$(function b_return1(u_turn1) {
+function b_return1(u_turn1) {
 //先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
 var url1 = u_turn1;
 
@@ -476,9 +476,9 @@ if(url1.indexOf('?')!=-1)
 	    
 }
 }
-})
+}
 
-$(function b_return2(u_turn2) {
+function b_return2(u_turn2) {
 //先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
 var url2 = u_turn2;
 
@@ -502,9 +502,9 @@ if(url2.indexOf('?')!=-1)
 	    
 }
 }
-})
+}
 
-$(function b_return3(u_turn3, search_o) {
+function b_return3(u_turn3, search_o) {
 //先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
 var url3 = u_turn3;
 var search_s = search_o
@@ -529,9 +529,9 @@ if(url3.indexOf('?')!=-1)
 	    
 }
 }
-})
+}
 
- $(function copyInput(){
+ function copyInput(){
    document.getElementById('show_re').select();
    document.execCommand('copy');
  })
