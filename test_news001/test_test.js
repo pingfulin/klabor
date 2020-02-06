@@ -336,7 +336,7 @@ var d11y= y01 + "/" + m01 + "/" + d01;
  success: function(result,status,xhr){
  var re_id= result;
   
- var mail_all= encodeURI('/klabor/test_news/newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o )
+ var mail_all= encodeURI('/klabor/test_news001/newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o )
  window.location.replace(mail_all);
  
 },
