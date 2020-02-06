@@ -4,10 +4,7 @@
 	<meta charset=UTF-8 />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>勞工局新聞登錄(測試網頁)</title>
-  <script language="JavaScript">
-    document.write(
-      '<style>#h1_news { display: none; }</style>');
-  </script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -92,10 +89,7 @@ li a:hover {
   <li><a href="#news_kl">露出張貼(測試)</a></li>
 </ul>
 	  <h1 class="center" id="h1_news">瀏覽器未打開javascript，請先打開才能登錄</h1>	
-  <script language="JavaScript">
-    document.write(
-      "<h1 class="center">新增新聞排程(測試網頁)</h1>");
-  </script>
+	  <h1 class="center" id="h1_news_yes"></h1>
 	  <select id="kind_s"  required class="req">
 	  <option value="" selected disabled>選擇發稿種類</option>
 	  <option value="新聞稿">新聞稿</option>
@@ -176,6 +170,8 @@ li a:hover {
    <script>
    $(document).ready (function(){
 	document.getElementById("myForm").reset();
+	document.getElementById("h1_news").style.display = none;
+	$("#h1_news_yes").text("新增新聞排程(測試練習)");
 	$("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show_10);
 	$("#m_date").attr("readonly",true);
    });
