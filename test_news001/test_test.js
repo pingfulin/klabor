@@ -534,7 +534,7 @@ if(url3.indexOf('?')!=-1)
  function copyInput(){
    document.getElementById('show_re').select();
    document.execCommand('copy');
- })
+ }
 
  function copyimg(){
    document.getElementById('canvas').select();
