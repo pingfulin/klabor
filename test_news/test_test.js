@@ -390,7 +390,7 @@ var d11y= y01 + "/" + m01 + "/" + d01;
 
 function b_clicline(){
 var d_o= $("#tw_oth").val();
-$.post('https://script.google.com/macros/s/AKfycbxicS4rOF2qDv4Ecv8W12AZ8kXBrlisy9mfevLsh9Y9MbrCKIY/exec',
+$.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_RA6ITB2hu0eZa3O-mDc/exec',
     {msg:d_o},
     function(e){
         console.log(e);
@@ -402,14 +402,15 @@ function b_line(){
 var d_o= $("#show_re").val();
 var d_sh= $("#show_a").text();
 var d_href= "mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&body=" + d_o;
-var dd_href= "mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片" + d_o;
+var dd_href= "mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片" + d_o
+window.alert("mail時\n請記得附上\n新聞稿、採訪通知的檔案");
+window.open(d_href);
+
 $.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_RA6ITB2hu0eZa3O-mDc/exec',
     {msg:d_o},
     function(e){
         console.log(e);
 });
-window.alert("mail時\n請記得附上\n新聞稿、採訪通知的檔案");
-window.open(d_href);
 document.getElementById("mail_to").style.display = "none";
 // document.getElementById("print_to").style.display = "inline";
 // $("#h1_display").text("步驟3/3請點選列印檢核表，並依規定陳核。");
