@@ -74,7 +74,32 @@ li a:visited {
 li a:hover {
   background-color: #ddd;
 }
+li.dropdown {
+  display: inline-block;
+}
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 		</style>
 	
@@ -87,9 +112,9 @@ li a:hover {
   <li><a href="#klcal">新聞預告(測試)</a></li>
   <li><a href="mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片">寄核定檔(測試)</a></li>
   <li><a href="#news_kl">露出張貼(測試)</a></li>
-    <li>
+    <li class="dropdown">
     <a href="javascript:void(0)" >操作教學</a>
-    <div>
+    <div class="dropdown-content">
       <a href="https://pingfulin.github.io/klabor/test_news/%E6%96%B0%E8%81%9E%E6%A5%AD%E5%8B%99%E6%B5%81%E7%A8%8B%E5%9C%961090117.pdf">流程圖</a>
       <a href="https://pingfulin.github.io/klabor/test_news/%E6%96%B0%E8%81%9E%E6%A5%AD%E5%8B%99%E6%B5%81%E7%A8%8B%E7%B0%A1%E5%9C%96%201090117.pdf">流程簡圖</a>
       <a href="https://pingfulin.github.io/klabor/test_news/%E5%8B%9E%E5%B7%A5%E5%B1%80%E6%96%B0%E8%81%9E%E7%99%BB%E9%8C%84%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B%E8%AA%AA%E6%98%8E1090205.pdf">操作簡報</a>
