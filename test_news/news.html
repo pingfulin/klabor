@@ -3,7 +3,7 @@
 	<head>
 	<meta charset=UTF-8 />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>勞工局新聞登錄(測試網頁)</title>
+		<title>測試練習(網頁)</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -122,7 +122,8 @@ li.dropdown {
     </div>
     <li><a href="https://pingfulin.github.io/klabor/news.html">正式登錄</a></li>
 </ul>
-	  <h1 class="center" >操作練習(請先練習順利後再到正式網頁登錄)</h1>	
+	  <h1 class="center" id="h1_news">瀏覽器未打開javascript，請先打開才能操作</h1>	
+	  <h1 class="center" id="h1_news_yes"></h1>
 	  <select id="kind_s"  required class="req">
 	  <option value="" selected disabled>選擇發稿種類</option>
 	  <option value="新聞稿">新聞稿</option>
@@ -203,6 +204,8 @@ li.dropdown {
    <script>
    $(document).ready (function(){
 	document.getElementById("myForm").reset();
+	document.getElementById("h1_news").style.display = "none";
+	$("#h1_news_yes").text("操作練習(請先練習順利後再到正式網頁登錄)");
 	$("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show_10);
 	$("#m_date").attr("readonly",true);
    });
