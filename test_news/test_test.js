@@ -409,7 +409,7 @@ $.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_
         console.log(e);
 });
 window.alert("mail時\n請記得附上\n新聞稿、採訪通知的檔案");
-var sUserAgent= navigator.userAgent.toLowerCase();
+/* var sUserAgent= navigator.userAgent.toLowerCase();
 
         var bIsIpad= sUserAgent.match(/ipad/i) == "ipad";
 
@@ -436,7 +436,8 @@ var sUserAgent= navigator.userAgent.toLowerCase();
         } else {
            window.open(d_href);          
 
-          }
+          } */
+window.open(d_href_c); 
 document.getElementById("mail_to").style.display = "none";
 // document.getElementById("print_to").style.display = "inline";
 // $("#h1_display").text("步驟3/3請點選列印檢核表，並依規定陳核。");
