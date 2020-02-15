@@ -401,16 +401,42 @@ window.location.reload()
 function b_line(){
 var d_o= $("#show_re").val();
 var d_sh= $("#show_a").text();
-var d_href= "mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&body=" + d_o;
-var dd_href= "mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片" + d_o
-window.alert("mail時\n請記得附上\n新聞稿、採訪通知的檔案");
-window.open(d_href);
-
+var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc&bcc&su=[新聞稿通知]&body=" + d_o + "&fs=1");
+var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&body=" + d_o);
 $.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_RA6ITB2hu0eZa3O-mDc/exec',
     {msg:d_o},
     function(e){
         console.log(e);
 });
+window.alert("mail時\n請記得附上\n新聞稿、採訪通知的檔案");
+var sUserAgent= navigator.userAgent.toLowerCase();
+
+        var bIsIpad= sUserAgent.match(/ipad/i) == "ipad";
+
+        var bIsIphoneOs= sUserAgent.match(/iphone os/i) == "iphone os";
+
+        var bIsMidp= sUserAgent.match(/midp/i) == "midp";
+
+        var bIsUc7= sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+
+        var bIsUc= sUserAgent.match(/ucweb/i) == "ucweb";
+
+        var bIsAndroid= sUserAgent.match(/android/i) == "android";
+
+        var bIsCE= sUserAgent.match(/windows ce/i) == "windows ce";
+
+        var bIsWM= sUserAgent.match(/windows mobile/i) == "windows mobile";
+		
+		var bIsLine= sUserAgent.match(/line/i) == "line";
+
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM || line) {
+
+          window.open(d_href_c); 
+
+        } else {
+           window.open(d_href);          
+
+          }
 document.getElementById("mail_to").style.display = "none";
 // document.getElementById("print_to").style.display = "inline";
 // $("#h1_display").text("步驟3/3請點選列印檢核表，並依規定陳核。");
