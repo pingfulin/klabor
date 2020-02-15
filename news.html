@@ -90,7 +90,7 @@ li a:hover {
   <li><a href="https://pingfulin.github.io/klabor/test_news/news.html" title="登錄前請先練習操作">操作教學</a></li>
 </ul>
 	  <h1 class="center" id="h1_news">瀏覽器未打開javascript，請先打開才能操作</h1>	
-	  <h1 class="center" id="h1_news_yes">新增新聞排程</h1>
+	  <h1 class="center" id="h1_news_yes"></h1>
 	  <select id="kind_s"  required class="req">
 	  <option value="" selected disabled>選擇發稿種類</option>
 	  <option value="新聞稿">新聞稿</option>
@@ -172,7 +172,7 @@ li a:hover {
    $(document).ready (function(){
 	document.getElementById("myForm").reset();
 	document.getElementById("h1_news").style.display = "none";
-	$("#h1_news_yes").text("新增新聞排程");
+	$("#h1_news_yes").text("新增新聞排程(*請先至操作教學區練習後再正式登錄*)");
 	$("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show_10);
 	$("#m_date").attr("readonly",true);
    });
