@@ -437,11 +437,7 @@ window.alert("mail時\n請記得附上\n新聞稿、採訪通知的檔案");
            window.open(d_href);          
 
           } */
-navigator.registerProtocolHandler(
-  'mailto',
-  'https://mail.google.com/mail/?view=cm&to=%s',
-  'Gmail'
-)
+
 window.open(d_href_c); 
 document.getElementById("mail_to").style.display = "none";
 // document.getElementById("print_to").style.display = "inline";
