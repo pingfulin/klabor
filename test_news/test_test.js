@@ -452,7 +452,7 @@ var d_o= $("#show_re").val();
 var d_sh= $("#show_a").text();
 var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc&bcc&su=[新聞稿通知]&body=" + d_o + "&fs=1");
 var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&body=" + d_o);
-return d_href_c;
+return d_href;
 /*window.alert("mail時\n請記得附上\n新聞稿、採訪通知的檔案");
  var sUserAgent= navigator.userAgent.toLowerCase();
 
