@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+	<title>步驟2/3通知媒體窗口(測試)</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type"text/css" href="../css/print.css" media="print">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="test_test.js" type="text/javascript"></script>
+<style>
+	   .center{font-Size: 24px; color: brown;} 
+	    body {font: 120% ; margin: 20px;}
+	   .req {font-size:16px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}
+	   .opt {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
+     .req.option:first-child { color:#DCDCDC;}
+      textarea {font-size:16px; padding:3px; color:indigo; width:85%;}
+			.req:valid {background-color:#F0FFF0;}
+</style>
+</head>
+<body>
+   <h1 id="h1_display" class="center" ></h1>
+ <textarea id="show_re" rows="8" readonly></textarea>
+ <div id="container_1" style="display:none">
+  <p></p>
+<div id="hyper_c" class="no-print"><span>加入google日曆:</span><a id="show_a" style="font-Size:16pt;"></a></div>
+  <p></p>
+<div id="button_s" class="no-print">
+  <button id="mail_to" onclick=b_line() target="_blank">通知媒體窗口</button>
+
+ 
+  <button id="text_copy" onclick=copyInput()>複製通知內容</button>
+  </div>
+
+</div>
+<p></p>
+<input type ="button" class="no-print" onclick="javascript:location.href='https://pingfulin.github.io/klabor/test_news/news.html'" value="回上頁"></input>
+  </body>
+  <script>
+$(document).ready (function (){
+var sub = "[新聞稿通知]";
+var url_t01 = location.search;
+var url_t02 = decodeURI(b_return(url_t01));
+var url_t03 = decodeURI(b_return1(url_t01)) + ": ";
+var url_man = decodeURI(b_return2(url_t01));					
+if (url_t02==null) { $("#h1_display").text("查無資料，請點選回上頁重新登錄。(測試)");
+ return false;   }
+if (url_t02!==null) { $("#h1_display").text("步驟2/3確認後點選通知媒體窗口，mail並請附檔案。(測試)");
+}
+document.getElementById("container_1").style.display = "block";
+
+$("#show_re").val(decodeURI(url_t03 + '\n' + url_man + '\n' + "加入google日曆:" + url_t02));
+$("#show_a").text(url_t02);
+$("#show_a").attr({href:url_t02,target:"_blank"});
+
+// /*var b = document.getElementById("print_to");
+ 
+// var handler = function () {$("#h1_display").text("勞工局新聞業務檢核表"); };
+ 
+// if (b.addEventListener) {
+    // b.addEventListener("click", handler);
+// }*/
+// draw();
+})
+</script>
+</html>
