@@ -28,9 +28,9 @@
   <p></p>
 <div id="button_s" class="no-print">
    <h1 id="h1_display" class="center" ></h1>			
-  <p style="font-Size:24pt;">1.&nbsp;<a id="mail_test01" target="_blank">mail檔案</a></p>
+  <p style="font-Size:20pt; color: brown;">1.&nbsp;<a id="mail_test01" target="_blank">mail檔案</a></p>
   <p></p>								  
-  <p style="font-Size:24pt;">2.&nbsp;<button id="mail_to" onclick=test_mail() target="_blank">通知媒體窗口</button>
+  <p style="font-Size:20pt; color: brown;">2.&nbsp;<button id="mail_to" onclick=test_mail() target="_blank" style="font-size:20px;">通知媒體窗口</button>
 
  
 
@@ -51,7 +51,7 @@ var url_man = decodeURI(b_return2(url_t01));
 var mail_01 = test_mail()
 if (url_t02==null) { $("#h1_display").text("查無資料，請點選回上頁重新登錄。(測試)");
  return false;   }
-if (url_t02!==null) { $("#h1_display").text("步驟2/3確認後點選通知媒體窗口，mail並請附檔案。(測試)");
+if (url_t02!==null) { $("#h1_display").text("步驟2/3確認後請先mail檔案，再點選通知媒體窗口。(測試)");
 }
 document.getElementById("container_1").style.display = "block";
 document.getElementById("mail_test01").href = mail_01;
