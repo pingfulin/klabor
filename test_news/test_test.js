@@ -452,8 +452,8 @@ var d_o= $("#show_re").val();
 var d_sh= $("#show_a").text();
 var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc&bcc&su=[新聞稿通知]&body=" + d_o + "&fs=1");
 var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&body=" + d_o);
-return d_href_c;
-/*window.alert("mail時\n請記得附上\n新聞稿、採訪通知的檔案");
+
+/*判斷瀏覽器或操作系統*/
  var sUserAgent= navigator.userAgent.toLowerCase();
 
         var bIsIpad= sUserAgent.match(/ipad/i) == "ipad";
@@ -472,24 +472,16 @@ return d_href_c;
 
         var bIsWM= sUserAgent.match(/windows mobile/i) == "windows mobile";
 		
-		var bIsLine= sUserAgent.match(/line/i) == "line";
+	var bIsLine= sUserAgent.match(/line/i) == "line";
 
-        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM || line) {
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid ||bIsLine) {
 
-          window.open(d_href_c); 
+          return d_href_c;  /*使用mailto */
 
         } else {
-           window.open(d_href);          
+          return d_href;   /*win系統使用網頁url */       
 
-          } */
-
-/*window.open(d_href_c); 
-document.getElementById("mail_to").style.display = "none";
-// document.getElementById("print_to").style.display = "inline";
-// $("#h1_display").text("步驟3/3請點選列印檢核表，並依規定陳核。");
-// document.getElementById("s01").style.display = "block";
- var print_all= encodeURI('/klabor/test_news/newsprint.html?re_id=' + d_sh +'&show=' + d_o);
- window.location.replace(print_all);*/
+          }
 
 }
 
