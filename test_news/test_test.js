@@ -513,7 +513,7 @@ function browser_dect() {
 		
 	var bIsLine= sUserAgent.match(/line/i) == "line";
 
-       if(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid ||bIsLine) {
+       if(bIsIpad || bIsIphoneOs || bIsLine) {
          return "bis_yes";
        }
 	else {
