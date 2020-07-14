@@ -491,7 +491,7 @@ return d_href; /* win系統使用網頁url */
 
           }win系統使用網頁url */
 
-function brower_dect() {
+function browser_dect() {
 /*判斷瀏覽器或操作系統*/
  var sUserAgent= navigator.userAgent.toLowerCase();
 
