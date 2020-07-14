@@ -452,7 +452,46 @@ var d_o= $("#show_re").val();
 var d_sh= $("#show_a").text();
 var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc&bcc&su=[新聞稿通知]&body=" + d_o + "&fs=1");
 var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&body=" + d_o);
+var d_torf= browser_dect(); /* 判斷瀏覽器或操作系統 */
+if d_torf= true {
+ return d_href_c;/* 使用mailto */
+}
+else {
+return d_href; /* win系統使用網頁url */
+}
+}	
 
+/*判斷瀏覽器或操作系統
+ var sUserAgent= navigator.userAgent.toLowerCase();
+
+        var bIsIpad= sUserAgent.match(/ipad/i) == "ipad";
+
+        var bIsIphoneOs= sUserAgent.match(/iphone os/i) == "iphone os";
+
+        var bIsMidp= sUserAgent.match(/midp/i) == "midp";
+
+        var bIsUc7= sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+
+        var bIsUc= sUserAgent.match(/ucweb/i) == "ucweb";
+
+        var bIsAndroid= sUserAgent.match(/android/i) == "android";
+
+        var bIsCE= sUserAgent.match(/windows ce/i) == "windows ce";
+
+        var bIsWM= sUserAgent.match(/windows mobile/i) == "windows mobile";
+		
+	var bIsLine= sUserAgent.match(/line/i) == "line";
+
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid ||bIsLine) {
+
+          return d_href_c;  
+
+        } else {
+          return d_href;         
+
+          }win系統使用網頁url */
+
+function brower_dect() {
 /*判斷瀏覽器或操作系統*/
  var sUserAgent= navigator.userAgent.toLowerCase();
 
@@ -476,15 +515,13 @@ var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[新聞稿通知
 
         if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid ||bIsLine) {
 
-          return d_href_c;  /*使用mailto */
+          return true;  /*使用mailto */
 
-        } else {
-          return d_href;   /*win系統使用網頁url */       
-
-          }
-
+        }
+	else {
+          return false;   /*win系統使用網頁url */       
+	}
 }
-
 
 function b_clic_b() {
  window.location.replace('/klabor/test006.html');
