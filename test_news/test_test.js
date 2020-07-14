@@ -454,10 +454,10 @@ var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolabor
 var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&body=" + d_o);
 var d_torf= browser_dect(); /* 判斷瀏覽器或操作系統 */
 if (d_torf= "bis_yes") {
- return d_href_c;/* 使用mailto */
+ return d_href;/* 使用mailto */
 }
 else {
-return d_href; /* win系統使用網頁url */
+return d_href_c; /* win系統使用網頁url */
 }
 }	
 
