@@ -111,7 +111,7 @@ li.dropdown {
 	<ul id="home">
   <li><a href="#home">新增排程(測試)</a></li>
   <li><a href="#klcal">新聞預告(測試)</a></li>
-  <li><a href="mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送新聞稿檔案及照片">寄核定檔(測試)</a></li>
+  <li><a id="mail_to" >寄核定檔(測試)</a></li>
   <li><a href="#news_kl">露出張貼(測試)</a></li>
     <li class="dropdown">
     <a href="javascript:void(0)" >操作教學</a>
@@ -212,6 +212,15 @@ li.dropdown {
 	$("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show_10);
 	$("#m_date").attr("readonly",true);
    });
+	var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc&bcc&su=[核定檔案及照片]&body="寄送核定檔案及照片" + "&fs=1");
+	var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送核定檔案及照片");
+	var d_torf= browser_dect(); /* 判斷瀏覽器或操作系統 */
+		if (d_torf== "bis_yes") {
+			document.getElementById("mail_to").href = d_href_c;/* 使用mailto */
+		}
+		else {
+			document.getElementById("mail_to").href = d_href; /* win系統使用網頁url */
+			}
 	   })
 
    </script>
