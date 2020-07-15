@@ -452,7 +452,7 @@ var d_o= $("#show_re").val();
 var d_sh= $("#show_a").text();
 /*發送line notify訊息*/
 $.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_RA6ITB2hu0eZa3O-mDc/exec',
-    {msg:d_o},
+    {msg:"test_msg"},
     function(e){
         console.log(e);
 });
