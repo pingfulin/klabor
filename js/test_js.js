@@ -422,7 +422,7 @@ function b_testline(){
 var d_o= $("#show_re").val();
 var d_sh= $("#show_a").text();
 /*發送line notify訊息*/
-$.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_RA6ITB2hu0eZa3O-mDc/exec',
+$.post('https://script.google.com/macros/s/AKfycbxicS4rOF2qDv4Ecv8W12AZ8kXBrlisy9mfevLsh9Y9MbrCKIY/exec',
     {msg:d_o},
     function(e){
         console.log(e);
