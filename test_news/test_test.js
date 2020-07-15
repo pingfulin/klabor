@@ -452,12 +452,12 @@ var d_o= $("#show_re").val();
 var d_sh= $("#show_a").text();
 /*發送line notify訊息*/
 $.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_RA6ITB2hu0eZa3O-mDc/exec',
-    {msg:"test_msg"},
+    {msg:d_o},
     function(e){
         console.log(e);
 });
 
-document.getElementById("mail_to").style.display = "none";
+/*document.getElementById("mail_to").style.display = "none";*/
 
  var print_all= encodeURI('/klabor/test_news/newsprint.html?re_id=' + d_sh +'&show=' + d_o);
  window.location.replace(print_all);	
