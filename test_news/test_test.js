@@ -459,6 +459,7 @@ $.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_
 
 /*document.getElementById("mail_to").style.display = "none";*/
 
+ setTimeout(, 2000);
  var print_all= encodeURI('/klabor/test_news/newsprint.html?re_id=' + d_sh +'&show=' + d_o);
  window.location.replace(print_all);	
 }
