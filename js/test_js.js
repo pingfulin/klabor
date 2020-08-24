@@ -429,7 +429,7 @@ $.post('https://script.google.com/macros/s/AKfycbxicS4rOF2qDv4Ecv8W12AZ8kXBrlisy
 });
 
 /*document.getElementById("mail_to").style.display = "none";*/
-
+setTimeout(, 2000);
  var print_all= encodeURI('/klabor/newsprint.html?re_id=' + d_sh +'&show=' + d_o);
  window.location.replace(print_all);	
 }
