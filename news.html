@@ -87,6 +87,7 @@ li a:hover {
   <li><a href="#klcal">新聞預告</a></li>
   <li><a id="mail_to" target="_blank">寄核定檔</a></li>
   <li><a href="#news_kl">露出張貼</a></li>
+  <li><a id="news_back" target="_blank">輿情回應</a></li>
   <li><a href="https://pingfulin.github.io/klabor/test_news/news.html" title="登錄前請先練習操作">操作教學</a></li>
 </ul>
 	  <h1 class="center" id="h1_news">瀏覽器未打開javascript，請先打開才能操作</h1>	
@@ -176,14 +177,18 @@ li a:hover {
 	$("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show_10);
 	$("#m_date").attr("readonly",true);
    });
-   	var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc&bcc&su=[核定檔案及照片]&body=寄送核定檔案及照片" + "&fs=1");
-	var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&body=寄送核定檔案及照片");
+   	var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc=pingfulinkcg@gmail.com&bcc&su=[核定檔案及照片]&body=寄送核定檔案及照片" + "&fs=1");
+	var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&cc=pingfulinkcg@gmail.com&body=寄送核定檔案及照片");
+   	var back_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com,yingfang@kcg.gov.tw&cc=pingfulinkcg@gmail.com&bcc&su=[輿情回應表]&body=寄送重大輿情交辦處理情形回覆表" + "&fs=1");
+	var back_href_c= encodeURI("mailto:bolaboraffair@gmail.com,yingfang@kcg.gov.tw?subject=[輿情回應表]&cc=pingfulinkcg@gmail.com&body=寄送重大輿情交辦處理情形回覆表");
 	var d_torf= browser_dect(); /* 判斷瀏覽器或操作系統 */
 		if (d_torf== "bis_yes") {
 			document.getElementById("mail_to").href = d_href_c;/* 使用mailto */
-		}
+			document.getElementById("news_back_to").href = back_href_c;/* 使用mailto */
+			}
 		else {
 			document.getElementById("mail_to").href = d_href; /* win系統使用網頁url */
+			document.getElementById("news_back_to").href = back_href; /* win系統使用網頁url */
 			}
 	   })
 
