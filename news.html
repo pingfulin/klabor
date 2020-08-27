@@ -207,8 +207,8 @@ li a:hover {
    });
    	var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc=pingfulinkcg@gmail.com&bcc&su=[核定檔案及照片]&body=寄送核定檔案及照片" + "&fs=1");
 	var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&cc=pingfulinkcg@gmail.com&body=寄送核定檔案及照片");
-   	var back_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com,yingfang@kcg.gov.tw&cc=pingfulinkcg@gmail.com&bcc&su=[輿情回應表]&body=請填寫以下資料%0A承辦單位：%0A承辦人：%0A電話：" + "&fs=1");
-	var back_href_c= encodeURI("mailto:bolaboraffair@gmail.com,yingfang@kcg.gov.tw?subject=[輿情回應表]&cc=pingfulinkcg@gmail.com&body=請填寫以下資料%0A承辦單位：%0A承辦人：%0A電話：");
+   	var back_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com,yingfang@kcg.gov.tw&cc=pingfulinkcg@gmail.com&bcc&su=[輿情回應表]&body=請填寫以下資料" + %0A +"承辦單位：" + %0A + "承辦人：" + %0A + "電話：" + "&fs=1");
+	var back_href_c= encodeURI("mailto:bolaboraffair@gmail.com,yingfang@kcg.gov.tw?subject=[輿情回應表]&cc=pingfulinkcg@gmail.com&body=請填寫以下資料" + %0A +"承辦單位：" + %0A + "承辦人：" + %0A + "電話：");
 	var d_torf= browser_dect(); /* 判斷瀏覽器或操作系統 */
 		if (d_torf== "bis_yes") {
 			document.getElementById("mail_to").href = d_href_c;/* 使用mailto */
