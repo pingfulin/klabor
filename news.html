@@ -75,6 +75,29 @@ li a:hover {
   background-color: #ddd;
 }
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a[taraget="_blank"]
+ {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 		</style>
 	
@@ -87,7 +110,12 @@ li a:hover {
   <li><a href="#klcal">新聞預告</a></li>
   <li><a id="mail_to" target="_blank">寄核定檔</a></li>
   <li><a href="#news_kl">露出張貼</a></li>
-  <li><a id="news_back" target="_blank">輿情回應</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" >輿情回應</a>
+    <div class="dropdown-content">
+      <a href="https://pingfulin.github.io/klabor/%E5%8B%9E%E5%B7%A5%E5%B1%80%E8%BC%BF%E6%83%85%E5%9B%9E%E8%A6%86%E8%A1%A81090826.docx" target="_blank">回應表格式</a>
+      <a id="news_back" target="_blank">寄交回應檔案</a>
+    </div>
   <li><a href="https://pingfulin.github.io/klabor/test_news/news.html" title="登錄前請先練習操作">操作教學</a></li>
 </ul>
 	  <h1 class="center" id="h1_news">瀏覽器未打開javascript，請先打開才能操作</h1>	
@@ -179,8 +207,8 @@ li a:hover {
    });
    	var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc=pingfulinkcg@gmail.com&bcc&su=[核定檔案及照片]&body=寄送核定檔案及照片" + "&fs=1");
 	var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[核定檔案及照片]&cc=pingfulinkcg@gmail.com&body=寄送核定檔案及照片");
-   	var back_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com,yingfang@kcg.gov.tw&cc=pingfulinkcg@gmail.com&bcc&su=[輿情回應表]&body=寄送重大輿情交辦處理情形回覆表" + "&fs=1");
-	var back_href_c= encodeURI("mailto:bolaboraffair@gmail.com,yingfang@kcg.gov.tw?subject=[輿情回應表]&cc=pingfulinkcg@gmail.com&body=寄送重大輿情交辦處理情形回覆表");
+   	var back_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com,yingfang@kcg.gov.tw&cc=pingfulinkcg@gmail.com&bcc&su=[輿情回應表]&body=請填寫以下資料%0A承辦單位：%0A承辦人：%0A電話：" + "&fs=1");
+	var back_href_c= encodeURI("mailto:bolaboraffair@gmail.com,yingfang@kcg.gov.tw?subject=[輿情回應表]&cc=pingfulinkcg@gmail.com&body=請填寫以下資料%0A承辦單位：%0A承辦人：%0A電話：");
 	var d_torf= browser_dect(); /* 判斷瀏覽器或操作系統 */
 		if (d_torf== "bis_yes") {
 			document.getElementById("mail_to").href = d_href_c;/* 使用mailto */
