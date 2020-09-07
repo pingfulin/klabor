@@ -322,7 +322,7 @@ var d11y= y01 + "/" + m01 + "/" + d01;
    var d_o3= $("#depart").val();
    var d_o= d_o3 + "%0A" + d_o1 + "%0A" + d_o2;
    var d_p= $("#tw_adr").val();
-   var d_t= $("#pac-input").val() + $("#kind_s").val() + d11y + $("#tw_cnam").val().replace(/#|\?/ig,"");
+   var d_t= "%0A" + $("#kind_s").val() + d11y + $("#tw_cnam").val().replace(/#|\?/ig,"");
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
    var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o + "&location=" + d_p;
 
