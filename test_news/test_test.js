@@ -401,8 +401,8 @@ window.location.reload()
 function b_line(){
 var d_o= $("#show_re").val();
 var d_sh= $("#show_a").text();
-var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc&bcc&su=[新聞稿通知]&body=" + d_o + "&fs=1");
-var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&body=" + d_o);
+var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc=pingfulinkcg@gmail.com&bcc&su=[新聞稿通知]&body=" + d_o + "&fs=1");
+var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&cc=pingfulinkcg@gmail.com&body=" + d_o);
 $.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_RA6ITB2hu0eZa3O-mDc/exec',
     {msg:d_o},
     function(e){
@@ -467,8 +467,8 @@ $.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_
 function test_mail(){
 var d_o= $("#show_re").val();
 var d_sh= $("#show_a").text();
-var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc&bcc&su=[新聞稿通知]&body=" + d_o + "&fs=1");
-var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&body=" + d_o);
+var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc=pingfulinkcg@gmail.com&bcc&su=[新聞稿通知]&body=" + d_o + "&fs=1");
+var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&cc=pingfulinkcg@gmail.com&body=" + d_o);
 var d_torf= browser_dect(); /* 判斷瀏覽器或操作系統 */
 if (d_torf== "bis_yes") {
  return d_href_c;/* 使用mailto */
