@@ -330,7 +330,7 @@ var d11y= y01 + "/" + m01 + "/" + d01;
  
  url : "https://api-ssl.bitly.com/v3/shorten?format=txt&login=o_2p0k47gmqh&apiKey=R_eaee61dc34b6434eaf8adaeb449d52c9&longUrl=" + encodeURIComponent(d_all),
  type : "POST",
- contentType : 'application/json; charset=utf-8',
+ contentType : 'application/x-www-form-urlencoded;charset=utf-8',
  dataType : "text",
 
  success: function(result,status,xhr){
@@ -391,11 +391,16 @@ var d11y= y01 + "/" + m01 + "/" + d01;
 function b_clicline(){
 var d_o= $("#tw_oth").val();
 $.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_RA6ITB2hu0eZa3O-mDc/exec',
-    {msg:d_o},
-    function(e){
+    {msg:d_o,
+    success:function(e){
         console.log(e);
-});
-window.location.reload()
+window.location.reload();	
+},
+error: function(){alert("通知失敗，請重新輸入或電洽媒體聯絡人。");
+return false;
+},
+	},
+);
 }
 
 function b_line(){
