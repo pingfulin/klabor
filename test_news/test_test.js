@@ -361,8 +361,8 @@ window.location.reload();
 error: function(){alert("通知失敗，請重新輸入或電洽媒體聯絡人。");
 return false;
 },
-	},
-)
+	}
+);
 		}
 
 /*document.getElementById("mail_to").style.display = "none";*/
