@@ -403,16 +403,7 @@ return false;
 )
 }
 
-function b_line(){
-var d_o= $("#show_re").val();
-var d_sh= $("#show_a").text();
-var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc=pingfulinkcg@gmail.com&bcc&su=[新聞稿通知]&body=" + d_o + "&fs=1");
-var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&cc=pingfulinkcg@gmail.com&body=" + d_o);
-$.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_RA6ITB2hu0eZa3O-mDc/exec',
-    {msg:d_o},
-    function(e){
-        console.log(e);
-});
+
 window.alert("mail時\n請記得附上\n新聞稿、採訪通知的檔案");
 /* var sUserAgent= navigator.userAgent.toLowerCase();
 
@@ -457,10 +448,18 @@ var d_o= $("#show_re").val();
 var d_sh= $("#show_a").text();
 /*發送line notify訊息*/
 $.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_RA6ITB2hu0eZa3O-mDc/exec',
-    {msg:d_o},
-    function(e){
+
+{msg:d_o,
+    success:function(e){
         console.log(e);
-});
+window.location.reload();	
+},
+error: function(){alert("通知失敗，請重新輸入或電洽媒體聯絡人。");
+return false;
+},
+	},
+)
+		}
 
 /*document.getElementById("mail_to").style.display = "none";*/
 
