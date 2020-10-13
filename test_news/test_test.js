@@ -358,9 +358,7 @@ $.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_
         console.log(e);
 window.location.reload();	
 },
-error: function(){alert("通知失敗，請重新輸入或電洽媒體聯絡人。");
-return false;
-},
+
 	}
 );
 		}
