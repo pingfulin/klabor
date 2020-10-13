@@ -365,13 +365,6 @@ return false;
 );
 		}
 
-/*document.getElementById("mail_to").style.display = "none";*/
-
-
- var print_all= encodeURI('/klabor/test_news/newsprint.html?re_id=' + d_sh +'&show=' + d_o);
- window.location.replace(print_all);	
-}
-
 function test_mail(){
 var d_o= $("#show_re").val();
 var d_sh= $("#show_a").text();
