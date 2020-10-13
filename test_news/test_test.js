@@ -388,20 +388,6 @@ var d11y= y01 + "/" + m01 + "/" + d01;
   }
   }
 
-function b_clicline(){
-var d_o= $("#tw_oth").val();
-$.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_RA6ITB2hu0eZa3O-mDc/exec',
-    {msg:d_o,
-    success:function(e){
-        console.log(e);
-window.location.reload();	
-},
-error: function(){alert("通知失敗，請重新輸入或電洽媒體聯絡人。");
-return false;
-},
-	},
-)
-}
 
 
 window.alert("mail時\n請記得附上\n新聞稿、採訪通知的檔案");
