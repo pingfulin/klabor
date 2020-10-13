@@ -400,7 +400,7 @@ error: function(){alert("通知失敗，請重新輸入或電洽媒體聯絡人�
 return false;
 },
 	},
-);
+)
 }
 
 function b_line(){
