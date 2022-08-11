@@ -353,8 +353,8 @@ var d_sh= $("#show_a").text();
 /*發送line notify訊息*/
 $.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_RA6ITB2hu0eZa3O-mDc/exec',
 
-{msg:d_o,
-    success:function(e){
+{msg:d_o},
+    function(e){
         console.log(e);
 window.location.reload();	
 });
