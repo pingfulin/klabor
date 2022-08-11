@@ -357,10 +357,11 @@ $.post('https://script.google.com/macros/s/AKfycbyw_krH5_WkoKvsREVVJS7EFgPE30vb_
     success:function(e){
         console.log(e);
 window.location.reload();	
-},
+});
 
-	}
-);
+ var print_all= encodeURI('/klabor/test_news/newsprint.html?re_id=' + d_sh +'&show=' + d_o);
+ window.location.replace(print_all);
+
 		}
 
 function test_mail(){
