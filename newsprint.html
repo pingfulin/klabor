@@ -12,8 +12,8 @@
 <style>
 	   .center{font-Size: 24px; color: brown;} 
 	    body {font: 120% ; margin: 20px;}
-	   .req {font-size:16px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}
-	   .opt {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
+	   .req {font-size:18px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}
+	   .opt {font-size:18px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
      .req.option:first-child { color:#DCDCDC;}
       textarea {font-size:16px; padding:3px; color:indigo; width:85%;}
 			.req:valid {background-color:#F0FFF0;}
@@ -21,23 +21,24 @@
 </head>
 <body>
    <h1 id="h1_display" class="center" ></h1>
- <textarea id="show_re" rows="6" readonly style="overflow:hidden;"></textarea>
  <div id="container_1" style="display:none">
   <p></p>
 <table style="width:100%">
   <tr>
-    <th style="text-align: left">掃碼加入行事曆</th>
-    <th style="text-align: left">掃碼至新聞登錄網頁</th> 
+    <th style="text-align: left">掃碼加入google日曆</th>
+    <th style="text-align: left">掃碼至預約行程網頁</th> 
 
   </tr>
   <tr>
-    <td><img id="img_date" alt="加入行事曆 " style="float:center;width:120px;height:120px;"></td>
-    <td><img id="img_mail" alt="勞工局新聞登錄網頁 " style="float:center;width:120px;height:120px;"></td>
+    <td><img id="img_date" alt="加入google日曆 " style="float:center;width:120px;height:120px;"></td>
+    <td><img id="img_mail" alt="勞工局預約行程網頁 " style="float:center;width:120px;height:120px;"></td>
 
   </tr>
  
 </table>
-  <p>勞工局新聞登錄網址:  <a href="https://pingfulin.github.io/klabor/news.html ">https://pingfulin.github.io/klabor/news.html </a></p>
+<div id="hyper_c0" ><span>預約內容:</span><b><p id="show_a0"></p></b></div>
+  <p></p>
+<div id="hyper_c1" ><span>google日曆:</span><a id="show_a1"></a></div>
   <p></p>
 <div id="button_s" class="no-print">
  
@@ -46,29 +47,23 @@
   </div>
 <div id="s01" >
 <hr>	  
-<p><b>一、陳核前，請檢核以下事項:</b></p>
-<input type="checkbox" name="vehicle1-1">(一)新聞稿或採訪通知，已依照新聞登錄網頁下方最新發稿文件之格式撰寫。<br>
-<input type="checkbox" name="vehicle1-2">(二)勞工局新聞登錄網頁:已按照步驟登錄。<br>
-<input type="checkbox" name="vehicle1-3">(三)已收到系統回覆之確認郵件(*可能被當成垃圾郵件，可至垃圾郵件區確認)。<br>
+<p><b>一、局長行程請自行檢核以下事項:(請打V)</b></p>
+<input type="checkbox" name="vehicle1-1">(一)以上完成之登錄內容，已收到系統回覆之確認郵件。<br>
+<p></p>
+<input type="checkbox" name="vehicle1-2">(二)已向勞工局窗口07-8124613轉821確認。<br>
+<p></p>
+<input type="checkbox" name="vehicle1-3">(三)核定之資料，應於系統"mail核定檔"寄送，並致電窗口確認。<br>
 <h1></h1>
 <hr>				      
-<p><b>二、核批後，請檢核以下事項:</b></p>
-<input type="checkbox" name="vehicle2-1">(一)修改檔案，並準備照片圖檔(3~6張)。<br>
-<input type="checkbox" name="vehicle2-2">(二)勞工局新聞登錄網頁:確認已有該筆新聞預告，預定發稿日期:___________。<br>
-<input type="checkbox" name="vehicle2-3">(三)勞工局新聞登錄網頁:即早將核定檔案、照片jpg檔寄出。<br>
-<input type="checkbox" name="vehicle2-4">(四)已收到系統回覆之確認郵件(*可能被當成垃圾郵件，可至垃圾郵件區確認)。<br>
-<h1></h1>
-<hr>				      
-<p><b>三、有活動，請檢核以下事項:</b></p>
-<input type="checkbox" name="vehicle3-1">(一)活動拍照，及錄影(*重要或市府長官出席致詞場合)。<br>
-<input type="checkbox" name="vehicle3-2">(二)勞工局新聞登錄網頁:將活動照片jpg檔(6~10張)與錄影檔寄出(*請掌握時效:上午12:00、下午14:30前)。<br>
-<input type="checkbox" name="vehicle3-3">(三)已收到系統回覆之確認郵件(*可能被當成垃圾郵件，可至垃圾郵件區確認)。<br>
-<h1></h1>
-<hr>				      
-<p><b>四、發稿後，請檢核以下事項:</b></p>
-<input type="checkbox" name="vehicle4-1">(一)勞工局新聞登錄網頁:發稿新聞已有該筆資料。<br>
-<input type="checkbox" name="vehicle4-2">(二)蒐集5天內新聞露出之情形。<br>
-<input type="checkbox" name="vehicle4-3">(三)將露出及新聞超連結，共:______ 則，回覆張貼到該筆新聞發稿資料，且經審核張貼。<br>
+<p><b>二、新聞稿及採訪通知，請自行檢核以下事項:(請打V)</b></p>
+<input type="checkbox" name="vehicle2-1">(一)以上完成之登錄內容，已收到系統回覆之確認郵件。<br>
+<p></p>
+<input type="checkbox" name="vehicle2-2">(二)已向勞工局窗口07-8124613轉108確認。<br>
+<p></p>
+<input type="checkbox" name="vehicle2-3">(三)核定之word檔案、照片檔，應以系統"mail核定檔"寄送，並致電窗口確認。<br>
+<p></p>
+<input type="checkbox" name="vehicle2-3">(四)蒐集露出之新聞超連結，共:______ 則，回覆張貼到該筆新聞發稿資料，以利統計。<br>
+
 <hr>
  
 <p></p>
@@ -80,19 +75,22 @@
 
   <script>
 $(document).ready (function (){
-var sub = "[新聞稿通知]";
+var sub = "[預約行程]";
 var url_t01 = location.search;
-var url_t02 = decodeURI(b_return3(url_t01, "re_id"));
-var url_t03 = decodeURI(b_return3(url_t01, "show"));
-<!-- var url_man = decodeURI(b_return2(url_t01));					 -->
-if (url_t02|url_t03 ==null) { $("#h1_display").text("查無資料，請點選回上頁重新登錄。");
+var url_t02 = decodeURI(b_return3(url_t01, "re_id"));//縮址
+//var url_t03 = decodeURI(b_return3(url_t01, "show"));//內容
+var url_name = decodeURI(b_return3(url_t01, "name"));//名稱
+<!-- var url_man = decodeURI(b_return2(url_t01));
+				 -->
+if (url_t02|url_name ==null) { $("#h1_display").text("查無資料，請點選回上頁重新登錄。");
  return false;   }
 else { $("#h1_display").text("步驟3/3請點選列印檢核表，並依規定陳核。");
 }
 document.getElementById("container_1").style.display = "block";
-$("#show_re").val(decodeURI(url_t03));
-<!-- $("#show_a").text(url_t02); -->
-<!-- $("#show_a").attr({href:url_t02,target:"_blank"}); -->
+//document.getElementById("show_a0").href = url_name;	
+$("#show_a0").text(url_name);
+$("#show_a1").text(url_t02);
+$("#show_a1").attr({href:url_t02,target:"_blank"});
 
 var url_dqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURI(url_t02); 
 var url_mqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURI("https://pingfulin.github.io/klabor/news.html"); 
@@ -100,7 +98,7 @@ $("#img_date").attr("src",url_dqr);
 $("#img_mail").attr("src",url_mqr);
 })
 function b_print(){
-$("#h1_display").text("勞工局新聞業務檢核表"); 
+$("#h1_display").text("勞工局預約行程檢核表"); 
 window.print();
 
 }
