@@ -19,11 +19,10 @@ var date_show_10 = {
    alwaysSetTime:true,
    stepMinute:10,
    oneLine: true,
-		onSelect: function () {
-   $("#m_date").css("background-color", "#F0FFF0");
-
-	}
-   	};
+   onSelect: function(dateText1, inst){
+      $("#m_date_en").val(dateText1);
+   }
+	};
 
    var date_show = {
    dayNames:["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
@@ -39,18 +38,17 @@ var date_show_10 = {
    showButtonPanel:true,
    changeYear : true,
    changeMonth : true,
-   minDate :'getDate()',
-   hour:8,
-   minute:0,
+   minDate :'Date()',
+   //hour:0,
+   //minute:0,
    controlType:"select",
    alwaysSetTime:true,
    stepMinute:10,
    oneLine: true,
-   onSelect: function () {
-   $('#m_date_en').val("");
-
+   onSelect: function(dateText, inst){$("#m_date_en").datetimepicker('option', 'minDate', dateText);
+	   $("#m_date_en").val("");
 	}
-	};
+   };
 	
    var opt_time={
    timeOnlyTitle: '選擇時間',
@@ -80,7 +78,7 @@ var date_show_10 = {
    showButtonPanel:true,
    changeYear : true,
    changeMonth : true,
-   //minDate :'getDate()',
+   //minDate :'Date($("#m_date")',
    hour:17,
    minute:0,
    controlType:"select",
@@ -98,7 +96,34 @@ var date_show_10 = {
    //showHour: 9,
  
     };
-	
+
+function changekind(index) {
+   $("#m_date").val("");
+   $("#m_date_en").val("");
+   $("#tw_oth").val("");
+	$("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show)});
+	$("#m_date_en").datetimepicker(m_date_en);
+	$("#m_date").attr("readonly",true);
+	$("#m_date_en").attr("readonly",true);
+   //$("#m_date").off('mousedown', function(){$("#m_date").datetimepicker()});
+   //$("#m_date_en").off('mousedown'.datetimepicker());
+
+	if (index> 2) {
+	//$("#m_date").off('mousedown', function(){$("#m_date").datetimepicker(date_show_10)});
+	$("#tw_oth").attr("disabled",false);
+	$("#tw_oth").attr("required",true);
+	$("#tw_oth").css("class","req");
+   }
+	else {
+	//$("#m_date").off('mousedown', function(){$("#m_date").datetimepicker(date_show)});
+	//$("#m_date_en").off('mousedown', function(){$("#m_date_en").datetimepicker(m_date_en)});
+	//$("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show_10)});
+	$("#tw_oth").attr("disabled",true);
+	$("#tw_oth").attr("required",false);
+	$("#tw_oth").css("class","opt");
+	}
+	}
+
   var c_d1= {
    countySel: "高雄市", // 城市預設值, 字串一定要用繁體的 "臺", 否則抓不到資料
    districtSel: "前鎮區", // 地區預設值
@@ -107,9 +132,10 @@ var date_show_10 = {
    countyName: "city", // 自訂城市 select 標籤的 name 值
    districtName: "town" // 自訂地區 select 標籤的 name 值  
   };
-  function gh(i){
-  var d1 = new Date(i);
-  return d1.getHours();
+
+  function gh(datetext){
+  var d1 = new Date(datetext);
+  return d1;
   }
 
   $( function() {
@@ -190,7 +216,7 @@ var date_show_10 = {
    var d_o= $("#tw_oth").val().replace(/\n|\r/ig,"%0A");
    var d_p= $("#tw_adr").val();
    var d_t= $("#tw_nam").val();
-   var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
+   var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" + d_o + "%A" + d_d0;
    var d_all= "http://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_d + "&location=" + d_p;
 
    $.ajax({
@@ -296,33 +322,40 @@ function cal_bu(){
    return false; }
   
    else{
-   var d1= $("#m_date").val();
-var d11 = d1.split('/'); 
-
+   var d1= $("#m_date").val();//開始日期時間
+   var de= $("#m_date_en").val();//結束日期時間
+var d11 = d1.substr(0,10).split('/'); //擷取日期
+var de1 = de.substr(0,10).split('/');
 //取得民國年
 var y01 = parseInt(d11[0])-1911;
-
+var ye1 = parseInt(de1[0])-1911;
 //取得月份
 var m01 = d11[1];
-
+var me1 = de1[1];
 //取得日期
 var d01 = d11[2];
+var de1 = de1[2];
+//將民國年月日的值指定給"預約日期"
+var d11y= y01 + "/" + m01 + "/" + d01 + "_";
 
-//將民國年月日的值指定給"生日"欄位
-var d11y= y01 + "/" + m01 + "/" + d01;
-
-   var d1_t= d1.replace(/\/|\:/ig,"");
-   var d1_t1= d1_t + "T000000";
+   var d1_t= d1.replace(/\/|\:/ig,"");//將西元日期及時間改成20220830T080000的步驟
+   var d1_t0= d1_t.replace(/\s/ig,"T");
+   var d1_t1= d1_t0 + "00";
+   var de_t= de.replace(/\/|\:/ig,"");//將西元日期及時間改成20220830T080000的步驟
+   var de_t0= de_t.replace(/\s/ig,"T");
+   var de_t1= de_t0 + "00";
    //var d2= $("#m_date_en").val();
    //var d2_t= d2.replace(/\s+/ig,"T");
-   var d2_t1= d1_t + "T120000";
-   var d_tall= d1_t1 + "/" + d2_t1;
-   var d_o1= $("#tw_man1").val().replace(/#|\?/ig,"") + "%20" + $("#tw_teln1").val() + "%20" + $("#tw_tel1").val();
-   var d_o2= $("#tw_man2").val().replace(/#|\?/ig,"") + "%20" + $("#tw_teln2").val() + "%20" + $("#tw_tel2").val();
+   //var d2_t1= d1_t + "T120000";
+   var d_tall= d1_t1 + "/" + de_t1;
+   var d_o1= $("#tw_man1").val().replace(/#|\?|\s/ig,"") + "%20" + $("#tw_teln1").val() + "%20" + $("#tw_tel1").val();
+   var d_o2= $("#tw_man2").val().replace(/#|\?|\s/ig,"") + "%20" + $("#tw_teln2").val() + "%20" + $("#tw_tel2").val();
    var d_o3= $("#depart").val();
-   var d_o= d_o3 + "%0A" + d_o1 + "%0A" + d_o2;
+   var d_oo= $("#tw_oth").val().replace(/\n|\r/ig,"%0A");
+   var d_o= d_o3 + "%0A" + d_o1 + "%0A" + d_o2 + "%0A" + d_oo;
    var d_p= $("#tw_adr").val();
-   var d_t= "%0A" + $("#kind_s").val() + d11y + $("#tw_cnam").val().replace(/#|\?/ig,"");
+   var kind_s= $("#kind_s").prop('selectedIndex');
+   var d_t= $("#kind_s").val().replace(/#|\?|\s/ig,"") + d11y + $("#tw_cnam").val().replace(/#|\?|\s/ig,"");
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
    var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o + "&location=" + d_p;
 
@@ -334,9 +367,9 @@ var d11y= y01 + "/" + m01 + "/" + d01;
  dataType : "text",
 
  success: function(result,status,xhr){
- var re_id= result;
+ var re_id= result.replace(/#|\?|\s|\n|\r/ig,"");//bitly縮址
   
- var mail_all= encodeURI('/klabor/newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o )
+ var mail_all= encodeURI('newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s )
  window.location.replace(mail_all);
  
 },
@@ -419,10 +452,14 @@ document.getElementById("mail_to").style.display = "none";
 }
 
 function b_testline(){
-var d_o= $("#show_re").val();
-var d_sh= $("#show_a").text();
-/*發送line notify訊息*/
-$.post('https://script.google.com/macros/s/AKfycbxicS4rOF2qDv4Ecv8W12AZ8kXBrlisy9mfevLsh9Y9MbrCKIY/exec',
+var d_sh= $("#show_a").text();//縮址
+var d_t= $("#show_t").val()//名稱
+var d_m1= $("#show_m1").val()//承辦1
+var d_dp= $("#show_dp").val()//單位
+var d_o= $("#show_non").val();//發送line的內容
+
+//發送line notify訊息
+$.post('https://script.google.com/macros/s/AKfycbwyrB96NT2IBIOMOp6UL8Ue0HyIs92zYuZSyv3Blp-e5q6quivutdazwBqMsJaVKWgP/exec',
     {msg:d_o},
     function(e){
         console.log(e);
@@ -430,11 +467,12 @@ $.post('https://script.google.com/macros/s/AKfycbxicS4rOF2qDv4Ecv8W12AZ8kXBrlisy
 
 /*document.getElementById("mail_to").style.display = "none";*/
 
- var print_all= encodeURI('/klabor/newsprint.html?re_id=' + d_sh +'&show=' + d_o);
+ var print_all= encodeURI('/klabor/newsprint.html?re_id=' + d_sh +  '&name=' + d_t);
  window.location.replace(print_all);	
 }
 
-function test_mail(){
+function test_mail(url_kind){
+if (url_kind<3) {//判斷是否為新聞稿或局長行程
 var d_o= $("#show_re").val();
 var d_sh= $("#show_a").text();
 var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc=pingfulinkcg@gmail.com&bcc&su=[新聞稿通知]&body=" + d_o + "&fs=1");
@@ -446,7 +484,22 @@ if (d_torf== "bis_yes") {
 else {
 return d_href; /* win系統使用網頁url */
 }
-}	
+}
+else {
+var d_o= $("#show_re").val();
+var d_sh= $("#show_a").text();
+var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=laborchiefbooking@gmail.com&bcc&su=[局長行程預約]&body=" + d_o + "&fs=1");
+var d_href_c= encodeURI("mailto:laborchiefbooking@gmail.com?subject=[局長行程預約]&body=" + d_o);
+var d_torf= browser_dect(); /* 判斷瀏覽器或操作系統 */
+if (d_torf== "bis_yes") {
+ return d_href_c;/* 使用mailto */
+}
+else {
+return d_href; /* win系統使用網頁url */
+}
+}
+}
+	
 
 /*判斷瀏覽器或操作系統
  var sUserAgent= navigator.userAgent.toLowerCase();
@@ -518,28 +571,26 @@ function reset1() {
 
 function b_return(u_turn) {
 //先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
-var url = u_turn;
+var url = decodeURI(u_turn);
 
 //再來用去尋找網址列中是否有資料傳遞(QueryString)
 if(url.indexOf('?')!=-1)
-{
-    var id = "";
+ {
+    //var id = "";
     //在此直接將各自的參數資料切割放進ary中
-    var ary = url.split('?')[1].split('&');
+    var ary = url.split('?')[1].split('&');//[1]表示字串之後
     //此時ary的內容為：
     //ary[0] = 'id=U001'，ary[1] = 'name=GQSM'
-    
+    //return ary;
     //下迴圈去搜尋每個資料參數
-    for(i=0;i<=ary.length-1;i++)
-    {
-        //如果資料名稱為id的話那就把他取出來
-        if(ary[i].split('=')[0] == 're_id')
-	{ id = ary[i].split('=')[1];
-		return id;
-    }
-    }	    
-}
-}
+    var ary01 = [];
+	ary.forEach(function(item, i) {
+    ary01.push(item.split('=')[1])//將每個=號後面的值寫入新的數列
+});
+	return ary01;
+ }
+ }
+
 function b_return1(u_turn1) {
 //先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
 var url1 = u_turn1;
