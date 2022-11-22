@@ -105,6 +105,7 @@ function changekind(index) {
 	$("#m_date_en").datetimepicker(m_date_en);
 	$("#m_date").attr("readonly",true);
 	$("#m_date_en").attr("readonly",true);
+
    //$("#m_date").off('mousedown', function(){$("#m_date").datetimepicker()});
    //$("#m_date_en").off('mousedown'.datetimepicker());
 
@@ -112,7 +113,9 @@ function changekind(index) {
 	//$("#m_date").off('mousedown', function(){$("#m_date").datetimepicker(date_show_10)});
 	$("#tw_oth").attr("disabled",false);
 	$("#tw_oth").attr("required",true);
-	$("#tw_oth").css("class","req");
+	$("#tw_oth").addClass("req");
+	$("#tw_adr").attr("required",true);
+	$("#tw_adr").addClass("req");
    }
 	else {
 	//$("#m_date").off('mousedown', function(){$("#m_date").datetimepicker(date_show)});
@@ -120,7 +123,9 @@ function changekind(index) {
 	//$("#m_date").on('mousedown', function(){$("#m_date").datetimepicker(date_show_10)});
 	$("#tw_oth").attr("disabled",true);
 	$("#tw_oth").attr("required",false);
-	$("#tw_oth").css("class","opt");
+	$("#tw_adr").attr("required",false);
+	$("#tw_oth").addClass("opt");
+	$("#tw_adr").addClass("opt");
 	}
 	}
 
@@ -312,15 +317,23 @@ gapi.client.load('calendar', 'v3', function () { // load the calendar api (versi
 }
 
 function cal_bu(){
-   if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期");
+	if ($("#m_date").val()=="") { alert("尚未點選日期");
+	return false; }
+	if ($("#m_date_en").val()=="") { alert("尚未點選日期");
+	return false; }
+	if ($("#tw_cnam").val()=="") { alert("尚未輸入主題");
+	return false; }
+	if ($("#tw_man1").val()=="") { alert("尚未輸入主要聯絡人");   
+	return false; }
+	if ($("#tw_teln1").val()=="") { alert("尚未輸入電話");
    return false; }
-   if ($("#tw_cnam").val()=="") { alert("尚未輸入主題");
-   return false; }
-   if ($("#tw_man1").val()=="") { alert("尚未輸入主要聯絡人");   
-   return false; }
-   if ($("#tw_teln1").val()=="") { alert("尚未輸入電話");
-   return false; }
-  
+
+    var chk_kind = $("#kind_s").selectedIndex
+	if (chk_kind > 2 && $("#tw_adr").val()=="") { alert("尚未填寫地址");
+    return false; }
+	if (chk_kind > 2 && $("#tw_oth").val()=="") { alert("尚未填寫局長行程說明");
+    return false; }	
+
    else{
    var d1= $("#m_date").val();//開始日期時間
    var de= $("#m_date_en").val();//結束日期時間
