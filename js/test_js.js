@@ -480,7 +480,7 @@ $.post('https://script.google.com/macros/s/AKfycbwyrB96NT2IBIOMOp6UL8Ue0HyIs92zY
 
 /*document.getElementById("mail_to").style.display = "none";*/
 
- var print_all= encodeURI('/klabor/newsprint.html?re_id=' + d_sh +  '&name=' + d_t);
+ var print_all= encodeURI('/klabor/newsprint.html?re_id=' + d_sh + '&name=' + d_t + '&print_m1=' + d_m1 + '&print_dp=' + d_dp);
  window.location.replace(print_all);	
 }
 
@@ -658,7 +658,7 @@ if(url2.indexOf('?')!=-1)
 
 function b_return3(u_turn3, search_o) {
 //先取得網址字串，假設此頁網址為「index.aspx?id=U001&name=GQSM」
-var url3 = u_turn3;
+var url3 = decodeURI(u_turn3);
 var search_s = search_o
 
 //再來用去尋找網址列中是否有資料傳遞(QueryString)
