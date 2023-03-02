@@ -378,7 +378,7 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
  //url : "https://api.reurl.cc/shorten?reurl-api-key=4070ff49d794e13211553b663c974755ecd1b739999b04df8a38b58d65165567c4f5d6",
  url : "https://api.shrtco.de/v2/shorten?url=" + encodeURIComponent(d_all),
  type : "POST",
- contentType : "application/json",
+ //contentType : "application/json",
  //dataType : "json",
  //data : { url : encodeURIComponent(d_all) },
 	   
