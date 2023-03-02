@@ -420,9 +420,10 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
 
    $.ajax({
  
- url : "https://api-ssl.bitly.com/v3/shorten?format=txt&login=o_2p0k47gmqh&apiKey=R_eaee61dc34b6434eaf8adaeb449d52c9&longUrl=" + encodeURIComponent(d_all),
+ //url : "https://api-ssl.bitly.com/v3/shorten?format=txt&login=o_2p0k47gmqh&apiKey=R_eaee61dc34b6434eaf8adaeb449d52c9&longUrl=" + encodeURIComponent(d_all),
+ url : "https://api.reurl.cc/shorten?reurl-api-key=4070ff49d794e13211553b663c974755ecd1b739999b04df8a38b58d65165567c4f5d6&url=" + encodeURIComponent(d_all),
  type : "POST",
- contentType : 'application/json; charset=utf-8',
+ contentType : 'application/json',
  dataType : "text",
 
  success: function(result,status,xhr){
