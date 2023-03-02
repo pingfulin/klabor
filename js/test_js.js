@@ -427,7 +427,7 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
  type : "POST",
  contentType : 'application/json',
  dataType : "text",
- data : { url :  encodeURIComponent(d_all) }
+ data : { url :  encodeURIComponent(d_all) },
  success: function(result,status,xhr){
  var re_id= result
  window.location.replace('/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
