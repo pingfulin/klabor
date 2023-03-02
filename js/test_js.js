@@ -378,11 +378,11 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
  //url : "https://api.reurl.cc/shorten?reurl-api-key=4070ff49d794e13211553b663c974755ecd1b739999b04df8a38b58d65165567c4f5d6",
  url : "https://api.shrtco.de/v2/shorten?url=" + encodeURIComponent(d_all),
  type : "POST",
- //contentType : "application/json",
- //dataType : "json",
+ contentType : "application/json",
+ dataType : "json",
  //data : { url : encodeURIComponent(d_all) },
 	   
- success: function(){
+ success: function(result){
  var re_id= result.code.model; //縮址
   
  var mail_all= encodeURI('newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s )
