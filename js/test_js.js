@@ -383,7 +383,7 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
  //data : { url : encodeURIComponent(d_all) },
 	   
  success: function(res){
- var re_id= res.result.full_short_link //縮址
+ var re_id= res.result.full_short_link //shrtcode縮址
   
  var mail_all= encodeURI('newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s )
  window.location.replace(mail_all);
