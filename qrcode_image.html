@@ -21,11 +21,11 @@
 
  <script>
 $( "#qr_start" ).click(function() {
- var url_trans = $("#qr_url").value;
+ var url_trans = $("#qr_url").val();
  var url_trans1 = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURI(url_trans); 
   if (url_trans !== "") {
   $("#qr_img").attr("src", url_trans1);
-  $("#qr_url").attr("value", "");
+  $("#qr_url").val("");
   }
   });
 
