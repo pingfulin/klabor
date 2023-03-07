@@ -22,7 +22,7 @@
  <script>
 $( "#qr_start" ).click(function() {
  var url_trans = $("#qr_url").value;
- var url_trans1 = "https://chart.googleapis.com/chart?cht=qr&chs=100x100&choe=UTF-8&chl=" + url_trans 
+ var url_trans1 = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURI(url_trans); 
   if (url_trans !== "") {
   $("#qr_img").attr("src", url_trans1);
   $("#qr_url").attr("value", "");
