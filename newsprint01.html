@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+	<title>步驟3/3列印檢核表</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type"text/css" href="css/print.css" media="print">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="js/test_js.js" type="text/javascript"></script>
+<style>
+	   .center{font-Size: 24px; color: brown;} 
+	    body {font: 120% ; margin: 20px;}
+	   .req {font-size:18px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}
+	   .opt {font-size:18px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
+     .req.option:first-child { color:#DCDCDC;}
+      textarea {font-size:16px; padding:3px; color:indigo; width:85%;}
+			.req:valid {background-color:#F0FFF0;}
+</style>
+</head>
+<body>
+   <h1 id="h1_display" class="center" ></h1>
+ <div id="container_1" style="display:none">
+  <p></p>
+<table style="width:100%">
+  <tr>
+    <th style="text-align: left">掃碼加入google日曆</th>
+    <th style="text-align: left">掃碼至預約行程網頁</th> 
+
+  </tr>
+  <tr>
+    <td><img id="img_date" alt="加入google日曆 " style="float:center;width:120px;height:120px;"></td>
+    <td><img id="img_mail" alt="勞工局預約行程網頁 " style="float:center;width:120px;height:120px;"></td>
+
+  </tr>
+ 
+</table>
+<div id="hyper_c0" ><span>預約內容:</span><b><p id="show_a0"></p></b></div>
+  <p></p>
+<div id="hyper_c1" ><span>google日曆:</span><a id="show_a1"></a></div>
+  <p></p>
+<div id="button_s" class="no-print">
+ 
+  <button id="print_to" onclick= b_print()>列印檢核表</button>
+ 
+  </div>
+<div id="s01" >
+<hr>	  
+<p><b>一、局長行程請自行檢核以下事項:(請打V)</b></p>
+<input type="checkbox" name="vehicle1-1">(一)以上完成之登錄內容，已收到系統回覆之確認郵件。<br>
+<p></p>
+<input type="checkbox" name="vehicle1-2">(二)已向勞工局窗口07-8124613轉821確認。<br>
+<p></p>
+<input type="checkbox" name="vehicle1-3">(三)核定之資料，應於系統"mail核定檔"寄送，並致電窗口確認。<br>
+<h1></h1>
+<hr>				      
+<p><b>二、新聞稿及採訪通知，請自行檢核以下事項:(請打V)</b></p>
+<input type="checkbox" name="vehicle2-1">(一)以上完成之登錄內容，已收到系統回覆之確認郵件。<br>
+<p></p>
+<input type="checkbox" name="vehicle2-2">(二)已向勞工局窗口07-8124613轉108確認。<br>
+<p></p>
+<input type="checkbox" name="vehicle2-3">(三)核定之word檔案、照片檔，應以系統"mail核定檔"寄送，並致電窗口確認。<br>
+<p></p>
+<input type="checkbox" name="vehicle2-3">(四)蒐集露出之新聞超連結，共:______ 則，回覆張貼到該筆新聞發稿資料，以利統計。<br>
+
+<hr>
+ 
+<p></p>
+<p>承辦人核章及主管覆閱:</p>				
+</div>
+</div>
+<input type ="button" class="no-print" onclick="javascript:location.href='https://pingfulin.github.io/klabor/news.html'" value="回主頁"></input>
+  </body>
+
+  <script>
+$(document).ready (function (){
+var sub = "[預約行程]";
+var url_t01 = location.search;
+var url_t02 = decodeURI(b_return3(url_t01, "re_id"));//縮址
+//var url_t03 = decodeURI(b_return3(url_t01, "show"));//內容
+var url_name = decodeURI(b_return3(url_t01, "name"));//名稱
+var url_m1 = decodeURI(b_return3(url_t01, "print_m1"));//承辦1
+var url_dp = decodeURI(b_return3(url_t01, "print_dp"));//單位
+var url_all = url_name + '<br>' + url_dp + '&nbsp;' + url_m1;
+<!-- var url_man = decodeURI(b_return2(url_t01));
+				 -->
+if (url_t02|url_name ==null) { $("#h1_display").text("查無資料，請點選回上頁重新登錄。");
+ return false;   }
+else { $("#h1_display").text("步驟3/3請點選列印檢核表，並依規定陳核。");
+}
+document.getElementById("container_1").style.display = "block";
+//document.getElementById("show_a0").href = url_name;	
+$("#show_a0").html(url_all);
+$("#show_a1").text(url_t02);
+$("#show_a1").attr({href:url_t02,target:"_blank"});
+
+var url_dqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURI(url_t02); 
+var url_mqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURI("https://pingfulin.github.io/klabor/news.html"); 
+$("#img_date").attr("src",url_dqr);
+$("#img_mail").attr("src",url_mqr);
+})
+function b_print(){
+$("#h1_display").text("勞工局預約行程檢核表"); 
+window.print();
+
+}
+
+</script>
+</html>
+
+
