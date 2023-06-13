@@ -373,18 +373,25 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o + "&location=" + d_p;
 
    $.ajax({
- 
+
  //url : "https://api-ssl.bitly.com/v3/shorten?format=txt&login=o_2p0k47gmqh&apiKey=R_eaee61dc34b6434eaf8adaeb449d52c9&longUrl=" + encodeURIComponent(d_all),
- //url : "https://api.reurl.cc/shorten?reurl-api-key=4070ff49d794e13211553b663c974755ecd1b739999b04df8a38b58d65165567c4f5d6",
- url : "https://api.shrtco.de/v2/shorten?url=" + encodeURIComponent(d_all),
+ url : "https://api.reurl.cc/shorten",
+ //url : "https://api.shrtco.de/v2/shorten?url=" + encodeURIComponent(d_all),
+ //reurl-api-key ； "4070ff49d794e13c16543b663c974755ecd1b235959b04df8a38b58d65165567c4f5d6"
  type : "POST",
  //contentType : "application/json",
  //dataType : "json",
- //data : { url : encodeURIComponent(d_all) },
+ headers : { 
+  "reurl-api-key" : "4070ff49d794e13c16543b663c974755ecd1b235959b04df8a38b58d65165567c4f5d6",
+  "Content-Type": "application/json",
+  }, 
+ data : { "url" : "https://pingfulin.github.io/klabor/news.html" },
+ //data : { "url" : encodeURIComponent(d_all) },
 	   
  success: function(res){
- var re_id= res.result.full_short_link //shrtcode縮址
-  
+ //var re_id= res.result.full_short_link //shrtcode縮址
+ var re_id= short_url //reurl縮址
+ 
  var mail_all= encodeURI('newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s )
  window.location.replace(mail_all);
  
@@ -394,6 +401,85 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    });
   };
   }
+
+function cal_bu01(){
+	if ($("#m_date").val()=="") { alert("尚未點選日期");
+	return false; }
+	if ($("#m_date_en").val()=="") { alert("尚未點選日期");
+	return false; }
+	if ($("#tw_cnam").val()=="") { alert("尚未輸入主題");
+	return false; }
+	if ($("#tw_man1").val()=="") { alert("尚未輸入主要聯絡人");   
+	return false; }
+	if ($("#tw_teln1").val()=="") { alert("尚未輸入電話");
+   return false; }
+
+    var chk_kind = $("#kind_s").selectedIndex
+	if (chk_kind > 2 && $("#tw_adr").val()=="") { alert("尚未填寫地址");
+    return false; }
+	if (chk_kind > 2 && $("#tw_oth").val()=="") { alert("尚未填寫局長行程說明");
+    return false; }	
+
+   else{
+   var d1= $("#m_date").val();//開始日期時間
+   var de= $("#m_date_en").val();//結束日期時間
+var d11 = d1.substr(0,10).split('/'); //擷取日期
+var de1 = de.substr(0,10).split('/');
+//取得民國年
+var y01 = parseInt(d11[0])-1911;
+var ye1 = parseInt(de1[0])-1911;
+//取得月份
+var m01 = d11[1];
+var me1 = de1[1];
+//取得日期
+var d01 = d11[2];
+var de1 = de1[2];
+//將民國年月日的值指定給"預約日期"
+var d11y= y01 + "/" + m01 + "/" + d01 + "_";
+
+   var d1_t= d1.replace(/\/|\:/ig,"");//將西元日期及時間改成20220830T080000的步驟
+   var d1_t0= d1_t.replace(/\s/ig,"T");
+   var d1_t1= d1_t0 + "00";
+   var de_t= de.replace(/\/|\:/ig,"");//將西元日期及時間改成20220830T080000的步驟
+   var de_t0= de_t.replace(/\s/ig,"T");
+   var de_t1= de_t0 + "00";
+   //var d2= $("#m_date_en").val();
+   //var d2_t= d2.replace(/\s+/ig,"T");
+   //var d2_t1= d1_t + "T120000";
+   var d_tall= d1_t1 + "/" + de_t1;
+   var d_o1= $("#tw_man1").val().replace(/#|\?|\s/ig,"") + "%20" + $("#tw_teln1").val() + "%20" + $("#tw_tel1").val();
+   var d_o2= $("#tw_man2").val().replace(/#|\?|\s/ig,"") + "%20" + $("#tw_teln2").val() + "%20" + $("#tw_tel2").val();
+   var d_o3= $("#depart").val();
+   var d_oo= $("#tw_oth").val().replace(/\n|\r/ig,"%0A");
+   var d_o= d_o3 + "%0A" + d_o1 + "%0A" + d_o2 + "%0A" + d_oo;
+   var d_p= $("#tw_adr").val();
+   var kind_s= $("#kind_s").prop('selectedIndex');
+   var d_t= $("#kind_s").val().replace(/#|\?|\s/ig,"") + d11y + $("#tw_cnam").val().replace(/#|\?|\s/ig,"");
+   //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
+   var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o + "&location=" + d_p;
+
+   //$.ajax({
+ 
+ //url : "https://api-ssl.bitly.com/v3/shorten?format=txt&login=o_2p0k47gmqh&apiKey=R_eaee61dc34b6434eaf8adaeb449d52c9&longUrl=" + encodeURIComponent(d_all),
+ //url : "https://api.reurl.cc/shorten?reurl-api-key=4070ff49d794e13211553b663c974755ecd1b739999b04df8a38b58d65165567c4f5d6",
+ //url : "https://api.shrtco.de/v2/shorten?url=" + encodeURIComponent(d_all),
+ //type : "POST",
+ //contentType : "application/json",
+ //dataType : "json",
+ //data : { url : encodeURIComponent(d_all) },
+	   
+ //success: function(res){
+ //var re_id= res.result.full_short_link //shrtcode縮址
+  
+ var mail_all= encodeURI('newsmail01.html?re_id='+ d_a11 + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s )
+ window.location.replace(mail_all);
+ 
+};
+ //error: function(){alert("提交失敗，請重新輸入或電洽媒體聯絡人。請勿使用IE，請改用chrome登錄");
+ //return false;}, 
+   //});
+  }
+
 
 
  function b_clic(){
@@ -488,6 +574,26 @@ $.post('https://script.google.com/macros/s/AKfycbwyrB96NT2IBIOMOp6UL8Ue0HyIs92zY
  window.location.replace(print_all);	
 }
 
+function b_testline01(){
+var d_sh= $("#show_a").text();//縮址
+var d_t= $("#show_t").val()//名稱
+var d_m1= $("#show_m1").val()//承辦1
+var d_dp= $("#show_dp").val()//單位
+var d_o= $("#show_non").val();//發送line的內容
+
+//發送line notify訊息
+$.post('https://script.google.com/macros/s/AKfycbwyrB96NT2IBIOMOp6UL8Ue0HyIs92zYuZSyv3Blp-e5q6quivutdazwBqMsJaVKWgP/exec',
+    {msg:d_o},
+    function(e){
+        console.log(e);
+});
+
+/*document.getElementById("mail_to").style.display = "none";*/
+
+ var print_all= encodeURI('/klabor/newsprint01.html?re_id=' + d_sh + '&name=' + d_t + '&print_m1=' + d_m1 + '&print_dp=' + d_dp);
+ window.location.replace(print_all);	
+}
+
 function test_mail(url_kind){
 if (url_kind<3) {//判斷是否為新聞稿或局長行程
 var d_o= $("#show_re").val();
@@ -517,6 +623,34 @@ return d_href; /* win系統使用網頁url */
 }
 }
 	
+function test_mail01(url_kind){
+if (url_kind<3) {//判斷是否為新聞稿或局長行程
+var d_o= $("#show_re").val();
+var d_sh= $("#show_a").text();
+var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc=pingfulinkcg@gmail.com&bcc&su=[新聞稿通知]&body=" + d_o + "&fs=1");
+var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[新聞稿通知]&cc=pingfulinkcg@gmail.com&body=" + d_o);
+var d_torf= browser_dect(); /* 判斷瀏覽器或操作系統 */
+if (d_torf== "bis_yes") {
+ return d_href_c;/* 使用mailto */
+}
+else {
+return d_href; /* win系統使用網頁url */
+}
+}
+else {
+var d_o= $("#show_re").val();
+var d_sh= $("#show_a").text();
+var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=laborchiefbooking@gmail.com&bcc&su=[局長行程預約]&body=" + d_o + "&fs=1");
+var d_href_c= encodeURI("mailto:laborchiefbooking@gmail.com?subject=[局長行程預約]&body=" + d_o);
+var d_torf= browser_dect(); /* 判斷瀏覽器或操作系統 */
+if (d_torf== "bis_yes") {
+ return d_href_c;/* 使用mailto */
+}
+else {
+return d_href; /* win系統使用網頁url */
+}
+}
+}
 
 /*判斷瀏覽器或操作系統
  var sUserAgent= navigator.userAgent.toLowerCase();
