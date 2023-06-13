@@ -375,22 +375,23 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    $.ajax({
 
  //url : "https://api-ssl.bitly.com/v3/shorten?format=txt&login=o_2p0k47gmqh&apiKey=R_eaee61dc34b6434eaf8adaeb449d52c9&longUrl=" + encodeURIComponent(d_all),
- url : "https://api.reurl.cc/shorten",
- //url : "https://api.shrtco.de/v2/shorten?url=" + encodeURIComponent(d_all),
+ //url : "https://api.reurl.cc/shorten",
+ url : "https://api.shrtco.de/v2/shorten?url=" + encodeURIComponent(d_all),
  //reurl-api-key ； "4070ff49d794e13c16543b663c974755ecd1b235959b04df8a38b58d65165567c4f5d6"
  type : "POST",
  //contentType : "application/json",
  //dataType : "json",
- headers : { 
+  /*
+  headers : { 
   "reurl-api-key" : "4070ff49d794e13c16543b663c974755ecd1b235959b04df8a38b58d65165567c4f5d6",
   "Content-Type": "application/json",
   }, 
  data : { "url" : "https://pingfulin.github.io/klabor/news.html" },
  //data : { "url" : encodeURIComponent(d_all) },
-	   
+*/	   
  success: function(res){
- //var re_id= res.result.full_short_link //shrtcode縮址
- var re_id= short_url //reurl縮址
+ var re_id= res.result.full_short_link //shrtcode縮址
+ //var re_id= short_url //reurl縮址
  
  var mail_all= encodeURI('newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s )
  window.location.replace(mail_all);
