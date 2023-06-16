@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+	
+	<head>
+	<meta charset=UTF-8 />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>勞工局新聞及局長行程預約</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<link href="js/jquery-ui-timepicker-addon.css" rel="stylesheet"/>
+<script src="js/jquery-ui-timepicker-addon.js" type="text/javascript"></script>
+<script src="js/jquery-ui-sliderAccess.js" type="text/javascript"></script>
+<script src="js/jquery-ui-timepicker-zh-TW.js" type="text/javascript"></script>
+<script src="js/test_js.js" type="text/javascript"></script>
+
+	<script src="https://apis.google.com/js/api.js"></script>
+	
+	  <style>
+	   .center{font-Size: 24px; color: brown;} 
+	    body {font: 120% ; margin: 20px;}
+	    form { color:red}
+
+	   .dlg-no-close .ui-dialog-titlebar {display: none;}
+	   .req {font-size:16px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}
+	   .opt {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
+	   .read {font-size:16px; padding:3px; color:#8B0000; background-color:#ffffb6; width:85%;}	
+        input[type="text"] {font-size:16px; padding:3px; color:#8B0000; width:85%;}
+       .req.option:first-child { color:#DCDCDC;}
+        textarea {font-size:16px; padding:3px; color:#8B0000; background-color:#f0f8ff; width:85%;}
+	   .req:valid {background-color:#F0FFF0;}
+		
+		#map {
+	    position: relative;
+	    z-index: 5;
+	    height: 380px;
+	    width: 260px;
+	    top: 15px;
+	    overflow: hidden;
+	       }
+	    #dia {
+	    position: relative;
+	    width: 300px;
+	    height: 430px;														      
+	   		}	   
+	   
+	    #container {
+	    position: relative;
+	    z-index: 0;
+	       }	  	   
+	
+	label {
+
+    color:brown;
+
+		}
+
+	ul {
+		list-style-type: none;
+		top: 0;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		border: 1px solid #e7e7e7;
+		background-color: #f3f3f3;
+		}
+
+	li {
+		float: left;
+		}
+
+	li a:link {
+		display: block;
+		color: #666;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		}
+
+	li a:visited {
+ 
+		background-color: #20B2AA;
+		}
+	li a:hover {
+		background-color: #ddd;
+		}
+
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f9f9f9;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		z-index: 1;
+		}
+
+	.dropdown-content a[taraget="_blank"]
+		{
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+		text-align: left;
+		}
+
+	.dropdown-content a:hover {background-color: #f1f1f1;}
+
+	.dropdown:hover .dropdown-content {
+		display: block;
+		}		
+
+		</style>
+	
+	  </head>
+	<body>
+
+	<form id="myForm" action="javascript:cal_bu()">
+	<ul id="home">
+  <li><a href="#home">新增排程</a></li>
+  <li><a href="#news_k2">行程查詢</a></li>
+
+  <li class="dropdown">
+    <a href="javascript:void(0)" >mail核定檔</a>
+    <div class="dropdown-content">
+      <a id="mail_to" target="_blank">新聞稿與照片</a>
+      <a id="mail_to1" target="_blank">採訪通知</a>
+      <a id="mail_to2" target="_blank">局長行程</a>
+    </div>
+
+  <li><a href="https://groups.google.com/forum/?hl=zh-TW#!forum/kcglabornews" target="_blank">露出張貼</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" >輿情回應</a>
+    <div class="dropdown-content">
+      <a href="https://pingfulin.github.io/klabor/%E5%8B%9E%E5%B7%A5%E5%B1%80%E8%BC%BF%E6%83%85%E5%9B%9E%E8%A6%86%E8%A1%A81090826.docx" target="_blank">回應表格式</a>
+      <a id="news_back" target="_blank">寄交回應檔案</a>
+    </div>
+  <li class="dropdown">
+    <a href="javascript:void(0)" >各式申請表</a>
+    <div class="dropdown-content">
+      <a href="https://pingfulin.github.io/klabor/%E9%82%80%E7%B4%84%E5%B8%82%E9%95%B7%E5%87%BA%E5%B8%AD%E6%B4%BB%E5%8B%95%E7%94%B3%E8%AB%8B%E8%A1%A8.docx" target="_blank">市長行程邀約</a>
+      <a href="https://pingfulin.github.io/klabor/%E6%96%B0%E8%81%9E%E5%B1%80%E5%85%AC%E5%85%B1%E8%B3%87%E8%A8%8A%E7%99%BC%E5%B8%83%E7%94%B3%E8%AB%8B%E8%A1%A8.docx" target="_blank">公共資訊發布申請</a>
+    </div>
+  <!--<li><a href="https://pingfulin.github.io/klabor/test_news/news.html" title="正式登錄前可先至操作教學區熟悉步驟">操作教學</a></li> -->
+</ul>
+	  <h1 class="center" id="h1_news">瀏覽器未打開javascript，請先打開才能操作</h1>	
+	  <h1 class="center" id="h1_news_yes"></h1>
+<a href="https://pingfulin.github.io/klabor/%E6%96%B0%E8%81%9E%E7%A8%BF%E6%A0%BC%E5%BC%8F1090923.docx" target="_blank">新聞稿格式</a>&nbsp;&nbsp;<a href="https://pingfulin.github.io/klabor/%E6%8E%A1%E8%A8%AA%E9%80%9A%E7%9F%A5%E6%A0%BC%E5%BC%8F1090923.docx" target="_blank">採訪通知格式</a>
+	  <p></p>
+	  <select id="kind_s"  required class="req" onchange="changekind(this.selectedIndex)">
+	  <option value="" selected disabled>排程種類(*先點選上方行程查詢查看*)</option>
+	  <option value="新聞稿">新聞稿</option>
+	  <option value="採訪通知">採訪通知</optio>
+	  <option value="局長行程">局長行程</option>
+	</select>
+	  <p></p>
+	  <select id="depart"  required class="req">
+	  <option value="" selected disabled >點選業務單位</option>
+	  <option value="組織科">組織科</option>
+	  <option value="條件科">條件科</optio>
+	  <option value="關係科">關係科</option>
+	  <option value="就安科">就安科</option>
+	  <option value="職重科">職重科</optio>
+	  <option value="勞檢處">勞檢處</option>
+	  <option value="訓就中心">訓就中心</option>
+	  <option value="勞教中心">勞教中心</optio>
+	  <option value="博訓中心">博訓中心</option>
+	  <option value="秘書室">秘書室</option>
+	  <option value="政風室">政風室</option>
+	  <option value="人事室">人事室</option>
+	  <option value="會計室">會計室</option>
+	 </select>
+	  <p></p>
+	  <input type="text" class="read" id="m_date" required autocomplete="off" placeholder="開始日期時間(必填)" >
+	  <p></p>
+	  <input type="text" class="read" id="m_date_en" required autocomplete="off" placeholder="結束日期時間(必填)" >
+	  <p></p>
+ 
+	  <input type="radio" id="name_y" name="name_radio" value="name_y" checked>
+      <label for="name_y">公開主題</label>
+	  <input type="radio" id="name_n" name="name_radio" value="name_n">
+      <label for="name_n">不公開主題</label>
+
+	  <p></p>
+	  <input id="tw_cnam" name="tw_cnam" type="text" required class="req" autocomplete="off" placeholder="主題(最多60字、必填)" maxlength=60 />
+	  <p></p>										  
+
+	  <input type="radio" id="adr_y" name="adr_radio" value="adr_y" checked>
+      <label for="name_y">公開地址</label>
+	  <input type="radio" id="adr_n" name="adr_radio" value="adr_n" >
+      <label for="name_n">不公開地址</label>
+
+	  <p></p>		
+	  <input id="tw_adr" name="tw_adr" type="text" placeholder="地址地點(稽查行程請點選不公開、最多60字、局長行程必填)" maxlength=60 />
+	  <p></p>
+	  <input id="tw_man1" name="tw_man1" type="text"  required class="req" placeholder="主要承辦人(請填承辦人姓名，不是科長喔、必填)" maxlength=10 />
+	  <p></p>
+	  <input id="tw_teln1" name="tw_teln1" type="text"  required class="req" title="格式:07XXXXXXX,分機(分機前請加半形逗號, 無分機請在逗號後輸入9)" pattern="07[2-9]{1}[0-9]{6},[0-9]{1,}" placeholder="電話1(格式:07XXXXXXX,分機(無分機請輸入9)、必填)" maxlength=20 />
+	  <p></p>
+	  <input id="tw_tel1" name="tw_tel1" type="text" class="opt" title="格式:09XXXXXXXX" pattern="09\d{8}" placeholder="手機1(格式:09XXXXXXXX、選填)" maxlength=12 />
+	  <p></p>
+	  <input id="tw_man2" name="tw_man2" type="text" class="opt" placeholder="第二承辦人(當找不到承辦人時要找誰、選填)" maxlength=10 />
+	  <p></p>
+	  <input id="tw_teln2" name="tw_teln2" type="text" class="opt" title="格式:07XXXXXXX,分機(無分機請輸入9)" pattern="07[2-9]{1}[0-9]{6},[0-9]{1,}" placeholder="電話2(格式:07XXXXXXX,分機(無分機請輸入9)、選填)" maxlength=20 />
+	  <p></p>
+	  <input id="tw_tel2" name="tw_tel2" type="text" class="opt" title="格式:09XXXXXXXX" pattern="09\d{8}" placeholder="手機2(格式:09XXXXXXXX、選填)" maxlength=12 />
+	  <p></p>												     
+	  <textarea rows="5" id="tw_oth" name="tw_oth" placeholder="行程說明(含局長到場、離席的時間，最多200字、局長行程必填)" maxlength=200 /></textarea>
+	  <input id="pac-input" type="hidden" value="[勞工局行程預約]">
+	  <p></p>
+	  <p></p>
+	  <p></p>
+	
+	 <input type="submit" value="下一步"/>&nbsp;&nbsp;
+	 <button type="reset" class="btn btn-warning" id="reset1" >重填</button>
+	</form> 
+	 <p></p>
+		<p style="color:blue;font-Size:12px;">Designed by 炳賦</p>&nbsp;&nbsp;<a href="tel:+886-7-8124613,108">078124613,108</a>&nbsp;&nbsp;<a href="tel:+886-929659356">0929659356</a>
+  <p></p>
+ <hr>
+ <h1 class="center" id="news_k2">是否有空&nbsp;&nbsp;<a style="font-Size:10px;" href="#home">回頂端</a></h1>
+<iframe src="https://calendar.google.com/calendar/embed?src=ph20911%40gmail.com&ctz=Asia%2FTaipei" style="border: 0" width="600" height="400" frameborder="0" scrolling="no"></iframe>
+  <p></p>
+
+ <hr>
+ <h1 class="center" id="news_kl">局長行程預約&nbsp;&nbsp;<a style="font-Size:10px;" href="#home">回頂端</a></h1>
+<iframe src="https://calendar.google.com/calendar/embed?src=33e75f96105a028d698fbc6edff8fa6662abce071c97edcbf8f3d5aeb6d92fae%40group.calendar.google.com&ctz=Asia%2FTaipei" style="border: 0" width="600" height="400" frameborder="0" scrolling="no"></iframe>
+  <p></p>
+
+  <hr>
+  <h1 class="center" id="klcal">勞工局新聞預告&nbsp;&nbsp;<a style="font-Size:10px;" href="#home">回頂端</a></h1>	 	  
+<iframe src="https://calendar.google.com/calendar/embed?src=bolaboraffair%40gmail.com&ctz=Asia%2FTaipei" style="border: 0" width="600" height="400" frameborder="0" scrolling="no"></iframe>
+  <p></p>  
+
+
+</body>
+   <script>
+   $(document).ready (function(){
+	document.getElementById("myForm").reset();
+	document.getElementById("h1_news").style.display = "none";
+	$("#h1_news_yes").text("預約新聞或局長行程");
+	$("#m_date").attr("readonly",true);
+	$("#m_date_en").attr("readonly",true);
+   	var d_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc=pingfulinkcg@gmail.com&bcc&su=[新聞稿核定檔及照片]&body=寄送新聞稿核定檔案及照片" + "&fs=1");
+	var d_href_c= encodeURI("mailto:bolaboraffair@gmail.com?subject=[新聞稿核定檔及照片]&cc=pingfulinkcg@gmail.com&body=寄送新聞稿核定檔案及照片");
+   	var d_href1= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com&cc=pingfulinkcg@gmail.com&bcc&su=[採訪通知核定檔]&body=寄送採訪通知核定檔案" + "&fs=1");
+	var d_href_c1= encodeURI("mailto:bolaboraffair@gmail.com?subject=[採訪通知核定檔]&cc=pingfulinkcg@gmail.com&body=寄送採訪通知核定檔案");
+   	var d_href2= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=laborchiefbooking@gmail.com&bcc&su=[局長行程核定資料]&body=寄送局長行程核定資料" + "&fs=1");
+	var d_href_c2= encodeURI("mailto:laborchiefbooking@gmail.com?subject=[局長行程核定資料]&body=寄送局長行程核定資料");
+   	var back_href= encodeURI("https://mail.google.com/mail/u/0/?view=cm&tf=1&to=bolaboraffair@gmail.com,yulitsai@kcg.gov.tw&cc=pingfulinkcg@gmail.com&bcc&su=[輿情回應表]&body=請填寫承辦單位、承辦人、電話：" + "&fs=1");
+	var back_href_c= encodeURI("mailto:bolaboraffair@gmail.com,yulitsai@kcg.gov.tw?subject=[輿情回應表]&cc=pingfulinkcg@gmail.com&body=請填寫承辦單位、承辦人、電話：");
+	var d_torf= browser_dect(); /* 判斷瀏覽器或操作系統 */
+		if (d_torf== "bis_yes") {
+			document.getElementById("mail_to").href = d_href_c;/* 使用mailto */
+			document.getElementById("mail_to1").href = d_href_c1;/* 使用mailto */
+			document.getElementById("mail_to2").href = d_href_c2;/* 使用mailto */
+			document.getElementById("news_back").href = back_href_c;/* 使用mailto */
+			}
+		else {
+			document.getElementById("mail_to").href = d_href; /* win系統使用網頁url */
+			document.getElementById("mail_to1").href = d_href1; /* win系統使用網頁url */
+			document.getElementById("mail_to2").href = d_href2; /* win系統使用網頁url */
+			document.getElementById("news_back").href = back_href; /* win系統使用網頁url */
+			}
+    $("input[name='name_radio']:radio").change(function(){
+        if($(this).val() == 'name_y')
+        {
+          $("#tw_cnam").val("");
+		  $("#tw_cnam").attr("readonly",false);
+        }
+        else if($(this).val() == 'name_n')
+        {
+          $("#tw_cnam").val("主題不公開");
+		  $("#tw_cnam").attr("readonly",true);
+        }
+	   })
+    $("input[name='adr_radio']:radio").change(function(){
+        if($(this).val() == 'adr_y')
+        {
+          $("#tw_adr").val("");
+		  $("#tw_adr").attr("readonly",false);
+        }
+        else if($(this).val() == 'adr_n')
+        {
+          $("#tw_adr").val("地址不公開");
+		  $("#tw_adr").attr("readonly",true);
+        }
+	   })
+
+	  })
+
+   </script>
+	
+	   </html>
+
+
+
+
+
+
+
