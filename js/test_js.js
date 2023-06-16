@@ -403,7 +403,7 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
   };
   }
 
-function cal_bu02(){
+function cal_bu03(){
 	if ($("#m_date").val()=="") { alert("尚未點選日期");
 	return false; }
 	if ($("#m_date_en").val()=="") { alert("尚未點選日期");
