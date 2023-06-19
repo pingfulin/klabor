@@ -198,123 +198,6 @@ function changekind(index) {
       source: man1
     });
 	} );
-  
-  function b_clic_g(){
-   if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
-   return false; }
-   if ($("#tw_nam").val()=="") { alert("尚未輸入行程名稱");
-   return false; }
-   if ($("#tw_adr").val()=="") { alert("尚未輸入地址");   
-   return false; }
-   if ($("#tw_P").val()=="") { alert("尚未輸入樓層或場所");
-   return false; }
-   if ($("#tw_man").val()=="") { alert("尚未輸入承辦單位(人)");
-   return false; }
-   else{ 
-   var d1= $("#m_date").val();
-   var d1_t= d1.replace(/\s+/ig,"T");
-   var d1_t1= d1_t.replace(/\/|\:/ig,"") + "00";
-   var d2= $("#m_date_en").val();
-   var d2_t= d2.replace(/\s+/ig,"T");
-   var d2_t1= d2_t.replace(/\/|\:/ig,"") + "00";
-   var d_tall= d1_t1 + "/" + d2_t1;
-   var d_o= $("#tw_oth").val().replace(/\n|\r/ig,"%0A");
-   var d_p= $("#tw_adr").val();
-   var d_t= $("#tw_nam").val();
-   var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" + d_o + "%A" + d_d0;
-   var d_all= "http://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_d + "&location=" + d_p;
-
-   $.ajax({
- url : "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyAwtUL4kEGvD72EU-QY5Wcana4UemEVbB0",
- type : "POST",
- contentType : 'application/json; charset=utf-8',
- dataType : "json",
- data :'{ longUrl: "' + d_all +'"}',
- //function(result) {
-    //console.log(result.success); // result是json物件
-  //},
- success: function(result,status,xhr){
- var re_id= result.id
- window.location.replace('/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
-
-  }
-});
-  }
-  }
-
-function cal_bu_test(){
-var now = new Date();
-        today = now.toISOString();
-
-        var twoHoursLater = new Date(now.getTime() + (2 * 1000 * 60 * 60));
-        twoHoursLater = twoHoursLater.toISOString();
-// Google api console clientID and apiKey 
-
- var clientId = '1090898156676-5n50dnr8t8kl6qc90feei25hddoj559f.apps.googleusercontent.com';
- var apiKey = 'AIzaSyCmBGO_PRZ5yE6IZZYkZHUrlEcW7gd64aU';
-
- // enter the scope of current project (this API must be turned on in the Google console)
-   var scopes = 'https://www.googleapis.com/auth/calendar';
-
-
-           gapi.client.setApiKey(apiKey);
-           window.setTimeout(checkAuth, 1);
-
-
-//To authenticate
-
-    gapi.auth.authorize({ client_id: clientId, scope: scopes, immediate: true }, handleAuthResult);
-        
-
-// This is the resource we will pass while calling api function
-var resource = {
-            "summary": "My Event",
-            "start": {
-                "dateTime": today
-            },
-            "end": {
-                "dateTime": twoHoursLater
-            },
-            "description":"We are organizing events",
-            "location":"US",
-            "attendees":[
-            {
-                    "email":"attendee1@gmail.com",
-                    "displayName":"Jhon",
-                    "organizer":true,
-                    "self":false,
-                    "resource":false,
-                    "optional":false,
-                    "responseStatus":"needsAction",
-                    "comment":"This is my demo event",
-                    "additionalGuests":3
-                    
-            },
-            {    
-                "email":"attendee2@gmail.com",
-                    "displayName":"Marry",
-                    "organizer":true,
-                    "self":false,
-                    "resource":false,
-                    "optional":false,
-                    "responseStatus":"needsAction",
-                    "comment":"This is an official event",
-                    "additionalGuests":3
-            }
-            ],
-        };
-
-
-gapi.client.load('calendar', 'v3', function () { // load the calendar api (version 3)
-                var request = gapi.client.calendar.events.insert
-                ({
-                    'calendarId': 'pingfulinkcg@gmail.com', 
-// calendar ID which id of Google Calendar where you are creating events. this can be copied from your Google Calendar user view.
-
-                    "resource": resource 	// above resource will be passed here
-                });                
-});
-}
 
 function cal_bu(){
 	if ($("#m_date").val()=="") { alert("尚未點選日期");
@@ -361,258 +244,44 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    //var d2_t= d2.replace(/\s+/ig,"T");
    //var d2_t1= d1_t + "T120000";
    var d_tall= d1_t1 + "/" + de_t1;
-   var d_o1= $("#tw_man1").val().replace(/#|\?|\s/ig,"") + "%20" + $("#tw_teln1").val() + "%20" + $("#tw_tel1").val();
-   var d_o2= $("#tw_man2").val().replace(/#|\?|\s/ig,"") + "%20" + $("#tw_teln2").val() + "%20" + $("#tw_tel2").val();
+   var d_o1= $("#tw_man1").val().replace(/#|\?|\s|\=/ig,"") + "%20" + $("#tw_teln1").val() + "%20" + $("#tw_tel1").val();
+   var d_o2= $("#tw_man2").val().replace(/#|\?|\s|\=/ig,"") + "%20" + $("#tw_teln2").val() + "%20" + $("#tw_tel2").val();
    var d_o3= $("#depart").val();
-   var d_oo= $("#tw_oth").val().replace(/\n|\r/ig,"%0A");
+   var d_oo1= $("#tw_oth").val().replace(/\n|\r/ig,"%0A")
+   var d_oo= d_oo1.replace(/#|\?|\s|\=/ig,"%20");//削去空格、?、=，以避免誤判;
    var d_o= d_o3 + "%0A" + d_o1 + "%0A" + d_o2 + "%0A" + d_oo;
-   var d_p= $("#tw_adr").val();
+   var d_p= $("#tw_adr").val().replace(/#|\?|\s|\=/ig,"");
    var kind_s= $("#kind_s").prop('selectedIndex');
    var d_t= $("#kind_s").val().replace(/#|\?|\s/ig,"") + d11y + $("#tw_cnam").val().replace(/#|\?|\s/ig,"");
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
    var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o + "&location=" + d_p;
-
-   $.ajax({
-
- //url : "https://api-ssl.bitly.com/v3/shorten?format=txt&login=o_2p0k47gmqh&apiKey=R_eaee61dc34b6434eaf8adaeb449d52c9&longUrl=" + encodeURIComponent(d_all),
- //url : "https://api.reurl.cc/shorten",
- url : "https://api.shrtco.de/v2/shorten?url=" + encodeURIComponent(d_all),
- //reurl-api-key ； "4070ff49d794e13c16543b663c974755ecd1b235959b04df8a38b58d65165567c4f5d6"
- type : "POST",
- //contentType : "application/json",
- //dataType : "json",
-  /*
-  headers : { 
-  "reurl-api-key" : "4070ff49d794e13c16543b663c974755ecd1b235959b04df8a38b58d65165567c4f5d6",
-  "Content-Type": "application/json",
-  }, 
- data : { "url" : "https://pingfulin.github.io/klabor/news.html" },
- //data : { "url" : encodeURIComponent(d_all) },
-*/	   
- success: function(res){
- var re_id= res.result.full_short_link //shrtcode縮址
- //var re_id= short_url //reurl縮址
- 
- var mail_all= encodeURI('newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s )
- window.location.replace(mail_all);
- 
-},
- error: function(){alert("提交失敗，請重新輸入或電洽媒體聯絡人。請勿使用IE，請改用chrome登錄");
- return false;}, 
-   });
-  };
-  }
-
-function cal_bu03(){
-	if ($("#m_date").val()=="") { alert("尚未點選日期");
-	return false; }
-	if ($("#m_date_en").val()=="") { alert("尚未點選日期");
-	return false; }
-	if ($("#tw_cnam").val()=="") { alert("尚未輸入主題");
-	return false; }
-	if ($("#tw_man1").val()=="") { alert("尚未輸入主要聯絡人");   
-	return false; }
-	if ($("#tw_teln1").val()=="") { alert("尚未輸入電話");
-   return false; }
-
-    var chk_kind = $("#kind_s").selectedIndex
-	if (chk_kind > 2 && $("#tw_adr").val()=="") { alert("尚未填寫地址");
-    return false; }
-	if (chk_kind > 2 && $("#tw_oth").val()=="") { alert("尚未填寫局長行程說明");
-    return false; }	
-
-   else{
-   var d1= $("#m_date").val();//開始日期時間
-   var de= $("#m_date_en").val();//結束日期時間
-var d11 = d1.substr(0,10).split('/'); //擷取日期
-var de1 = de.substr(0,10).split('/');
-//取得民國年
-var y01 = parseInt(d11[0])-1911;
-var ye1 = parseInt(de1[0])-1911;
-//取得月份
-var m01 = d11[1];
-var me1 = de1[1];
-//取得日期
-var d01 = d11[2];
-var de1 = de1[2];
-//將民國年月日的值指定給"預約日期"
-var d11y= y01 + "/" + m01 + "/" + d01 + "_";
-
-   var d1_t= d1.replace(/\/|\:/ig,"");//將西元日期及時間改成20220830T080000的步驟
-   var d1_t0= d1_t.replace(/\s/ig,"T");
-   var d1_t1= d1_t0 + "00";
-   var de_t= de.replace(/\/|\:/ig,"");//將西元日期及時間改成20220830T080000的步驟
-   var de_t0= de_t.replace(/\s/ig,"T");
-   var de_t1= de_t0 + "00";
-   //var d2= $("#m_date_en").val();
-   //var d2_t= d2.replace(/\s+/ig,"T");
-   //var d2_t1= d1_t + "T120000";
-   var d_tall= d1_t1 + "/" + de_t1;
-   var d_o1= $("#tw_man1").val().replace(/#|\?|\s/ig,"") + "%20" + $("#tw_teln1").val() + "%20" + $("#tw_tel1").val();
-   var d_o2= $("#tw_man2").val().replace(/#|\?|\s/ig,"") + "%20" + $("#tw_teln2").val() + "%20" + $("#tw_tel2").val();
-   var d_o3= $("#depart").val();
-   var d_oo= $("#tw_oth").val().replace(/\n|\r/ig,"%0A");
-   var d_o= d_o3 + "%0A" + d_o1 + "%0A" + d_o2 + "%0A" + d_oo;
-   var d_p= $("#tw_adr").val();
-   var kind_s= $("#kind_s").prop('selectedIndex');
-   var d_t= $("#kind_s").val().replace(/#|\?|\s/ig,"") + d11y + $("#tw_cnam").val().replace(/#|\?|\s/ig,"");
-   //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
-   var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o + "&location=" + d_p;
-   //var token_id= "4070ff49d794e13c16543b663c974755ecd1b235959b04df8a38b58d65165567c4f5d6" //reurl-api-key
-   var apiurl = "https://api.reurl.cc/shorten";
-   var apikey = "4070ff49d794e13c16543b663c974755ecd1b235959b04df8a38b58d65165567c4f5d6";
-
-    //const longUrl = "https://github.com/asd8116/URL-shortener";
-$.post({
-  url: 'https://api.reurl.cc/shorten',
-  headers: {
-        'Content-Type': 'application/json',
-        'reurl-api-key': '4070ff49d794e13c16543b663c974755ecd1b235959b04df8a38b58d65165567c4f5d6'
-             },
-  data: {'url': JSON.stringify('https://www.google.com')},
-
-  dataType : "json",
-  success: function(res){
- //var re_id= res.result.full_short_link //shrtcode縮址
- var re_id= short_url //reurl縮址
- alert(re_id);
- return false;
- //var mail_all= encodeURI('newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s )
- //window.location.replace(mail_all);	   
-    },
-  error: function(response){   
-    let data = response.responseJSON.errors;
-    $.each( data, function( key, value ) {
-    $( "<span class='text-danger'>"+value+"</span>" ).insertAfter( "#"+key );
-});
-}
-});
-
-
-  };
-}
-
-function cal_bu01(){
-	if ($("#m_date").val()=="") { alert("尚未點選日期");
-	return false; }
-	if ($("#m_date_en").val()=="") { alert("尚未點選日期");
-	return false; }
-	if ($("#tw_cnam").val()=="") { alert("尚未輸入主題");
-	return false; }
-	if ($("#tw_man1").val()=="") { alert("尚未輸入主要聯絡人");   
-	return false; }
-	if ($("#tw_teln1").val()=="") { alert("尚未輸入電話");
-   return false; }
-
-    var chk_kind = $("#kind_s").selectedIndex
-	if (chk_kind > 2 && $("#tw_adr").val()=="") { alert("尚未填寫地址");
-    return false; }
-	if (chk_kind > 2 && $("#tw_oth").val()=="") { alert("尚未填寫局長行程說明");
-    return false; }	
-
-   else{
-   var d1= $("#m_date").val();//開始日期時間
-   var de= $("#m_date_en").val();//結束日期時間
-var d11 = d1.substr(0,10).split('/'); //擷取日期
-var de1 = de.substr(0,10).split('/');
-//取得民國年
-var y01 = parseInt(d11[0])-1911;
-var ye1 = parseInt(de1[0])-1911;
-//取得月份
-var m01 = d11[1];
-var me1 = de1[1];
-//取得日期
-var d01 = d11[2];
-var de1 = de1[2];
-//將民國年月日的值指定給"預約日期"
-var d11y= y01 + "/" + m01 + "/" + d01 + "_";
-
-   var d1_t= d1.replace(/\/|\:/ig,"");//將西元日期及時間改成20220830T080000的步驟
-   var d1_t0= d1_t.replace(/\s/ig,"T");
-   var d1_t1= d1_t0 + "00";
-   var de_t= de.replace(/\/|\:/ig,"");//將西元日期及時間改成20220830T080000的步驟
-   var de_t0= de_t.replace(/\s/ig,"T");
-   var de_t1= de_t0 + "00";
-   //var d2= $("#m_date_en").val();
-   //var d2_t= d2.replace(/\s+/ig,"T");
-   //var d2_t1= d1_t + "T120000";
-   var d_tall= d1_t1 + "/" + de_t1;
-   var d_o1= $("#tw_man1").val().replace(/#|\?|\s/ig,"") + "%20" + $("#tw_teln1").val() + "%20" + $("#tw_tel1").val();
-   var d_o2= $("#tw_man2").val().replace(/#|\?|\s/ig,"") + "%20" + $("#tw_teln2").val() + "%20" + $("#tw_tel2").val();
-   var d_o3= $("#depart").val();
-   var d_oo= $("#tw_oth").val().replace(/\n|\r/ig,"%0A");
-   var d_o= d_o3 + "%0A" + d_o1 + "%0A" + d_o2 + "%0A" + d_oo;
-   var d_p= $("#tw_adr").val();
-   var kind_s= $("#kind_s").prop('selectedIndex');
-   var d_t= $("#kind_s").val().replace(/#|\?|\s/ig,"") + d11y + $("#tw_cnam").val().replace(/#|\?|\s/ig,"");
-   //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
-   var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o + "&location=" + d_p;
-
-   //$.ajax({
- 
- //url : "https://api-ssl.bitly.com/v3/shorten?format=txt&login=o_2p0k47gmqh&apiKey=R_eaee61dc34b6434eaf8adaeb449d52c9&longUrl=" + encodeURIComponent(d_all),
- //url : "https://api.reurl.cc/shorten?reurl-api-key=4070ff49d794e13211553b663c974755ecd1b739999b04df8a38b58d65165567c4f5d6",
- //url : "https://api.shrtco.de/v2/shorten?url=" + encodeURIComponent(d_all),
- //type : "POST",
- //contentType : "application/json",
- //dataType : "json",
- //data : { url : encodeURIComponent(d_all) },
-	   
- //success: function(res){
- //var re_id= res.result.full_short_link //shrtcode縮址
-  
- var mail_all= encodeURI('newsmail01.html?re_id='+ d_a11 + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s )
- window.location.replace(mail_all);
- 
+const url= "https://api.reurl.cc/shorten";
+let headers = {
+    "Content-Type": "application/json",
+    'reurl-api-key': '4070ff49d794e13c16543b663c974755ecd1b235959b04df8a38b58d65165567c4f5d6',
 };
- //error: function(){alert("提交失敗，請重新輸入或電洽媒體聯絡人。請勿使用IE，請改用chrome登錄");
- //return false;}, 
-   //});
-  }
 
-
-
- function b_clic(){
-   if ($("#m_date").val()|$("#m_date_en").val()=="") { alert("尚未點選日期時間");
-   return false; }
-   if ($("#tw_nam").val()=="") { alert("尚未輸入行程名稱");
-   return false; }
-   if ($("#tw_adr").val()=="") { alert("尚未輸入地址");   
-   return false; }
-   if ($("#tw_P").val()=="") { alert("尚未輸入樓層或場所");
-   return false; }
-   if ($("#tw_man").val()=="") { alert("尚未輸入承辦單位(人)");
-   return false; }
-   else{ 
-   var d1= $("#m_date").val();
-   var d1_t= d1.replace(/\s+/ig,"T");
-   var d1_t1= d1_t.replace(/\/|\:/ig,"") + "00";
-   var d2= $("#m_date_en").val();
-   var d2_t= d2.replace(/\s+/ig,"T");
-   var d2_t1= d2_t.replace(/\/|\:/ig,"") + "00";
-   var d_tall= d1_t1 + "/" + d2_t1;
-   var d_o= $("#tw_oth").val().replace(/\n|\r/ig,"%0A");
-   var d_p= $("#tw_adr").val();
-   var d_t= $("#tw_nam").val();
-   var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
-   var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_d + "&location=" + d_p;
-
-   $.ajax({
- 
- //url : "https://api-ssl.bitly.com/v3/shorten?format=txt&login=o_2p0k47gmqh&apiKey=R_eaee61dc34b6434eaf8adaeb449d52c9&longUrl=" + encodeURIComponent(d_all),
- url : "https://api.reurl.cc/shorten?reurl-api-key=4070ff49d794e13211553b663c974755ecd1b739999b04df8a38b58d65165567c4f5d6",
- type : "POST",
- contentType : 'application/json',
- dataType : "text",
- data : { url :  encodeURIComponent(d_all) },
- success: function(result,status,xhr){
- var re_id= result
- window.location.replace('/klabor/test007.html?re_id='+ re_id + '&name=' + d_t + '&sta=' + status);
-
-  }
-});
-  }
-  }
+let body = {
+        "url": d_all
+};
+fetch( url,
+ {
+    method: "POST",
+    headers: headers,
+    //別忘了把主體参數轉成字串，否則資料會變成[object Object]，它無法被成功儲存在後台
+    body: JSON.stringify(body)
+})
+.then( response => response.json())
+.then( data => {
+	const re_id= data.short_url;
+    let mail_all= encodeURI('newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s );
+    window.location.replace(mail_all);
+   },
+ error => {
+	alert("提交失敗，請重新輸入或電洽媒體聯絡人。請勿使用IE，請改用chrome登錄");
+    return false;})
+   }
+}
 
 function b_clicline(){
 var d_o= $("#tw_oth").val();
