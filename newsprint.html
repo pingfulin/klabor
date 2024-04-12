@@ -95,8 +95,8 @@ $("#show_a0").html(url_all);
 $("#show_a1").text(url_t02);
 $("#show_a1").attr({href:url_t02,target:"_blank"});
 
-var url_dqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURI(url_t02); 
-var url_mqr = "https://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=200x200&chl=" + encodeURI("https://pingfulin.github.io/klabor/news.html"); 
+var url_dqr = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURI(url_t02); 
+var url_mqr = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURI("https://pingfulin.github.io/klabor/news.html"); 
 $("#img_date").attr("src",url_dqr);
 $("#img_mail").attr("src",url_mqr);
 })
