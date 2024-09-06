@@ -79,7 +79,7 @@ var date_show_10 = {
    changeYear : true,
    changeMonth : true,
    //minDate :'Date($("#m_date")',
-   hour:17,
+   hour:12,
    minute:0,
    controlType:"select",
    alwaysSetTime:true,
