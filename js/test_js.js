@@ -265,7 +265,7 @@ let headers = {
 };
 
 let body = {
-	d_all
+	"url" : "https://www.google.com"
 };		
 fetch( url,
  {
@@ -281,7 +281,7 @@ fetch( url,
     window.location.replace(mail_all);
    })
  .catch(error => {
-	alert("提交失敗，請重新輸入或電洽媒體聯絡人。");
+	alert(console.log(d_all));
     return false;})
    }
 }
