@@ -254,7 +254,8 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    var kind_s= $("#kind_s").prop('selectedIndex');
    var d_t= $("#kind_s").val().replace(/#|\?|\s/ig,"") + d11y + $("#tw_cnam").val().replace(/#|\?|\s/ig,"");
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
-   var d_all= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o + "&location=" + d_p;
+   var d_all_1= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o + "&location=" + d_p;
+   var d_all= JSON.stringify(d_all_1)
 const url= "https://api.reurl.cc/shorten";
 let headers = {
     //key={("support.chat.example"),("https", "retail.example")}
@@ -263,7 +264,7 @@ let headers = {
 };
 
 let body = {
-        "url": JSON.stringify(d_all)
+        "url": d_all
 };
 fetch( url,
  {
