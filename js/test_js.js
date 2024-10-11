@@ -266,6 +266,7 @@ let body = {
 };
 fetch( url,
  {
+    mode: 'no-cors',
     method: "POST",
     headers: headers,
     //別忘了把主體参數轉成字串，否則資料會變成[object Object]，它無法被成功儲存在後台
@@ -277,8 +278,8 @@ fetch( url,
     let mail_all= encodeURI('newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s );
     window.location.replace(mail_all);
    },
- error => {
-	alert("提交失敗，請重新輸入或電洽媒體聯絡人。請勿使用IE，請改用chrome登錄");
+ .catch(error => {
+	alert("提交失敗，請重新輸入或電洽媒體聯絡人。");
     return false;})
    }
 }
