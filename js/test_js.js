@@ -281,7 +281,7 @@ fetch( url,
     window.location.replace(mail_all);
    })
  .catch(error => {
-	alert(console.log(d_all));
+	alert(d_all);
     return false;})
    }
 }
