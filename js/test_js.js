@@ -258,20 +258,18 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    var d_all= {url: d_all_1};
 const url= "https://api.reurl.cc/shorten";
 let headers = {
-    //key={("support.chat.example"),("https", "retail.example")}
+    
     "Content-Type": "application/json",
     'reurl-api-key': '4070ff49d794e13c16543b663c974755ecd1b235959b04df8a38b58d65165567c4f5d6',
 };
 
-let body = {
-        JSON.stringify(d_all)
-};
+
 fetch( url,
  {
     method: "POST",
     headers: headers,
     //別忘了把主體参數轉成字串，否則資料會變成[object Object]，它無法被成功儲存在後台
-    body: body
+    body: JSON.stringify(d_all)
 })
 .then( response => response.json())
 .then( data => {
