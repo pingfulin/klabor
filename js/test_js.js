@@ -264,13 +264,15 @@ let headers = {
     'reurl-api-key': '4070ff49d794e13c16543b663c974755ecd1b235959b04df8a38b58d65165567c4f5d6',
 };
 
-
+let body = {
+	d_all
+};		
 fetch( url,
  {
     method: "POST",
     headers: headers,
     //別忘了把主體参數轉成字串，否則資料會變成[object Object]，它無法被成功儲存在後台
-    body: d_all
+    body: body
 })
 .then( response => response.json())
 .then( data => {
