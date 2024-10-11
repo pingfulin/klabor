@@ -272,7 +272,7 @@ fetch( url,
     method: "POST",
     headers: headers,
     //別忘了把主體参數轉成字串，否則資料會變成[object Object]，它無法被成功儲存在後台
-    body: "url" : "https://www.google.com"
+    body: d_all
 })
 .then( response => response.json())
 .then( data => {
