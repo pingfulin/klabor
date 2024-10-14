@@ -253,7 +253,7 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    var d_o2_t= $("#tw_teln2").val();
    var d_o2_c= $("#tw_tel2").val();
    var d_o3= $("#depart").val();
-   var d_oo1= $("#tw_oth").val().replace(/\n|\r/ig,%0A)//將段落符號取代成%0A
+   var d_oo1= $("#tw_oth").val().replace(/\n|\r/ig,"")//將段落符號取代成%0A
    var d_oo= d_oo1.replace(/#|\?|\s|\=/ig,"");//削去\S空白、段落?、=，以避免誤判;
    var d_o= d_o3 + "%0A" + d_o1 + "%0A" + d_o2 + "%0A" + d_oo;
    //var d_o= encodeURI(d_o3) + "%0A" + encodeURI(d_o1_n) + "%20" + encodeURI(d_o1_t) + "%20" + encodeURI(d_o1_c) + "%0A" + encodeURI(d_o2_n) + "%20" + encodeURI(d_o2_t) + "%20" + encodeURI(d_o2_c) + "%0A" + encodeURI(d_oo);	   
