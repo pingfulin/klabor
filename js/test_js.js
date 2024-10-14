@@ -247,17 +247,18 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    var d_o1= $("#tw_man1").val().replace(/#|\?|\s|\=/ig,"") + "%20" + $("#tw_teln1").val() + "%20" + $("#tw_tel1").val();
    var d_o2= $("#tw_man2").val().replace(/#|\?|\s|\=/ig,"") + "%20" + $("#tw_teln2").val() + "%20" + $("#tw_tel2").val();
    var d_o3= $("#depart").val();
-   var d_oo1= $("#tw_oth").val().replace(/\n|\r/ig,"%0A")
-   var d_oo= d_oo1.replace(/#|\?|\s|\=/ig,"%20");//削去空格、?、=，以避免誤判;
+   var d_oo1= $("#tw_oth").val().replace(/\n|\r/ig,"%0A")//將段落符號取代成%0A
+   var d_oo= d_oo1.replace(/#|\?|\s|\=/ig,"%20");//削去\S空白、段落?、=，以避免誤判;
    var d_o= d_o3 + "%0A" + d_o1 + "%0A" + d_o2 + "%0A" + d_oo;
    var d_p= $("#tw_adr").val().replace(/#|\?|\s|\=/ig,"");
    var kind_s= $("#kind_s").prop('selectedIndex');
    var d_t= $("#kind_s").val().replace(/#|\?|\s/ig,"") + d11y + $("#tw_cnam").val().replace(/#|\?|\s/ig,"");
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
-   var d_all_1= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o + "&location=" + d_p;
-   var d_all_11= encodeURIComponent(d_all_1)
+   var d_all_1= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURIComponent(d_t) + "&dates=" + encodeURIComponent(d_tall) + "&details=" + d_o + "&location=" + encodeURIComponent(d_p);
+   //將上述含中文及符號與空格的部分encodeURIComponent傳遞，才會被reurl縮址服務接受
+   var d_all_11= d_all_1
    var d_all_2= {url: d_all_11};
-   var d_all= JSON.stringify(d_all_2);
+   var d_all= JSON.stringify(d_all_2); //別忘了把主體参數轉成字串，否則資料會變成[object Object]，它無法被成功儲存在後台
 const url= "https://api.reurl.cc/shorten";
 fetch( url,
  {
@@ -275,13 +276,13 @@ fetch( url,
         'Sec-CH-UA-Platform-Version': '"10.0.0"',
         'Sec-CH-UA-WoW64': '?0'
     },
-    //別忘了把主體参數轉成字串，否則資料會變成[object Object]，它無法被成功儲存在後台
+    
     body: d_all
 })
 .then( response => response.json())
 .then( data => {
-	const re_id= data.short_url;
-    let mail_all= decodeURIComponent('newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s );
+    const re_id= data.short_url;
+    let mail_all= 'newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s );
     window.location.replace(mail_all);
    })
  .catch(error => {
