@@ -254,8 +254,8 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    var kind_s= $("#kind_s").prop('selectedIndex');
    var d_t= $("#kind_s").val().replace(/#|\?|\s/ig,"") + d11y + $("#tw_cnam").val().replace(/#|\?|\s/ig,"");
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
-   var d_all_1= "url:https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o + "&location=" + d_p;
-   //const d_all_2= {url: d_all_1};
+   var d_all_1= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o + "&location=" + d_p;
+   const d_all_2= {"url": d_all_1};
    //var d_all= JSON.stringify(d_all_2);
 const url= "https://api.reurl.cc/shorten";
 fetch( url,
@@ -275,7 +275,7 @@ fetch( url,
         'Sec-CH-UA-WoW64': '?0'
     },
     //別忘了把主體参數轉成字串，否則資料會變成[object Object]，它無法被成功儲存在後台
-    body: JSON.stringify(d_all_1)
+    body: JSON.stringify(d_all_2)
 })
 .then( response => response.json())
 .then( data => {
