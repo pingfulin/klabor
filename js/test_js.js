@@ -258,19 +258,22 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    var d_all_2= {url: d_all_1};
    var d_all= JSON.stringify(d_all_2);
 const url= "https://api.reurl.cc/shorten";
-let headers = {
-    
-    "Content-Type": "application/json",
-    'reurl-api-key': '4070ff49d794e13c16543b663c974755ecd1b235959b04df8a38b58d65165567c4f5d6',
-};
-
-let body = {
-	"url" : "https://www.google.com"
-};		
 fetch( url,
  {
     method: "POST",
-    headers: headers,
+        headers: {
+        'Content-Type': 'application/json',
+	'reurl-api-key': '4070ff49d794e13c16543b663c974755ecd1b235959b04df8a38b58d65165567c4f5d6',
+        'Sec-CH-UA': '"Chromium";v="94", "Google Chrome";v="94", "Not;A Brand";v="99"',
+        'Sec-CH-UA-Mobile': '?0',
+        'Sec-CH-UA-Platform': '"Windows"',
+        'Sec-CH-UA-Arch': '"x86"',
+        'Sec-CH-UA-Bitness': '"64"',
+        'Sec-CH-UA-Full-Version': '"94.0.4606.81"',
+        'Sec-CH-UA-Model': '""',
+        'Sec-CH-UA-Platform-Version': '"10.0.0"',
+        'Sec-CH-UA-WoW64': '?0'
+    },
     //別忘了把主體参數轉成字串，否則資料會變成[object Object]，它無法被成功儲存在後台
     body: d_all
 })
