@@ -245,16 +245,22 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    //var d2_t1= d1_t + "T120000";
    var d_tall= d1_t1 + "/" + de_t1;
    var d_o1= $("#tw_man1").val().replace(/#|\?|\s|\=/ig,"") + "%20" + $("#tw_teln1").val() + "%20" + $("#tw_tel1").val();
+   var d_o1_n= $("#tw_man1").val().replace(/#|\?|\s|\=/ig,"");//姓名
+   var d_o1_t= $("#tw_teln1").val();
+   var d_o1_c= $("#tw_tel1").val();
    var d_o2= $("#tw_man2").val().replace(/#|\?|\s|\=/ig,"") + "%20" + $("#tw_teln2").val() + "%20" + $("#tw_tel2").val();
+   var d_o2_n= $("#tw_man2").val().replace(/#|\?|\s|\=/ig,"");//姓名
+   var d_o2_t= $("#tw_teln2").val();
+   var d_o2_c= $("#tw_tel2").val();
    var d_o3= $("#depart").val();
    var d_oo1= $("#tw_oth").val().replace(/\n|\r/ig,"%0A")//將段落符號取代成%0A
    var d_oo= d_oo1.replace(/#|\?|\s|\=/ig,"%20");//削去\S空白、段落?、=，以避免誤判;
-   var d_o= d_o3 + "%0A" + d_o1 + "%0A" + d_o2 + "%0A" + d_oo;
+   var d_o= encodeURI(d_o3) + "%0A" + encodeURI(d_o1_n) + "20%" + encodeURI(d_o1_t) + "20%" + encodeURI(d_o1_c) + "%0A" + encodeURI(d_o2_n) + "20%" + encodeURI(d_o2_t) + "20%" + encodeURI(d_o2_c) + "%0A" + encodeURI(d_oo);
    var d_p= $("#tw_adr").val().replace(/#|\?|\s|\=/ig,"");
    var kind_s= $("#kind_s").prop('selectedIndex');
    var d_t= $("#kind_s").val().replace(/#|\?|\s/ig,"") + d11y + $("#tw_cnam").val().replace(/#|\?|\s/ig,"");
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
-   var d_all_1= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURI(d_t) + "&dates=" + d_tall + "&details=" + encodeURI(d_o) + "&location=" + encodeURI(d_p);
+   var d_all_1= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURI(d_t) + "&dates=" + d_tall + "&details=" + d_o + "&location=" + encodeURI(d_p);
    //將上述含中文及符號與空格的部分encodeURI傳遞，才會被reurl縮址服務接受
    var d_all_11= d_all_1;
    var d_all_2= {url: d_all_11};
