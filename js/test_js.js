@@ -281,7 +281,7 @@ fetch( url,
 .then( response => response.json())
 .then( data => {
 	const re_id= data.short_url;
-    let mail_all= decodeURI('newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s );
+    let mail_all= decodeURIComponent('newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s );
     window.location.replace(mail_all);
    })
  .catch(error => {
