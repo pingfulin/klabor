@@ -262,7 +262,7 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    var kind_s= $("#kind_s").prop('selectedIndex');
    var d_t= $("#kind_s").val().replace(/#|\?|\s/ig,"") + d11y + $("#tw_cnam").val().replace(/#|\?|\s/ig,"");
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
-   var d_all_1= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURI(d_t) + "&dates=" + d_tall + "&details=" + encodeURI(d_o3 + "%0A") + encodeURI(d_o1_n + "%20") + encodeURI(d_o1_t  + "%20") + encodeURI(d_o1_c + "%0A") + encodeURI(d_o2_n + "%20") + encodeURI(d_o2_t + "%20") + encodeURI(d_o2_c + "%0A") + encodeURI(d_oo) + "&location=" + encodeURI(d_p);
+   var d_all_1= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURI(d_t) + "&dates=" + d_tall + "&details=" + encodeURI(d_o3) + "%0A" + encodeURI(d_o1_n) + "%20" + encodeURI(d_o1_t) + "%20" + encodeURI(d_o1_c) + "%0A" + encodeURI(d_o2_n) + "%20" + encodeURI(d_o2_t) + "%20" + encodeURI(d_o2_c) + "%0A" + encodeURI(d_oo) + "&location=" + encodeURI(d_p);
    //將上述含中文及符號與空格的部分encodeURI傳遞，才會被reurl縮址服務接受
    var d_all_2= {url: d_all_1};
    var d_all= JSON.stringify(d_all_2); //別忘了把主體参數轉成字串，否則資料會變成[object Object]，它無法被成功儲存在後台
