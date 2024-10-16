@@ -218,8 +218,10 @@ function cal_bu(){
     return false; }	
 
    else{
-   var d1= $("#m_date").val();//開始日期時間
-   var de= $("#m_date_en").val();//結束日期時間
+var loadingIcon =$("#loadingIcon#);
+loadingIcon.style.display = 'block';
+var d1= $("#m_date").val();//開始日期時間
+var de= $("#m_date_en").val();//結束日期時間
 var d11 = d1.substr(0,10).split('/'); //擷取日期
 var de1 = de.substr(0,10).split('/');
 //取得民國年
