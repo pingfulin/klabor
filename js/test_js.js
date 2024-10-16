@@ -218,8 +218,11 @@ function cal_bu(){
     return false; }	
 
    else{
-//var loadingIcon =$("#loadingIcon");
-//loadingIcon.style.display = 'block';
+var $loadingIcon = $('#loadingIcon');
+var display = $loadingIcon.css('display');
+console.log('Current display property:', display); // 獲取當前的 display 屬性
+$loadingIcon.css('display', 'block'); // 顯示圖標
+
 var d1= $("#m_date").val();//開始日期時間
 var de= $("#m_date_en").val();//結束日期時間
 var d11 = d1.substr(0,10).split('/'); //擷取日期
