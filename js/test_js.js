@@ -218,7 +218,7 @@ function cal_bu(){
     return false; }	
 
    else{
-var loadingIcon =$("#loadingIcon#);
+var loadingIcon =$("#loadingIcon");
 loadingIcon.style.display = 'block';
 var d1= $("#m_date").val();//開始日期時間
 var de= $("#m_date_en").val();//結束日期時間
