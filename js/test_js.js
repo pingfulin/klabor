@@ -344,8 +344,8 @@ var d_m1= $("#show_m1").val()//承辦1
 var d_dp= $("#show_dp").val()//單位
 var d_o= $("#show_non").val();//發送line的內容
 
-//通知line bot push
-$.post('https://script.google.com/macros/s/AKfycbzVQMu81oI_DNUt_7dnYUaKN_L40JeVEjs0VDUmbvIQLp0pGG_QUO3B-8Vv9M5HLIbc/exec',
+//通知telegram labornews bot
+$.post('https://script.google.com/macros/s/AKfycbx-fur1_1LjD0flEj0-qfAbgIK-Xd8LkCfB1srKIh_dnophuXGOnJ-yVcCOOa-ET9YJ/exec',
     {msg:d_o},
     function(e){
         console.log(e);
