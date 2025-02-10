@@ -306,7 +306,7 @@ fetch( url,
    }
 }
 
-function b_clicline(){
+function b_clicline(){ //目前未用 用b_testline
 var d_o= $("#tw_oth").val();
 //通知line bot push
 $.post('https://script.google.com/macros/s/AKfycbzVQMu81oI_DNUt_7dnYUaKN_L40JeVEjs0VDUmbvIQLp0pGG_QUO3B-8Vv9M5HLIbc/exec',
@@ -344,8 +344,8 @@ var d_m1= $("#show_m1").val()//承辦1
 var d_dp= $("#show_dp").val()//單位
 var d_o= $("#show_non").val();//發送line的內容
 
-//發送line notify訊息
-$.post('https://script.google.com/macros/s/AKfycbwyrB96NT2IBIOMOp6UL8Ue0HyIs92zYuZSyv3Blp-e5q6quivutdazwBqMsJaVKWgP/exec',
+//通知line bot push
+$.post('https://script.google.com/macros/s/AKfycbzVQMu81oI_DNUt_7dnYUaKN_L40JeVEjs0VDUmbvIQLp0pGG_QUO3B-8Vv9M5HLIbc/exec',
     {msg:d_o},
     function(e){
         console.log(e);
