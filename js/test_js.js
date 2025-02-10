@@ -308,7 +308,8 @@ fetch( url,
 
 function b_clicline(){
 var d_o= $("#tw_oth").val();
-$.post('https://script.google.com/macros/s/AKfycbxicS4rOF2qDv4Ecv8W12AZ8kXBrlisy9mfevLsh9Y9MbrCKIY/exec',
+//通知line bot push
+$.post('https://script.google.com/macros/s/AKfycbzVQMu81oI_DNUt_7dnYUaKN_L40JeVEjs0VDUmbvIQLp0pGG_QUO3B-8Vv9M5HLIbc/exec',
     {msg:d_o},
     function(e){
         console.log(e);
