@@ -211,20 +211,33 @@ function cal_bu(){
 	if ($("#tw_teln1").val()=="") { alert("尚未輸入電話");
    return false; }
 
-    var chk_kind = $("#kind_s").selectedIndex
+    var chk_kind = $("#kind_s").prop("selectedIndex")
 	if (chk_kind > 2 && $("#tw_adr").val()=="") { alert("尚未填寫地址");
     return false; }
 	if (chk_kind > 2 && $("#tw_oth").val()=="") { alert("尚未填寫局長行程說明");
     return false; }	
+var d1= $("#m_date").val();//開始日期時間
+var de= $("#m_date_en").val();//結束日期時間
+var d1_js = new Date(d1.replace(/(\d{4})\/(\d{2})\/(\d{2}) (\d{2}):(\d{2})/, '$1-$2-$3T$4:$5:00Z'));//轉換日期格式為js可識別的格式
+var de_js = new Date(de.replace(/(\d{4})\/(\d{2})\/(\d{2}) (\d{2}):(\d{2})/, '$1-$2-$3T$4:$5:00Z'));//轉換日期格式為js可識別的格式
+var day1 = d1_js.getUTCDay();//擷取星期幾，用標準UTC時間轉換
+var daye = de_js.getUTCDay();//擷取星期幾
+var hours1 = d1_js.getUTCHours();//擷取幾點
+var hourse = de_js.getUTCHours();//擷取幾點
 
-   else{
+if (chk_kind > 2 && day1 === 2 && hours1 < 12) { alert("周二上午市政會議，請勿安排局長行程");//12點以前
+    return false; }
+if (chk_kind > 2 && daye === 2 && hourse < 12) { alert("周二上午市政會議，請勿安排局長行程");
+    return false; }
+
+else{
 var $loadingIcon = $('#loadingIcon');
 var display = $loadingIcon.css('display');
 console.log('Current display property:', display); // 獲取當前的 display 屬性
 $loadingIcon.css('display', 'block'); // 顯示圖標
 
-var d1= $("#m_date").val();//開始日期時間
-var de= $("#m_date_en").val();//結束日期時間
+//var d1= $("#m_date").val();//開始日期時間
+//var de= $("#m_date_en").val();//結束日期時間
 var d11 = d1.substr(0,10).split('/'); //擷取日期
 var de1 = de.substr(0,10).split('/');
 //取得民國年
