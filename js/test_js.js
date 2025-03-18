@@ -285,7 +285,7 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
    var d_all_1= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURIComponent(d_t) + "&dates=" + d_tall + "&details=" + encodeURIComponent(d_o3) + "%0A" + encodeURIComponent(d_o1_n) + "%20" + encodeURIComponent(d_o1_t) + "%20" + encodeURIComponent(d_o1_c) + "%0A" + encodeURIComponent(d_o2_n) + "%20" + encodeURIComponent(d_o2_t) + "%20" + encodeURIComponent(d_o2_c) + "%0A" + d_oo + "&location=" + encodeURIComponent(d_p);
    //將上述含中文及符號與空格的部分encodeURI傳遞，才會被reurl縮址服務接受
-   var d_all_2= {url: d_all_1};//先轉成reurl的欄位模式
+   var d_all_2= {url:d_all_1};//先轉成reurl的欄位模式，無空格
    var d_all= JSON.stringify(d_all_2); //別忘了把主體参數轉成字串，否則資料會變成[object Object]，它無法被成功儲存在後台
 const url= "https://api.reurl.cc/shorten";
 fetch( url,
@@ -305,7 +305,7 @@ fetch( url,
         'Sec-CH-UA-WoW64': '?0'
     },
     
-    body: d_all
+    body:d_all
 })
 .then( response => response.json())
 .then( data => {
