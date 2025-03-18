@@ -315,6 +315,7 @@ fetch( url,
    })
  .catch(error => {
 	alert(d_all);
+	consol.log(d_all); 
     return false;})
    }
 }
