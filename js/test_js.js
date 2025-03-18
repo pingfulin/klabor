@@ -274,7 +274,7 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    var d_oo1= $("#tw_oth").val().replace(/\n|\r/ig,"%0A")//將段落符號取代成%0A
    let d_oo= d_oo1.replace(/#|\?|\s|\=/ig,"");//削去\S空白、段落?、=，以避免誤判
    d_oo = d_oo.replace(/%0A/g, "/."); // 將 %0A 替換為臨時字符
-   d_oo = encodeURI(d_oo); // 使用 encodeURI 進行轉換
+   d_oo = encodeURIComponent(d_oo); // 使用 encodeURI 進行轉換
    d_oo = d_oo.replace(new RegExp("/.", 'g'), "%0A"); // 將臨時字符替換回 %
    var d_o= d_o3 + "%0A" + d_o1 + "%0A" + d_o2 + "%0A" + d_oo;
    //var d_o= encodeURI(d_o3) + "%0A" + encodeURI(d_o1_n) + "%20" + encodeURI(d_o1_t) + "%20" + encodeURI(d_o1_c) + "%0A" + encodeURI(d_o2_n) + "%20" + encodeURI(d_o2_t) + "%20" + encodeURI(d_o2_c) + "%0A" + encodeURI(d_oo);	   
@@ -283,10 +283,10 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    var kind_s= $("#kind_s").prop('selectedIndex');
    var d_t= $("#kind_s").val().replace(/#|\?|\s/ig,"") + d11y + $("#tw_cnam").val().replace(/#|\?|\s/ig,"");
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
-   var d_all_1= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURI(d_t) + "&dates=" + d_tall + "&details=" + encodeURI(d_o3) + "%0A" + encodeURI(d_o1_n) + "%20" + encodeURI(d_o1_t) + "%20" + encodeURI(d_o1_c) + "%0A" + encodeURI(d_o2_n) + "%20" + encodeURI(d_o2_t) + "%20" + encodeURI(d_o2_c) + "%0A" + d_oo + "&location=" + encodeURI(d_p);
+   var d_all_1= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURIComponent(d_t) + "&dates=" + d_tall + "&details=" + encodeURIComponent(d_o3) + "%0A" + encodeURIComponent(d_o1_n) + "%20" + encodeURIComponent(d_o1_t) + "%20" + encodeURIComponent(d_o1_c) + "%0A" + encodeURIComponent(d_o2_n) + "%20" + encodeURIComponent(d_o2_t) + "%20" + encodeURIComponent(d_o2_c) + "%0A" + d_oo + "&location=" + encodeURIComponent(d_p);
    //將上述含中文及符號與空格的部分encodeURI傳遞，才會被reurl縮址服務接受
    var d_all_2= {url: d_all_1};//先轉成reurl的欄位模式
-   var d_all= encodeURIComponent(JSON.stringify(d_all_2)); //別忘了把主體参數轉成字串，否則資料會變成[object Object]，它無法被成功儲存在後台
+   var d_all= JSON.stringify(d_all_2); //別忘了把主體参數轉成字串，否則資料會變成[object Object]，它無法被成功儲存在後台
 const url= "https://api.reurl.cc/shorten";
 fetch( url,
  {
