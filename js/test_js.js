@@ -287,7 +287,8 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    //將上述含中文及符號與空格的部分encodeURI傳遞，才會被reurl縮址服務接受
    var d_all_2= {url:d_all_1};//先轉成reurl的欄位模式，無空格
    var d_all= JSON.stringify(d_all_2); //別忘了把主體参數轉成字串，否則資料會變成[object Object]，它無法被成功儲存在後台
-const url= "https://api.reurl.cc/shorten";
+//const url= "https://api.reurl.cc/shorten";
+/*
 fetch( url,
  {
     method: "POST",
@@ -317,6 +318,54 @@ fetch( url,
 	alert(d_all);
 	console.log(d_all); 
     return false;})
+*/
+$.ajax({
+    url: "https://api.reurl.cc/shorten", // Reurl API 的端點
+    type: "POST", // 請求類型
+    headers: {
+        "Content-Type": "application/json", // 請求的資料格式
+        "reurl-api-key": "4070ff49d794e13c16543b663c974755ecd1b235959b04df8a38b58d65165567c4f5d6" // API 金鑰
+    },
+    data: d_all,
+    success: function(response) {
+        if (response.short_url) {
+            console.log("短網址:", response.short_url); // 顯示短網址
+			const re_id= response.short_url;
+            let mail_all= 'newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s;
+            window.location.replace(mail_all);
+        } else {
+            console.log("未找到短網址");
+        }
+    },
+    error: function(xhr, status, error) {
+        console.error("請求失敗:", error); // 處理錯誤
+     // 第二次 AJAX 請求
+        $.ajax({
+            url: "https://api.pics.ee/v1/links?access_token=72acf7ad91b30c3eb53e911e9887bb2c2c013d12", // 第二個picsee縮址 API
+            type: "POST",
+            headers: {
+                "Content-Type": "application/json"
+             },
+            data: d_all, // 要縮短的 URL
+            
+            success: function(response) {
+        if (response && response.data && response.data.picseeUrl) {
+            var re_id = response.data.picseeUrl;
+            console.log('Picsee URL:', re_id); // 顯示短網址
+			let mail_all= 'newsmail.html?re_id='+ re_id + '&name=' + d_t + '&man1=' + d_o1 + '&man2=' + d_o2 + '&dp=' + d_o3 + '&oth=' + d_oo + '&kind_s=' + kind_s;
+            window.location.replace(mail_all);
+        } else {
+            console.log("未找到短網址");
+        }
+            },
+            error: function(xhr, status, error) {
+                console.error("第二個請求也失敗:", error);
+		alert("連續轉址error，請洽管理者");
+		return false;
+            }
+	});//二ajax結束
+        }//一else
+    })//一ajax結束
    }
 }
 
