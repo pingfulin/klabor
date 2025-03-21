@@ -408,7 +408,7 @@ var d_dp= $("#show_dp").val()//單位
 var d_o= $("#show_non").val();//發送line的內容
 
 //通知telegram labornews bot
-$.post('https://script.google.com/macros/s/AKfycbyY6_Si3WsoSEIcXnWmozcifoWRvXvDHYwx_B6sS9AHBefeNisV3FFPVmgVeACj_ke5/exec',
+$.post('https://script.google.com/macros/s/AKfycbylF1St2t0Q2ZQRoD939zTHW810Wz4YBGBTT4-Oa6BgpBN0TW0jFrXQ_SZ536OcUiTd/exec',
     {msg:d_o},
     function(e){
         console.log(e);
