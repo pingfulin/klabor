@@ -283,10 +283,10 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    var kind_s= $("#kind_s").prop('selectedIndex');
    var d_t= $("#kind_s").val().replace(/#|\?|\s/ig,"") + d11y + $("#tw_cnam").val().replace(/#|\?|\s/ig,"");
    //var d_d= $("#tw_p").val() + "%0A" + $("#tw_man").val() + "%0A" +d_o;
-   //var d_all_1= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURIComponent(d_t) + "&dates=" + d_tall + "&details=" + encodeURIComponent(d_o3) + "%0A" + encodeURIComponent(d_o1_n) + "%20" + encodeURIComponent(d_o1_t) + "%20" + encodeURIComponent(d_o1_c) + "%0A" + encodeURIComponent(d_o2_n) + "%20" + encodeURIComponent(d_o2_t) + "%20" + encodeURIComponent(d_o2_c) + "%0A" + encodeURIComponent(d_oo) + "&location=" + encodeURIComponent(d_p);
+   var d_all_1= "https://www.google.com/calendar/event?action=TEMPLATE&text=" + encodeURIComponent(d_t) + "&dates=" + d_tall + "&details=" + encodeURIComponent(d_o3) + "%0A" + encodeURIComponent(d_o1_n) + "%20" + encodeURIComponent(d_o1_t) + "%20" + encodeURIComponent(d_o1_c) + "%0A" + encodeURIComponent(d_o2_n) + "%20" + encodeURIComponent(d_o2_t) + "%20" + encodeURIComponent(d_o2_c) + "%0A" + encodeURIComponent(d_oo) + "&location=" + encodeURIComponent(d_p);
    //將上述含中文及符號與空格的部分encodeURI傳遞，才會被reurl縮址服務接受
-   var d_all_1_0 = "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o3 + "%0A" + d_o1_n + "%20" + d_o1_t + "%20" + d_o1_c + "%0A" + d_o2_n + "%20" + d_o2_t + "%20" + d_o2_c + "%0A" + d_oo + "&location=" + d_p;
-   var d_all_1 = encodeURIComponent(d_all_1_0);
+   //var d_all_1_0 = "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o3 + "%0A" + d_o1_n + "%20" + d_o1_t + "%20" + d_o1_c + "%0A" + d_o2_n + "%20" + d_o2_t + "%20" + d_o2_c + "%0A" + d_oo + "&location=" + d_p;
+   //var d_all_1 = encodeURIComponent(d_all_1_0);
    console.log(d_all_1);
    console.log(d_all_1_0);
    var d_all_2 = {url:d_all_1};//先轉成reurl的欄位模式，無空格
