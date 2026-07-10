@@ -288,7 +288,7 @@ var d11y= y01 + "/" + m01 + "/" + d01 + "_";
    //var d_all_1_0 = "https://www.google.com/calendar/event?action=TEMPLATE&text=" + d_t + "&dates=" + d_tall + "&details=" + d_o3 + "%0A" + d_o1_n + "%20" + d_o1_t + "%20" + d_o1_c + "%0A" + d_o2_n + "%20" + d_o2_t + "%20" + d_o2_c + "%0A" + d_oo + "&location=" + d_p;
    //var d_all_1 = encodeURIComponent(d_all_1_0);
    console.log(d_all_1);
-   console.log(d_all_1_0);
+   //console.log(d_all_1_0);
    var d_all_2 = {url:d_all_1};//先轉成reurl的欄位模式，無空格
    var d_all = JSON.stringify(d_all_2); //別忘了把主體参數轉成字串，否則資料會變成[object Object]，它無法被成功儲存在後台
 //const url= "https://api.reurl.cc/shorten";
